@@ -63,11 +63,8 @@ def init_db():
     """)
     conn.commit()
 
-    # Prepopulate district baselines if empty
-    cursor.execute("SELECT COUNT(*) as cnt FROM district_baselines")
-    count = cursor.fetchone()["cnt"]
-    if count == 0 and os.path.exists(PROCESSED_PATH):
-        print("Populating district baselines in SQLite...")
+    # Prepopulate district baselines for all districts in processed dataset
+    if os.path.exists(PROCESSED_PATH):
         df = pd.read_csv(PROCESSED_PATH)
         grouped = df.groupby(["State", "District"]).agg({
             "Nitrogen_kg_ha": "mean",
@@ -82,6 +79,7 @@ def init_db():
             "Avg_Soil_Moisture_pct": "mean"
         }).reset_index()
 
+        inserted_count = 0
         for _, row in grouped.iterrows():
             cursor.execute("""
                 INSERT OR IGNORE INTO district_baselines (
@@ -101,8 +99,11 @@ def init_db():
                 round(float(row["Avg_Humidity_pct"]), 1),
                 round(float(row["Avg_Soil_Moisture_pct"]), 1)
             ))
+            if cursor.rowcount > 0:
+                inserted_count += 1
         conn.commit()
-        print(f"Prepopulated {len(grouped)} district baselines.")
+        if inserted_count > 0:
+            print(f"Added {inserted_count} new district baselines to database.")
 
     conn.close()
 

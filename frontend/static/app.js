@@ -290,46 +290,96 @@ function setupEventListeners() {
     updateDistricts("single-state", "single-district");
   });
 
-  // Optimize form submit
-  document.getElementById("optimize-form").addEventListener("submit", handleOptimize);
+  // Optimize form & button handlers
+  const optForm = document.getElementById("optimize-form");
+  if (optForm) {
+    optForm.addEventListener("submit", handleOptimize);
+  }
+  const optBtn = document.getElementById("btn-optimize");
+  if (optBtn) {
+    optBtn.addEventListener("click", handleOptimize);
+  }
 
   // Single Predict form submit
-  document.getElementById("single-predict-form").addEventListener("submit", handleSinglePredict);
+  const singleForm = document.getElementById("single-predict-form");
+  if (singleForm) {
+    singleForm.addEventListener("submit", handleSinglePredict);
+  }
+  const singleBtn = document.getElementById("btn-single-predict");
+  if (singleBtn) {
+    singleBtn.addEventListener("click", handleSinglePredict);
+  }
 
   // Cobweb slider
   const cwSlider = document.getElementById("cw-adoption-slider");
-  cwSlider.addEventListener("input", (e) => {
-    document.getElementById("cw-rate-val").textContent = `${e.target.value}%`;
-  });
-  document.getElementById("btn-run-cobweb").addEventListener("click", handleCobwebSimulate);
+  if (cwSlider) {
+    cwSlider.addEventListener("input", (e) => {
+      document.getElementById("cw-rate-val").textContent = `${e.target.value}%`;
+    });
+  }
+  const cwBtn = document.getElementById("btn-run-cobweb");
+  if (cwBtn) {
+    cwBtn.addEventListener("click", handleCobwebSimulate);
+  }
 
   // Refresh history button
-  document.getElementById("btn-refresh-history").addEventListener("click", loadHistory);
+  const histBtn = document.getElementById("btn-refresh-history");
+  if (histBtn) {
+    histBtn.addEventListener("click", loadHistory);
+  }
 }
 
 // ==================== TAB 1: OPTIMIZE PORTFOLIO ====================
 async function handleOptimize(e) {
-  e.preventDefault();
+  if (e) e.preventDefault();
+
+  const state = document.getElementById("state-select")?.value;
+  const district = document.getElementById("district-select")?.value;
+  const areaInput = document.getElementById("farm-area");
+  const farmArea = parseFloat(areaInput ? areaInput.value : 0);
+  const prevCrop = document.getElementById("previous-crop")?.value;
+  const season = document.getElementById("season-select")?.value || "Kharif";
+  const riskPref = document.getElementById("risk-pref")?.value || "Medium";
+  const maxCrops = parseInt(document.getElementById("max-crops")?.value || "3");
+
+  if (!state || !district) {
+    alert("Please select a State and District.");
+    return;
+  }
+
+  if (isNaN(farmArea) || farmArea <= 0) {
+    alert("Please enter a valid Farm Size in hectares (e.g. 2.5).");
+    if (areaInput) areaInput.focus();
+    return;
+  }
+
+  if (!prevCrop) {
+    alert("Please select the Previous Crop Grew.");
+    return;
+  }
+
   const btn = document.getElementById("btn-optimize");
-  btn.disabled = true;
-  btn.textContent = "⏳ Solving Optimal Allocation...";
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "⏳ Solving Optimal Allocation...";
+  }
 
   const payload = {
-    farmer_name: document.getElementById("farmer-name").value || "Farmer",
-    state: document.getElementById("state-select").value,
-    district: document.getElementById("district-select").value,
-    farm_area_ha: parseFloat(document.getElementById("farm-area").value),
-    previous_crop: document.getElementById("previous-crop").value,
-    season: document.getElementById("season-select").value,
-    risk_preference: document.getElementById("risk-pref").value,
-    max_crops: parseInt(document.getElementById("max-crops").value),
+    farmer_name: document.getElementById("farmer-name")?.value || "Farmer",
+    state: state,
+    district: district,
+    farm_area_ha: farmArea,
+    previous_crop: prevCrop,
+    season: season,
+    risk_preference: riskPref,
+    max_crops: maxCrops,
     adoption_rate_pct: 0.0,
-    nitrogen: parseFloat(document.getElementById("soil-n").value) || undefined,
-    phosphorus: parseFloat(document.getElementById("soil-p").value) || undefined,
-    potassium: parseFloat(document.getElementById("soil-k").value) || undefined,
-    ph: parseFloat(document.getElementById("soil-ph").value) || undefined,
-    avg_temp: parseFloat(document.getElementById("temp").value) || undefined,
-    rainfall: parseFloat(document.getElementById("rainfall").value) || undefined
+    nitrogen: parseFloat(document.getElementById("soil-n")?.value) || undefined,
+    phosphorus: parseFloat(document.getElementById("soil-p")?.value) || undefined,
+    potassium: parseFloat(document.getElementById("soil-k")?.value) || undefined,
+    ph: parseFloat(document.getElementById("soil-ph")?.value) || undefined,
+    avg_temp: parseFloat(document.getElementById("temp")?.value) || undefined,
+    rainfall: parseFloat(document.getElementById("rainfall")?.value) || undefined
   };
 
   try {
@@ -339,18 +389,25 @@ async function handleOptimize(e) {
       body: JSON.stringify(payload)
     });
     const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.detail || `Server error ${res.status}`);
+    }
     renderOptimizationResults(data);
   } catch (err) {
+    console.error("Optimization error:", err);
     alert("Optimization failed: " + err.message);
   } finally {
-    btn.disabled = false;
-    btn.textContent = "⚡ Optimize Crop Portfolio";
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = "⚡ Optimize Crop Portfolio";
+    }
   }
 }
 
 function renderOptimizationResults(data) {
-  document.getElementById("opt-empty-state").classList.add("hidden");
-  document.getElementById("opt-results-content").classList.remove("hidden");
+  document.getElementById("opt-empty-state")?.classList.add("hidden");
+  document.getElementById("opt-results-content")?.classList.remove("hidden");
+  document.getElementById("results-card")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
 
   // Summary KPIs
   document.getElementById("kpi-profit").textContent = `₹${Math.round(data.totals.net_profit_rs).toLocaleString("en-IN")}`;

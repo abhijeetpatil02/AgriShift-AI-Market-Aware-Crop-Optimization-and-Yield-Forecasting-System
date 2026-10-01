@@ -990,6 +990,170 @@
     ]
   },
   "Karnataka": {
+    "Bagalkote": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.19,
+        "avg_yield_kg_ha": 1187.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 21736.3,
+        "total_production_t": 229353.9
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.55,
+        "avg_yield_kg_ha": 546.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 23379.2,
+        "total_production_t": 115102.6
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.02,
+        "avg_yield_kg_ha": 1015.2,
+        "seasons": "Rabi",
+        "avg_area_ha": 24015.7,
+        "total_production_t": 219655.6
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.49,
+        "avg_yield_kg_ha": 1492.8,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21381.0,
+        "total_production_t": 564832.7
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.14,
+        "avg_yield_kg_ha": 1135.5,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 24021.9,
+        "total_production_t": 493120.5
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.93,
+        "avg_yield_kg_ha": 2934.0,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22828.4,
+        "total_production_t": 1211399.4
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.53,
+        "avg_yield_kg_ha": 2525.3,
+        "seasons": "Kharif",
+        "avg_area_ha": 23547.1,
+        "total_production_t": 533758.1
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.2,
+        "avg_yield_kg_ha": 1200.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 18028.7,
+        "total_production_t": 195264.5
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 65.33,
+        "avg_yield_kg_ha": 65325.7,
+        "seasons": "Whole Year",
+        "avg_area_ha": 20925.1,
+        "total_production_t": 12542739.6
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 2.98,
+        "avg_yield_kg_ha": 2980.9,
+        "seasons": "Rabi",
+        "avg_area_ha": 15349.6,
+        "total_production_t": 411047.7
+      }
+    ],
+    "Ballari": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.33,
+        "avg_yield_kg_ha": 1331.3,
+        "seasons": "Kharif",
+        "avg_area_ha": 22104.8,
+        "total_production_t": 262358.5
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.54,
+        "avg_yield_kg_ha": 538.4,
+        "seasons": "Kharif",
+        "avg_area_ha": 25331.9,
+        "total_production_t": 123169.2
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.11,
+        "avg_yield_kg_ha": 1106.1,
+        "seasons": "Rabi",
+        "avg_area_ha": 21303.5,
+        "total_production_t": 211025.9
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.55,
+        "avg_yield_kg_ha": 1545.3,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21006.4,
+        "total_production_t": 575055.6
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.21,
+        "avg_yield_kg_ha": 1207.8,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 24235.5,
+        "total_production_t": 536727.5
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.96,
+        "avg_yield_kg_ha": 2964.1,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21107.7,
+        "total_production_t": 1111061.1
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.48,
+        "avg_yield_kg_ha": 2476.6,
+        "seasons": "Kharif",
+        "avg_area_ha": 23675.0,
+        "total_production_t": 529574.8
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.22,
+        "avg_yield_kg_ha": 1223.7,
+        "seasons": "Kharif",
+        "avg_area_ha": 18688.9,
+        "total_production_t": 207189.0
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 64.86,
+        "avg_yield_kg_ha": 64861.8,
+        "seasons": "Whole Year",
+        "avg_area_ha": 22455.0,
+        "total_production_t": 13186217.0
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.5,
+        "avg_yield_kg_ha": 3499.1,
+        "seasons": "Rabi",
+        "avg_area_ha": 14905.0,
+        "total_production_t": 470437.1
+      }
+    ],
     "Belagavi": [
       {
         "crop": "Bajra",
@@ -1072,6 +1236,662 @@
         "total_production_t": 430665.5
       }
     ],
+    "Bengaluru Rural": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.42,
+        "avg_yield_kg_ha": 1416.6,
+        "seasons": "Kharif",
+        "avg_area_ha": 23329.4,
+        "total_production_t": 304175.3
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.57,
+        "avg_yield_kg_ha": 566.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 24490.1,
+        "total_production_t": 123687.2
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 0.96,
+        "avg_yield_kg_ha": 958.7,
+        "seasons": "Rabi",
+        "avg_area_ha": 21616.2,
+        "total_production_t": 187129.9
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.48,
+        "avg_yield_kg_ha": 1477.2,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23339.7,
+        "total_production_t": 621917.1
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.28,
+        "avg_yield_kg_ha": 1275.4,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23267.2,
+        "total_production_t": 534114.2
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.92,
+        "avg_yield_kg_ha": 2921.1,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21879.3,
+        "total_production_t": 1137712.6
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.48,
+        "avg_yield_kg_ha": 2483.6,
+        "seasons": "Kharif",
+        "avg_area_ha": 21520.3,
+        "total_production_t": 482029.1
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.23,
+        "avg_yield_kg_ha": 1227.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 18792.5,
+        "total_production_t": 207825.5
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 66.58,
+        "avg_yield_kg_ha": 66576.2,
+        "seasons": "Whole Year",
+        "avg_area_ha": 21763.5,
+        "total_production_t": 12903195.3
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.49,
+        "avg_yield_kg_ha": 3485.6,
+        "seasons": "Rabi",
+        "avg_area_ha": 16602.2,
+        "total_production_t": 525595.0
+      }
+    ],
+    "Bengaluru Urban": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.3,
+        "avg_yield_kg_ha": 1300.4,
+        "seasons": "Kharif",
+        "avg_area_ha": 23468.3,
+        "total_production_t": 268856.5
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.54,
+        "avg_yield_kg_ha": 536.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 23501.6,
+        "total_production_t": 113118.5
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 0.95,
+        "avg_yield_kg_ha": 948.8,
+        "seasons": "Rabi",
+        "avg_area_ha": 23828.5,
+        "total_production_t": 202832.7
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.41,
+        "avg_yield_kg_ha": 1414.7,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23295.9,
+        "total_production_t": 586074.6
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.28,
+        "avg_yield_kg_ha": 1279.4,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23542.5,
+        "total_production_t": 538669.6
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.74,
+        "avg_yield_kg_ha": 2740.2,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 20145.1,
+        "total_production_t": 979139.1
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.37,
+        "avg_yield_kg_ha": 2367.1,
+        "seasons": "Kharif",
+        "avg_area_ha": 23299.7,
+        "total_production_t": 495747.7
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.15,
+        "avg_yield_kg_ha": 1146.2,
+        "seasons": "Kharif",
+        "avg_area_ha": 18811.4,
+        "total_production_t": 191981.3
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 68.3,
+        "avg_yield_kg_ha": 68296.6,
+        "seasons": "Whole Year",
+        "avg_area_ha": 23751.5,
+        "total_production_t": 14531894.8
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.32,
+        "avg_yield_kg_ha": 3321.5,
+        "seasons": "Rabi",
+        "avg_area_ha": 16692.3,
+        "total_production_t": 503177.0
+      }
+    ],
+    "Bidar": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.13,
+        "avg_yield_kg_ha": 1134.2,
+        "seasons": "Kharif",
+        "avg_area_ha": 21245.9,
+        "total_production_t": 220197.0
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.5,
+        "avg_yield_kg_ha": 503.4,
+        "seasons": "Kharif",
+        "avg_area_ha": 25431.2,
+        "total_production_t": 116064.8
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.01,
+        "avg_yield_kg_ha": 1012.2,
+        "seasons": "Rabi",
+        "avg_area_ha": 19966.7,
+        "total_production_t": 182082.1
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.49,
+        "avg_yield_kg_ha": 1494.2,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22104.2,
+        "total_production_t": 585997.0
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.26,
+        "avg_yield_kg_ha": 1257.2,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21542.8,
+        "total_production_t": 487947.4
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.8,
+        "avg_yield_kg_ha": 2797.1,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22484.7,
+        "total_production_t": 1111645.5
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.52,
+        "avg_yield_kg_ha": 2519.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 21087.9,
+        "total_production_t": 479706.3
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.17,
+        "avg_yield_kg_ha": 1169.8,
+        "seasons": "Kharif",
+        "avg_area_ha": 20262.6,
+        "total_production_t": 213750.6
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 64.48,
+        "avg_yield_kg_ha": 64479.8,
+        "seasons": "Whole Year",
+        "avg_area_ha": 24119.5,
+        "total_production_t": 13991464.8
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.45,
+        "avg_yield_kg_ha": 3447.1,
+        "seasons": "Rabi",
+        "avg_area_ha": 18125.8,
+        "total_production_t": 565294.8
+      }
+    ],
+    "Chamarajanagar": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.17,
+        "avg_yield_kg_ha": 1166.6,
+        "seasons": "Kharif",
+        "avg_area_ha": 21431.6,
+        "total_production_t": 222810.0
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.56,
+        "avg_yield_kg_ha": 556.7,
+        "seasons": "Kharif",
+        "avg_area_ha": 24715.7,
+        "total_production_t": 124227.3
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.04,
+        "avg_yield_kg_ha": 1043.9,
+        "seasons": "Rabi",
+        "avg_area_ha": 21471.3,
+        "total_production_t": 203992.3
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.4,
+        "avg_yield_kg_ha": 1395.1,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23949.2,
+        "total_production_t": 597922.2
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.16,
+        "avg_yield_kg_ha": 1163.4,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 24874.2,
+        "total_production_t": 525222.3
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.9,
+        "avg_yield_kg_ha": 2901.5,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22316.0,
+        "total_production_t": 1146040.9
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.68,
+        "avg_yield_kg_ha": 2679.7,
+        "seasons": "Kharif",
+        "avg_area_ha": 25352.0,
+        "total_production_t": 610106.1
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.09,
+        "avg_yield_kg_ha": 1085.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 20143.8,
+        "total_production_t": 195806.3
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 73.08,
+        "avg_yield_kg_ha": 73084.5,
+        "seasons": "Whole Year",
+        "avg_area_ha": 22718.6,
+        "total_production_t": 14862258.8
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.43,
+        "avg_yield_kg_ha": 3430.2,
+        "seasons": "Rabi",
+        "avg_area_ha": 15463.3,
+        "total_production_t": 481038.9
+      }
+    ],
+    "Chikkaballapura": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.5,
+        "avg_yield_kg_ha": 1497.7,
+        "seasons": "Kharif",
+        "avg_area_ha": 23671.2,
+        "total_production_t": 319891.2
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.55,
+        "avg_yield_kg_ha": 551.2,
+        "seasons": "Kharif",
+        "avg_area_ha": 22643.8,
+        "total_production_t": 111520.3
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.06,
+        "avg_yield_kg_ha": 1061.5,
+        "seasons": "Rabi",
+        "avg_area_ha": 23289.5,
+        "total_production_t": 221698.5
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.59,
+        "avg_yield_kg_ha": 1593.3,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22011.8,
+        "total_production_t": 612034.0
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.18,
+        "avg_yield_kg_ha": 1175.0,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23210.9,
+        "total_production_t": 483725.3
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.81,
+        "avg_yield_kg_ha": 2814.5,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21747.6,
+        "total_production_t": 1099932.1
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.45,
+        "avg_yield_kg_ha": 2453.3,
+        "seasons": "Kharif",
+        "avg_area_ha": 23603.4,
+        "total_production_t": 517296.4
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.18,
+        "avg_yield_kg_ha": 1182.2,
+        "seasons": "Kharif",
+        "avg_area_ha": 19545.7,
+        "total_production_t": 208546.4
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 70.45,
+        "avg_yield_kg_ha": 70454.7,
+        "seasons": "Whole Year",
+        "avg_area_ha": 21348.6,
+        "total_production_t": 13613970.0
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.38,
+        "avg_yield_kg_ha": 3380.8,
+        "seasons": "Rabi",
+        "avg_area_ha": 16712.7,
+        "total_production_t": 514078.9
+      }
+    ],
+    "Chikkamagaluru": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.23,
+        "avg_yield_kg_ha": 1232.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 24402.5,
+        "total_production_t": 265817.3
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.55,
+        "avg_yield_kg_ha": 545.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 23257.8,
+        "total_production_t": 115990.9
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.04,
+        "avg_yield_kg_ha": 1038.0,
+        "seasons": "Rabi",
+        "avg_area_ha": 21352.8,
+        "total_production_t": 197713.3
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.45,
+        "avg_yield_kg_ha": 1453.8,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21702.0,
+        "total_production_t": 566297.6
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.21,
+        "avg_yield_kg_ha": 1211.4,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22972.6,
+        "total_production_t": 496019.3
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.97,
+        "avg_yield_kg_ha": 2971.2,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21479.9,
+        "total_production_t": 1145903.0
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.58,
+        "avg_yield_kg_ha": 2577.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 22732.3,
+        "total_production_t": 531622.1
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.13,
+        "avg_yield_kg_ha": 1131.3,
+        "seasons": "Kharif",
+        "avg_area_ha": 17371.6,
+        "total_production_t": 180430.5
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 61.65,
+        "avg_yield_kg_ha": 61654.2,
+        "seasons": "Whole Year",
+        "avg_area_ha": 24203.2,
+        "total_production_t": 13427351.7
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.34,
+        "avg_yield_kg_ha": 3335.5,
+        "seasons": "Rabi",
+        "avg_area_ha": 15792.0,
+        "total_production_t": 471063.5
+      }
+    ],
+    "Chitradurga": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.28,
+        "avg_yield_kg_ha": 1283.3,
+        "seasons": "Kharif",
+        "avg_area_ha": 24790.9,
+        "total_production_t": 279947.6
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.49,
+        "avg_yield_kg_ha": 489.0,
+        "seasons": "Kharif",
+        "avg_area_ha": 23138.2,
+        "total_production_t": 101898.2
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 0.99,
+        "avg_yield_kg_ha": 990.8,
+        "seasons": "Rabi",
+        "avg_area_ha": 19634.9,
+        "total_production_t": 173749.9
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.41,
+        "avg_yield_kg_ha": 1414.2,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23888.6,
+        "total_production_t": 596749.8
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.11,
+        "avg_yield_kg_ha": 1111.0,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23494.1,
+        "total_production_t": 471767.7
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 3.06,
+        "avg_yield_kg_ha": 3056.0,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 20530.1,
+        "total_production_t": 1119108.5
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.37,
+        "avg_yield_kg_ha": 2365.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 26157.7,
+        "total_production_t": 557469.4
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.15,
+        "avg_yield_kg_ha": 1152.4,
+        "seasons": "Kharif",
+        "avg_area_ha": 21657.5,
+        "total_production_t": 225823.2
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 74.64,
+        "avg_yield_kg_ha": 74636.6,
+        "seasons": "Whole Year",
+        "avg_area_ha": 25932.0,
+        "total_production_t": 17406234.5
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.78,
+        "avg_yield_kg_ha": 3782.0,
+        "seasons": "Rabi",
+        "avg_area_ha": 15213.7,
+        "total_production_t": 513324.8
+      }
+    ],
+    "Dakshina Kannada": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.32,
+        "avg_yield_kg_ha": 1316.8,
+        "seasons": "Kharif",
+        "avg_area_ha": 23060.8,
+        "total_production_t": 278787.6
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.5,
+        "avg_yield_kg_ha": 503.3,
+        "seasons": "Kharif",
+        "avg_area_ha": 23872.9,
+        "total_production_t": 109185.9
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.09,
+        "avg_yield_kg_ha": 1094.9,
+        "seasons": "Rabi",
+        "avg_area_ha": 20151.7,
+        "total_production_t": 199175.4
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.52,
+        "avg_yield_kg_ha": 1525.0,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22264.4,
+        "total_production_t": 589543.2
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.06,
+        "avg_yield_kg_ha": 1062.9,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 24345.1,
+        "total_production_t": 460150.1
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.73,
+        "avg_yield_kg_ha": 2734.1,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21540.9,
+        "total_production_t": 1059942.7
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.65,
+        "avg_yield_kg_ha": 2649.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 22307.4,
+        "total_production_t": 528871.3
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.15,
+        "avg_yield_kg_ha": 1150.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 19261.0,
+        "total_production_t": 201966.6
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 65.84,
+        "avg_yield_kg_ha": 65842.1,
+        "seasons": "Whole Year",
+        "avg_area_ha": 23597.5,
+        "total_production_t": 13880210.8
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.48,
+        "avg_yield_kg_ha": 3480.1,
+        "seasons": "Rabi",
+        "avg_area_ha": 16968.5,
+        "total_production_t": 528972.3
+      }
+    ],
     "Davanagere": [
       {
         "crop": "Bajra",
@@ -1152,6 +1972,744 @@
         "seasons": "Rabi",
         "avg_area_ha": 14473.2,
         "total_production_t": 277455.6
+      }
+    ],
+    "Dharwad": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.11,
+        "avg_yield_kg_ha": 1110.8,
+        "seasons": "Kharif",
+        "avg_area_ha": 24125.5,
+        "total_production_t": 243589.3
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.51,
+        "avg_yield_kg_ha": 507.1,
+        "seasons": "Kharif",
+        "avg_area_ha": 24874.7,
+        "total_production_t": 113787.4
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 0.97,
+        "avg_yield_kg_ha": 971.0,
+        "seasons": "Rabi",
+        "avg_area_ha": 22674.0,
+        "total_production_t": 196247.4
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.41,
+        "avg_yield_kg_ha": 1407.1,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23002.4,
+        "total_production_t": 569266.4
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.25,
+        "avg_yield_kg_ha": 1249.9,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23529.9,
+        "total_production_t": 521880.6
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.79,
+        "avg_yield_kg_ha": 2791.2,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 20634.2,
+        "total_production_t": 1036667.0
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.46,
+        "avg_yield_kg_ha": 2462.6,
+        "seasons": "Kharif",
+        "avg_area_ha": 21027.0,
+        "total_production_t": 466730.2
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.26,
+        "avg_yield_kg_ha": 1263.8,
+        "seasons": "Kharif",
+        "avg_area_ha": 20032.5,
+        "total_production_t": 229735.1
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 68.34,
+        "avg_yield_kg_ha": 68344.2,
+        "seasons": "Whole Year",
+        "avg_area_ha": 24255.8,
+        "total_production_t": 14992278.8
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.53,
+        "avg_yield_kg_ha": 3525.0,
+        "seasons": "Rabi",
+        "avg_area_ha": 18230.9,
+        "total_production_t": 579083.5
+      }
+    ],
+    "Gadag": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.32,
+        "avg_yield_kg_ha": 1319.3,
+        "seasons": "Kharif",
+        "avg_area_ha": 23014.4,
+        "total_production_t": 269100.2
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.56,
+        "avg_yield_kg_ha": 557.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 23820.2,
+        "total_production_t": 119725.8
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.06,
+        "avg_yield_kg_ha": 1055.4,
+        "seasons": "Rabi",
+        "avg_area_ha": 25079.6,
+        "total_production_t": 238745.2
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.45,
+        "avg_yield_kg_ha": 1446.0,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23484.6,
+        "total_production_t": 601515.1
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.18,
+        "avg_yield_kg_ha": 1183.6,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22690.6,
+        "total_production_t": 480548.7
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 3.03,
+        "avg_yield_kg_ha": 3030.3,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 20827.9,
+        "total_production_t": 1125611.0
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.42,
+        "avg_yield_kg_ha": 2420.1,
+        "seasons": "Kharif",
+        "avg_area_ha": 21616.2,
+        "total_production_t": 469735.8
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.12,
+        "avg_yield_kg_ha": 1118.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 17429.6,
+        "total_production_t": 176634.0
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 67.12,
+        "avg_yield_kg_ha": 67121.0,
+        "seasons": "Whole Year",
+        "avg_area_ha": 26260.1,
+        "total_production_t": 15886459.3
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.71,
+        "avg_yield_kg_ha": 3709.9,
+        "seasons": "Rabi",
+        "avg_area_ha": 16473.2,
+        "total_production_t": 546627.4
+      }
+    ],
+    "Hassan": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.33,
+        "avg_yield_kg_ha": 1333.2,
+        "seasons": "Kharif",
+        "avg_area_ha": 25082.1,
+        "total_production_t": 297710.1
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.55,
+        "avg_yield_kg_ha": 549.7,
+        "seasons": "Kharif",
+        "avg_area_ha": 25283.1,
+        "total_production_t": 124851.2
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.01,
+        "avg_yield_kg_ha": 1014.8,
+        "seasons": "Rabi",
+        "avg_area_ha": 22666.7,
+        "total_production_t": 205328.7
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.42,
+        "avg_yield_kg_ha": 1423.7,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21743.1,
+        "total_production_t": 537245.5
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.18,
+        "avg_yield_kg_ha": 1175.8,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22843.1,
+        "total_production_t": 480729.5
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.87,
+        "avg_yield_kg_ha": 2868.5,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21259.3,
+        "total_production_t": 1076437.0
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.45,
+        "avg_yield_kg_ha": 2446.1,
+        "seasons": "Kharif",
+        "avg_area_ha": 24902.5,
+        "total_production_t": 542554.0
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.17,
+        "avg_yield_kg_ha": 1171.0,
+        "seasons": "Kharif",
+        "avg_area_ha": 19727.1,
+        "total_production_t": 211052.4
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 63.73,
+        "avg_yield_kg_ha": 63731.2,
+        "seasons": "Whole Year",
+        "avg_area_ha": 22379.7,
+        "total_production_t": 12838175.0
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.46,
+        "avg_yield_kg_ha": 3462.5,
+        "seasons": "Rabi",
+        "avg_area_ha": 17439.6,
+        "total_production_t": 555266.2
+      }
+    ],
+    "Haveri": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.27,
+        "avg_yield_kg_ha": 1265.7,
+        "seasons": "Kharif",
+        "avg_area_ha": 25144.7,
+        "total_production_t": 283159.6
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.48,
+        "avg_yield_kg_ha": 480.2,
+        "seasons": "Kharif",
+        "avg_area_ha": 25526.8,
+        "total_production_t": 109929.0
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.07,
+        "avg_yield_kg_ha": 1071.4,
+        "seasons": "Rabi",
+        "avg_area_ha": 22358.3,
+        "total_production_t": 216305.6
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.39,
+        "avg_yield_kg_ha": 1388.1,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 24105.3,
+        "total_production_t": 592489.0
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.14,
+        "avg_yield_kg_ha": 1140.8,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23423.9,
+        "total_production_t": 484513.7
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.85,
+        "avg_yield_kg_ha": 2851.6,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21686.9,
+        "total_production_t": 1102705.8
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.63,
+        "avg_yield_kg_ha": 2630.3,
+        "seasons": "Kharif",
+        "avg_area_ha": 23249.4,
+        "total_production_t": 555052.5
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.24,
+        "avg_yield_kg_ha": 1239.6,
+        "seasons": "Kharif",
+        "avg_area_ha": 18909.8,
+        "total_production_t": 212538.6
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 61.82,
+        "avg_yield_kg_ha": 61822.4,
+        "seasons": "Whole Year",
+        "avg_area_ha": 22805.2,
+        "total_production_t": 12845254.5
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.43,
+        "avg_yield_kg_ha": 3425.0,
+        "seasons": "Rabi",
+        "avg_area_ha": 17527.1,
+        "total_production_t": 539691.7
+      }
+    ],
+    "Kalaburagi": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.36,
+        "avg_yield_kg_ha": 1363.1,
+        "seasons": "Kharif",
+        "avg_area_ha": 22634.7,
+        "total_production_t": 278786.9
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.56,
+        "avg_yield_kg_ha": 557.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 24498.9,
+        "total_production_t": 123786.2
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.04,
+        "avg_yield_kg_ha": 1035.7,
+        "seasons": "Rabi",
+        "avg_area_ha": 22522.9,
+        "total_production_t": 208239.4
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.44,
+        "avg_yield_kg_ha": 1440.7,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22344.2,
+        "total_production_t": 567507.8
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.22,
+        "avg_yield_kg_ha": 1224.4,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23695.4,
+        "total_production_t": 517919.1
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.75,
+        "avg_yield_kg_ha": 2749.6,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21097.6,
+        "total_production_t": 1035627.0
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.58,
+        "avg_yield_kg_ha": 2581.2,
+        "seasons": "Kharif",
+        "avg_area_ha": 24607.8,
+        "total_production_t": 572699.2
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.28,
+        "avg_yield_kg_ha": 1278.2,
+        "seasons": "Kharif",
+        "avg_area_ha": 18088.9,
+        "total_production_t": 209115.0
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 62.7,
+        "avg_yield_kg_ha": 62702.6,
+        "seasons": "Whole Year",
+        "avg_area_ha": 24126.4,
+        "total_production_t": 13648328.9
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.47,
+        "avg_yield_kg_ha": 3468.2,
+        "seasons": "Rabi",
+        "avg_area_ha": 15949.3,
+        "total_production_t": 505460.8
+      }
+    ],
+    "Kodagu": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.11,
+        "avg_yield_kg_ha": 1112.7,
+        "seasons": "Kharif",
+        "avg_area_ha": 23266.1,
+        "total_production_t": 233251.3
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.55,
+        "avg_yield_kg_ha": 551.3,
+        "seasons": "Kharif",
+        "avg_area_ha": 25587.4,
+        "total_production_t": 126780.5
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.08,
+        "avg_yield_kg_ha": 1084.4,
+        "seasons": "Rabi",
+        "avg_area_ha": 21227.3,
+        "total_production_t": 209594.2
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.53,
+        "avg_yield_kg_ha": 1529.7,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21005.2,
+        "total_production_t": 557604.9
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.18,
+        "avg_yield_kg_ha": 1184.2,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21796.7,
+        "total_production_t": 459416.3
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.85,
+        "avg_yield_kg_ha": 2854.7,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21158.7,
+        "total_production_t": 1079370.7
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.34,
+        "avg_yield_kg_ha": 2343.8,
+        "seasons": "Kharif",
+        "avg_area_ha": 23858.5,
+        "total_production_t": 504372.8
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.2,
+        "avg_yield_kg_ha": 1203.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 17517.8,
+        "total_production_t": 189069.1
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 66.48,
+        "avg_yield_kg_ha": 66481.7,
+        "seasons": "Whole Year",
+        "avg_area_ha": 22924.1,
+        "total_production_t": 13710208.4
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.69,
+        "avg_yield_kg_ha": 3686.5,
+        "seasons": "Rabi",
+        "avg_area_ha": 18428.8,
+        "total_production_t": 604751.1
+      }
+    ],
+    "Kolar": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.39,
+        "avg_yield_kg_ha": 1392.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 25486.4,
+        "total_production_t": 320381.1
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.57,
+        "avg_yield_kg_ha": 565.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 22794.0,
+        "total_production_t": 115764.8
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 0.97,
+        "avg_yield_kg_ha": 974.7,
+        "seasons": "Rabi",
+        "avg_area_ha": 21642.1,
+        "total_production_t": 189164.2
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.45,
+        "avg_yield_kg_ha": 1451.9,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22937.3,
+        "total_production_t": 591668.8
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.18,
+        "avg_yield_kg_ha": 1184.7,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23466.8,
+        "total_production_t": 501647.7
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.93,
+        "avg_yield_kg_ha": 2934.1,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 19500.4,
+        "total_production_t": 1021750.2
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.52,
+        "avg_yield_kg_ha": 2520.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 24868.2,
+        "total_production_t": 564877.8
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.12,
+        "avg_yield_kg_ha": 1118.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 19211.1,
+        "total_production_t": 199287.0
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 62.6,
+        "avg_yield_kg_ha": 62596.5,
+        "seasons": "Whole Year",
+        "avg_area_ha": 21109.8,
+        "total_production_t": 11864754.7
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.39,
+        "avg_yield_kg_ha": 3389.5,
+        "seasons": "Rabi",
+        "avg_area_ha": 16409.0,
+        "total_production_t": 498634.6
+      }
+    ],
+    "Koppal": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.38,
+        "avg_yield_kg_ha": 1377.4,
+        "seasons": "Kharif",
+        "avg_area_ha": 26041.6,
+        "total_production_t": 318294.7
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.5,
+        "avg_yield_kg_ha": 504.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 23181.3,
+        "total_production_t": 105200.7
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.15,
+        "avg_yield_kg_ha": 1148.3,
+        "seasons": "Rabi",
+        "avg_area_ha": 22285.1,
+        "total_production_t": 231127.8
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.5,
+        "avg_yield_kg_ha": 1504.2,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23440.7,
+        "total_production_t": 615157.5
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.18,
+        "avg_yield_kg_ha": 1176.7,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 24340.7,
+        "total_production_t": 510825.2
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.84,
+        "avg_yield_kg_ha": 2836.3,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21590.1,
+        "total_production_t": 1080970.7
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.46,
+        "avg_yield_kg_ha": 2459.8,
+        "seasons": "Kharif",
+        "avg_area_ha": 23801.8,
+        "total_production_t": 524847.8
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.19,
+        "avg_yield_kg_ha": 1192.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 17878.4,
+        "total_production_t": 191563.7
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 66.28,
+        "avg_yield_kg_ha": 66278.1,
+        "seasons": "Whole Year",
+        "avg_area_ha": 22927.4,
+        "total_production_t": 13552903.4
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.37,
+        "avg_yield_kg_ha": 3367.0,
+        "seasons": "Rabi",
+        "avg_area_ha": 16557.8,
+        "total_production_t": 503363.4
+      }
+    ],
+    "Mandya": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.2,
+        "avg_yield_kg_ha": 1202.1,
+        "seasons": "Kharif",
+        "avg_area_ha": 24471.0,
+        "total_production_t": 257657.0
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.52,
+        "avg_yield_kg_ha": 524.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 23620.6,
+        "total_production_t": 111026.1
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.05,
+        "avg_yield_kg_ha": 1051.1,
+        "seasons": "Rabi",
+        "avg_area_ha": 21149.9,
+        "total_production_t": 199209.1
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.51,
+        "avg_yield_kg_ha": 1507.9,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22356.4,
+        "total_production_t": 600373.0
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.17,
+        "avg_yield_kg_ha": 1174.6,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 25172.7,
+        "total_production_t": 531739.9
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.71,
+        "avg_yield_kg_ha": 2711.1,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 20788.2,
+        "total_production_t": 1016507.0
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.42,
+        "avg_yield_kg_ha": 2423.3,
+        "seasons": "Kharif",
+        "avg_area_ha": 23704.8,
+        "total_production_t": 516129.6
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.16,
+        "avg_yield_kg_ha": 1161.4,
+        "seasons": "Kharif",
+        "avg_area_ha": 18586.3,
+        "total_production_t": 192470.0
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 65.11,
+        "avg_yield_kg_ha": 65109.4,
+        "seasons": "Whole Year",
+        "avg_area_ha": 22790.6,
+        "total_production_t": 13326334.3
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.25,
+        "avg_yield_kg_ha": 3246.5,
+        "seasons": "Rabi",
+        "avg_area_ha": 16571.7,
+        "total_production_t": 485030.7
       }
     ],
     "Mysuru": [
@@ -1316,6 +2874,662 @@
         "seasons": "Rabi",
         "avg_area_ha": 20615.8,
         "total_production_t": 442150.9
+      }
+    ],
+    "Ramanagara": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.11,
+        "avg_yield_kg_ha": 1113.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 23163.2,
+        "total_production_t": 233019.0
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.52,
+        "avg_yield_kg_ha": 516.6,
+        "seasons": "Kharif",
+        "avg_area_ha": 25701.7,
+        "total_production_t": 118823.0
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.03,
+        "avg_yield_kg_ha": 1034.2,
+        "seasons": "Rabi",
+        "avg_area_ha": 22525.9,
+        "total_production_t": 209851.8
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.48,
+        "avg_yield_kg_ha": 1477.4,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23251.4,
+        "total_production_t": 608867.2
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.14,
+        "avg_yield_kg_ha": 1135.5,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23529.3,
+        "total_production_t": 478058.2
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.78,
+        "avg_yield_kg_ha": 2775.4,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22636.7,
+        "total_production_t": 1124804.9
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.42,
+        "avg_yield_kg_ha": 2422.0,
+        "seasons": "Kharif",
+        "avg_area_ha": 22043.8,
+        "total_production_t": 473151.4
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.11,
+        "avg_yield_kg_ha": 1114.6,
+        "seasons": "Kharif",
+        "avg_area_ha": 21304.5,
+        "total_production_t": 214522.6
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 69.16,
+        "avg_yield_kg_ha": 69156.7,
+        "seasons": "Whole Year",
+        "avg_area_ha": 23957.7,
+        "total_production_t": 15044727.9
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.08,
+        "avg_yield_kg_ha": 3076.9,
+        "seasons": "Rabi",
+        "avg_area_ha": 17024.1,
+        "total_production_t": 468176.8
+      }
+    ],
+    "Shivamogga": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.22,
+        "avg_yield_kg_ha": 1222.6,
+        "seasons": "Kharif",
+        "avg_area_ha": 22390.5,
+        "total_production_t": 248894.6
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.54,
+        "avg_yield_kg_ha": 541.8,
+        "seasons": "Kharif",
+        "avg_area_ha": 23957.7,
+        "total_production_t": 116939.9
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.08,
+        "avg_yield_kg_ha": 1084.7,
+        "seasons": "Rabi",
+        "avg_area_ha": 22728.5,
+        "total_production_t": 217903.3
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.45,
+        "avg_yield_kg_ha": 1451.6,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23689.2,
+        "total_production_t": 606661.8
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.15,
+        "avg_yield_kg_ha": 1148.2,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22827.6,
+        "total_production_t": 473496.8
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.7,
+        "avg_yield_kg_ha": 2695.1,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 20638.5,
+        "total_production_t": 1000121.2
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.42,
+        "avg_yield_kg_ha": 2418.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 25585.5,
+        "total_production_t": 553172.8
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.21,
+        "avg_yield_kg_ha": 1213.0,
+        "seasons": "Kharif",
+        "avg_area_ha": 19667.6,
+        "total_production_t": 215207.8
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 63.66,
+        "avg_yield_kg_ha": 63664.5,
+        "seasons": "Whole Year",
+        "avg_area_ha": 22035.2,
+        "total_production_t": 12742179.9
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.48,
+        "avg_yield_kg_ha": 3483.1,
+        "seasons": "Rabi",
+        "avg_area_ha": 16242.9,
+        "total_production_t": 513080.0
+      }
+    ],
+    "Tumakuru": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.41,
+        "avg_yield_kg_ha": 1405.3,
+        "seasons": "Kharif",
+        "avg_area_ha": 23203.5,
+        "total_production_t": 300401.2
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.53,
+        "avg_yield_kg_ha": 533.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 22589.9,
+        "total_production_t": 107123.0
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.05,
+        "avg_yield_kg_ha": 1048.8,
+        "seasons": "Rabi",
+        "avg_area_ha": 21085.1,
+        "total_production_t": 199463.0
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.48,
+        "avg_yield_kg_ha": 1480.9,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21912.4,
+        "total_production_t": 577338.9
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.17,
+        "avg_yield_kg_ha": 1175.0,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21760.5,
+        "total_production_t": 457947.8
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.84,
+        "avg_yield_kg_ha": 2836.8,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21554.3,
+        "total_production_t": 1098188.7
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.5,
+        "avg_yield_kg_ha": 2501.1,
+        "seasons": "Kharif",
+        "avg_area_ha": 24680.2,
+        "total_production_t": 558588.7
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.19,
+        "avg_yield_kg_ha": 1190.1,
+        "seasons": "Kharif",
+        "avg_area_ha": 18550.2,
+        "total_production_t": 198954.5
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 66.52,
+        "avg_yield_kg_ha": 66515.9,
+        "seasons": "Whole Year",
+        "avg_area_ha": 23222.2,
+        "total_production_t": 13734684.6
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.2,
+        "avg_yield_kg_ha": 3204.8,
+        "seasons": "Rabi",
+        "avg_area_ha": 17036.1,
+        "total_production_t": 492240.2
+      }
+    ],
+    "Udupi": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.27,
+        "avg_yield_kg_ha": 1272.1,
+        "seasons": "Kharif",
+        "avg_area_ha": 23554.2,
+        "total_production_t": 264093.6
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.54,
+        "avg_yield_kg_ha": 538.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 25730.1,
+        "total_production_t": 124954.8
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.01,
+        "avg_yield_kg_ha": 1014.7,
+        "seasons": "Rabi",
+        "avg_area_ha": 22623.3,
+        "total_production_t": 206397.0
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.5,
+        "avg_yield_kg_ha": 1499.9,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22705.5,
+        "total_production_t": 596381.2
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.18,
+        "avg_yield_kg_ha": 1182.8,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23070.8,
+        "total_production_t": 490124.6
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.95,
+        "avg_yield_kg_ha": 2952.3,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21965.6,
+        "total_production_t": 1149545.2
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.43,
+        "avg_yield_kg_ha": 2426.8,
+        "seasons": "Kharif",
+        "avg_area_ha": 25178.7,
+        "total_production_t": 548367.4
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.15,
+        "avg_yield_kg_ha": 1147.1,
+        "seasons": "Kharif",
+        "avg_area_ha": 18853.8,
+        "total_production_t": 195666.8
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 68.58,
+        "avg_yield_kg_ha": 68584.7,
+        "seasons": "Whole Year",
+        "avg_area_ha": 22363.1,
+        "total_production_t": 14039438.7
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.52,
+        "avg_yield_kg_ha": 3521.8,
+        "seasons": "Rabi",
+        "avg_area_ha": 17805.4,
+        "total_production_t": 564995.9
+      }
+    ],
+    "Uttara Kannada": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.41,
+        "avg_yield_kg_ha": 1413.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 24816.3,
+        "total_production_t": 314751.9
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.48,
+        "avg_yield_kg_ha": 481.8,
+        "seasons": "Kharif",
+        "avg_area_ha": 23898.7,
+        "total_production_t": 102866.9
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 0.93,
+        "avg_yield_kg_ha": 930.1,
+        "seasons": "Rabi",
+        "avg_area_ha": 22732.5,
+        "total_production_t": 192342.2
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.43,
+        "avg_yield_kg_ha": 1427.5,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23121.3,
+        "total_production_t": 596454.0
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.15,
+        "avg_yield_kg_ha": 1145.4,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 24337.9,
+        "total_production_t": 491074.9
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.89,
+        "avg_yield_kg_ha": 2891.8,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21275.9,
+        "total_production_t": 1113193.3
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.46,
+        "avg_yield_kg_ha": 2461.2,
+        "seasons": "Kharif",
+        "avg_area_ha": 22507.6,
+        "total_production_t": 498015.6
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.13,
+        "avg_yield_kg_ha": 1125.1,
+        "seasons": "Kharif",
+        "avg_area_ha": 21155.6,
+        "total_production_t": 214291.3
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 65.99,
+        "avg_yield_kg_ha": 65993.9,
+        "seasons": "Whole Year",
+        "avg_area_ha": 21412.7,
+        "total_production_t": 12750400.4
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.37,
+        "avg_yield_kg_ha": 3365.9,
+        "seasons": "Rabi",
+        "avg_area_ha": 15728.5,
+        "total_production_t": 469974.4
+      }
+    ],
+    "Vijayanagara": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.22,
+        "avg_yield_kg_ha": 1217.0,
+        "seasons": "Kharif",
+        "avg_area_ha": 24347.9,
+        "total_production_t": 264475.6
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.55,
+        "avg_yield_kg_ha": 550.2,
+        "seasons": "Kharif",
+        "avg_area_ha": 24951.6,
+        "total_production_t": 122840.5
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.06,
+        "avg_yield_kg_ha": 1058.0,
+        "seasons": "Rabi",
+        "avg_area_ha": 22535.1,
+        "total_production_t": 214704.9
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.52,
+        "avg_yield_kg_ha": 1515.6,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21905.6,
+        "total_production_t": 581789.3
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.11,
+        "avg_yield_kg_ha": 1106.1,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22054.3,
+        "total_production_t": 447845.6
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.98,
+        "avg_yield_kg_ha": 2983.7,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21343.2,
+        "total_production_t": 1123004.5
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.71,
+        "avg_yield_kg_ha": 2710.7,
+        "seasons": "Kharif",
+        "avg_area_ha": 23480.1,
+        "total_production_t": 570316.6
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.19,
+        "avg_yield_kg_ha": 1187.3,
+        "seasons": "Kharif",
+        "avg_area_ha": 20648.7,
+        "total_production_t": 223315.8
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 64.09,
+        "avg_yield_kg_ha": 64094.6,
+        "seasons": "Whole Year",
+        "avg_area_ha": 22706.8,
+        "total_production_t": 13001857.7
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.43,
+        "avg_yield_kg_ha": 3433.5,
+        "seasons": "Rabi",
+        "avg_area_ha": 17057.0,
+        "total_production_t": 528726.2
+      }
+    ],
+    "Vijayapura": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.46,
+        "avg_yield_kg_ha": 1460.5,
+        "seasons": "Kharif",
+        "avg_area_ha": 24694.5,
+        "total_production_t": 325210.4
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.57,
+        "avg_yield_kg_ha": 567.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 24451.1,
+        "total_production_t": 126034.1
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 1.02,
+        "avg_yield_kg_ha": 1020.8,
+        "seasons": "Rabi",
+        "avg_area_ha": 19834.1,
+        "total_production_t": 181928.4
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.44,
+        "avg_yield_kg_ha": 1443.2,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 23831.0,
+        "total_production_t": 602850.8
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.22,
+        "avg_yield_kg_ha": 1222.8,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 24598.6,
+        "total_production_t": 537488.6
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.8,
+        "avg_yield_kg_ha": 2802.2,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 22597.1,
+        "total_production_t": 1128742.4
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.49,
+        "avg_yield_kg_ha": 2491.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 23375.1,
+        "total_production_t": 518840.0
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.12,
+        "avg_yield_kg_ha": 1121.1,
+        "seasons": "Kharif",
+        "avg_area_ha": 18943.5,
+        "total_production_t": 188580.9
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 69.83,
+        "avg_yield_kg_ha": 69829.1,
+        "seasons": "Whole Year",
+        "avg_area_ha": 21165.8,
+        "total_production_t": 13378965.1
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.09,
+        "avg_yield_kg_ha": 3085.9,
+        "seasons": "Rabi",
+        "avg_area_ha": 16255.6,
+        "total_production_t": 446863.4
+      }
+    ],
+    "Yadgir": [
+      {
+        "crop": "Bajra",
+        "avg_yield_t_ha": 1.3,
+        "avg_yield_kg_ha": 1297.6,
+        "seasons": "Kharif",
+        "avg_area_ha": 24546.9,
+        "total_production_t": 281668.1
+      },
+      {
+        "crop": "Cotton",
+        "avg_yield_t_ha": 0.52,
+        "avg_yield_kg_ha": 521.0,
+        "seasons": "Kharif",
+        "avg_area_ha": 24643.3,
+        "total_production_t": 114646.9
+      },
+      {
+        "crop": "Gram",
+        "avg_yield_t_ha": 0.99,
+        "avg_yield_kg_ha": 991.7,
+        "seasons": "Rabi",
+        "avg_area_ha": 22510.6,
+        "total_production_t": 202240.2
+      },
+      {
+        "crop": "Groundnut",
+        "avg_yield_t_ha": 1.45,
+        "avg_yield_kg_ha": 1453.4,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21488.4,
+        "total_production_t": 550518.5
+      },
+      {
+        "crop": "Jowar",
+        "avg_yield_t_ha": 1.19,
+        "avg_yield_kg_ha": 1193.6,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 21865.2,
+        "total_production_t": 472189.9
+      },
+      {
+        "crop": "Maize",
+        "avg_yield_t_ha": 2.7,
+        "avg_yield_kg_ha": 2696.0,
+        "seasons": "Kharif, Rabi",
+        "avg_area_ha": 20499.2,
+        "total_production_t": 970901.6
+      },
+      {
+        "crop": "Rice",
+        "avg_yield_t_ha": 2.7,
+        "avg_yield_kg_ha": 2696.9,
+        "seasons": "Kharif",
+        "avg_area_ha": 24225.6,
+        "total_production_t": 587741.6
+      },
+      {
+        "crop": "Soyabean",
+        "avg_yield_t_ha": 1.05,
+        "avg_yield_kg_ha": 1046.1,
+        "seasons": "Kharif",
+        "avg_area_ha": 18095.1,
+        "total_production_t": 173343.6
+      },
+      {
+        "crop": "Sugarcane",
+        "avg_yield_t_ha": 69.59,
+        "avg_yield_kg_ha": 69594.7,
+        "seasons": "Whole Year",
+        "avg_area_ha": 24420.2,
+        "total_production_t": 15330795.6
+      },
+      {
+        "crop": "Wheat",
+        "avg_yield_t_ha": 3.18,
+        "avg_yield_kg_ha": 3183.7,
+        "seasons": "Rabi",
+        "avg_area_ha": 17468.5,
+        "total_production_t": 504941.2
       }
     ]
   },

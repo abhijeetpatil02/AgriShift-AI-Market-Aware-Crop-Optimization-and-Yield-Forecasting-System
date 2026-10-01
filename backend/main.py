@@ -51,17 +51,28 @@ portfolio_optimizer = CropPortfolioOptimizer()
 # Load state-to-district mappings and district-crop directory
 PROCESSED_PATH = os.path.join(BASE_DIR, "data", "processed", "master_dataset.csv")
 STATE_DISTRICT_MAP = {}
-if os.path.exists(PROCESSED_PATH):
-    df_meta = pd.read_csv(PROCESSED_PATH)
-    for state in sorted(df_meta["State"].unique()):
-        districts = sorted(df_meta[df_meta["State"] == state]["District"].unique())
-        STATE_DISTRICT_MAP[state] = districts
-
 DISTRICT_CROPS_LOOKUP = {}
-lookup_path = os.path.join(BASE_DIR, "data", "processed", "district_crops_lookup.json")
-if os.path.exists(lookup_path):
-    with open(lookup_path, "r") as f:
-        DISTRICT_CROPS_LOOKUP = json.load(f)
+
+def refresh_meta_lookups():
+    global STATE_DISTRICT_MAP, DISTRICT_CROPS_LOOKUP
+    if os.path.exists(PROCESSED_PATH):
+        df_meta = pd.read_csv(PROCESSED_PATH)
+        for state in sorted(df_meta["State"].unique()):
+            districts = sorted(df_meta[df_meta["State"] == state]["District"].unique())
+            STATE_DISTRICT_MAP[state] = districts
+
+    lookup_path = os.path.join(BASE_DIR, "data", "processed", "district_crops_lookup.json")
+    if os.path.exists(lookup_path):
+        with open(lookup_path, "r") as f:
+            DISTRICT_CROPS_LOOKUP = json.load(f)
+
+    if "yield_predictor" in globals() and yield_predictor is not None:
+        try:
+            yield_predictor.reload()
+        except Exception:
+            pass
+
+refresh_meta_lookups()
 
 # ----------------- Pydantic Models -----------------
 
@@ -118,6 +129,7 @@ class CobwebRequest(BaseModel):
 @app.get("/api/meta")
 def get_metadata():
     """Returns application options, state-district hierarchy, crops, district crops directory, and evaluation metrics."""
+    refresh_meta_lookups()
     return {
         "states_and_districts": STATE_DISTRICT_MAP,
         "crops": yield_predictor.metadata.get("crops", []),

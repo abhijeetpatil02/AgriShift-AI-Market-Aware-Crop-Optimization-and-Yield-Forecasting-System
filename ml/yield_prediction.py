@@ -151,6 +151,9 @@ def train_and_evaluate_models():
 class YieldPredictor:
     """Wrapper to load trained model and predict crop yield."""
     def __init__(self):
+        self.reload()
+
+    def reload(self):
         model_path = os.path.join(MODELS_DIR, "yield_model.pkl")
         meta_path = os.path.join(MODELS_DIR, "yield_metadata.json")
         if not os.path.exists(model_path):

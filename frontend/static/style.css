@@ -246,6 +246,12 @@ input:focus, select:focus {
   color: #475569;
   cursor: pointer;
   user-select: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.env-accordion summary:hover {
+  background-color: #f1f5f9;
+  color: var(--primary);
 }
 
 .accordion-body {
