@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AgriShift - AI Market-Aware Crop Optimization & Yield Forecasting</title>
+  <title>AgriShift - AI Market-Aware Crop Optimization & Yield Forecasting </title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
 
   <!-- Navigation Bar -->
@@ -39,7 +42,8 @@
     <section id="tab-recommend" class="tab-content active">
       <div class="hero-banner">
         <h2>Transition-Aware Crop Portfolio Optimization</h2>
-        <p>Optimize your farm's profit by accounting for predicted yields, future mandi prices, transition switching costs, and market volatility.</p>
+        <p>Optimize your farm's profit by accounting for predicted yields, future mandi prices, transition switching
+          costs, and market volatility.</p>
       </div>
 
       <div class="grid-layout">
@@ -157,7 +161,8 @@
           <div class="empty-state" id="opt-empty-state">
             <span class="empty-icon">📊</span>
             <h4>No Portfolio Generated Yet</h4>
-            <p>Select your farm details on the left and click <strong>Optimize Crop Portfolio</strong> to generate recommendations.</p>
+            <p>Select your farm details on the left and click <strong>Optimize Crop Portfolio</strong> to generate
+              recommendations.</p>
           </div>
 
           <div id="opt-results-content" class="hidden">
@@ -302,7 +307,8 @@
     <section id="tab-cobweb" class="tab-content">
       <div class="hero-banner">
         <h2>Cobweb Market Feedback & Supply Elasticity Simulator</h2>
-        <p>Simulate what happens when multiple farmers adopt a recommended crop. As aggregate supply rises, market price drops—protecting farmers from supply gluts.</p>
+        <p>Simulate what happens when multiple farmers adopt a recommended crop. As aggregate supply rises, market price
+          drops—protecting farmers from supply gluts.</p>
       </div>
 
       <div class="card" style="margin-bottom: 1.5rem;">
@@ -348,7 +354,8 @@
             <tbody></tbody>
           </table>
           <div class="info-note" style="margin-top: 1rem;">
-            <strong>Economic Law:</strong> Using price elasticity of demand (ε = -0.55), the system simulates downward price pressure when farmers collectively overproduce, preventing market collapse.
+            <strong>Economic Law:</strong> Using price elasticity of demand (ε = -0.55), the system simulates downward
+            price pressure when farmers collectively overproduce, preventing market collapse.
           </div>
         </div>
       </div>
@@ -358,7 +365,8 @@
     <section id="tab-districts" class="tab-content">
       <div class="hero-banner">
         <h2>🗺️ All Districts & Crops Directory</h2>
-        <p>Explore all 40 agricultural districts across 10 Indian states, showing all crops grown, historical yields, and seasonal cycles.</p>
+        <p>Explore all 40 agricultural districts across 10 Indian states, showing all crops grown, historical yields,
+          and seasonal cycles.</p>
       </div>
 
       <div class="card" style="margin-bottom: 1.5rem;">
@@ -377,7 +385,8 @@
           </div>
           <div class="form-group" style="flex: 1.5;">
             <label for="dir-search-input">Search District</label>
-            <input type="text" id="dir-search-input" placeholder="Type district name (e.g. Belagavi, Pune, Ludhiana...)" />
+            <input type="text" id="dir-search-input"
+              placeholder="Type district name (e.g. Belagavi, Pune, Ludhiana...)" />
           </div>
         </div>
       </div>
@@ -408,7 +417,8 @@
     <section id="tab-research" class="tab-content">
       <div class="hero-banner">
         <h2>Model Evaluation & Research Validation</h2>
-        <p>Performance comparison of Ridge Regression, Random Forest, and XGBoost with Walk-Forward out-of-time test validation.</p>
+        <p>Performance comparison of Ridge Regression, Random Forest, and XGBoost with Walk-Forward out-of-time test
+          validation.</p>
       </div>
 
       <div class="grid-layout">
@@ -430,7 +440,8 @@
           </table>
 
           <div class="info-note" style="margin-top: 1.5rem;">
-            <strong>Validation Methodology:</strong> Models were strictly evaluated using time-based walk-forward validation (training on 2015–2021, testing on unseen 2022–2023). This guarantees zero future data leakage.
+            <strong>Validation Methodology:</strong> Models were strictly evaluated using time-based walk-forward
+            validation (training on 2015–2021, testing on unseen 2022–2023). This guarantees zero future data leakage.
           </div>
         </div>
 
@@ -472,7 +483,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td colspan="9" style="text-align: center;">No history yet.</td></tr>
+            <tr>
+              <td colspan="9" style="text-align: center;">No history yet.</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -481,9 +494,11 @@
   </main>
 
   <footer class="footer">
-    <p>AgriShift &copy; 2026 · AI Market-Aware Crop Optimization & Yield Forecasting System · Built with FastAPI, SciPy MILP, XGBoost & SQLite</p>
+    <p>AgriShift &copy; 2026 · AI Market-Aware Crop Optimization & Yield Forecasting System · Built with FastAPI, SciPy
+      MILP, XGBoost & SQLite</p>
   </footer>
 
   <script src="app.js"></script>
 </body>
+
 </html>
