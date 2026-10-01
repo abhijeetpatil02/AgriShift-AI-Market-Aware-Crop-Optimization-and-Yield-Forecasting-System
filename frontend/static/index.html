@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriShift - AI Market-Aware Crop Optimization & Yield Forecasting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <span class="brand-icon">🌱</span>
+        <div>
+          <span class="brand-title">AgriShift</span>
+          <span class="brand-subtitle">AI Crop Optimization & Market Forecasting</span>
+        </div>
+      </div>
+      <nav class="nav-tabs">
+        <button class="nav-btn active" data-tab="tab-recommend">🌾 Crop Recommendation</button>
+        <button class="nav-btn" data-tab="tab-single">📈 Yield & Price Forecast</button>
+        <button class="nav-btn" data-tab="tab-cobweb">🕸️ Market Feedback (Cobweb)</button>
+        <button class="nav-btn" data-tab="tab-districts">🗺️ Districts & Crops Directory</button>
+        <button class="nav-btn" data-tab="tab-research">🔬 Model Evaluation</button>
+        <button class="nav-btn" data-tab="tab-history">📜 Saved Plans</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- ================= TAB 1: CROP RECOMMENDATION ================= -->
+    <section id="tab-recommend" class="tab-content active">
+      <div class="hero-banner">
+        <h2>Transition-Aware Crop Portfolio Optimization</h2>
+        <p>Optimize your farm's profit by accounting for predicted yields, future mandi prices, transition switching costs, and market volatility.</p>
+      </div>
+
+      <div class="grid-layout">
+        <!-- Farmer Input Card -->
+        <div class="card form-card">
+          <div class="card-header">
+            <h3>🚜 Farmer & Land Details</h3>
+            <span class="badge">Simple Input</span>
+          </div>
+
+          <form id="optimize-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="farmer-name">Farmer Name</label>
+                <input type="text" id="farmer-name" value="Abhijeet Patil" placeholder="Enter name" />
+              </div>
+              <div class="form-group">
+                <label for="farm-area">Farm Size (Hectares)</label>
+                <input type="number" id="farm-area" value="2.5" min="0.5" max="100" step="0.1" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="state-select">State</label>
+                <select id="state-select" required></select>
+              </div>
+              <div class="form-group">
+                <label for="district-select">District</label>
+                <select id="district-select" required></select>
+              </div>
+            </div>
+
+            <!-- District Crops Indicator Box -->
+            <div class="district-crops-indicator" id="district-crops-indicator">
+              <span class="indicator-label">🌾 Crops grown in <strong id="indicator-dist-name">Belagavi</strong>:</span>
+              <div class="crops-badge-list" id="indicator-crops-list"></div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="season-select">Season</label>
+                <select id="season-select">
+                  <option value="Kharif" selected>Kharif (Monsoon)</option>
+                  <option value="Rabi">Rabi (Winter)</option>
+                  <option value="Whole Year">Whole Year</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="previous-crop">Previous Crop Grew</label>
+                <select id="previous-crop" required></select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="risk-pref">Risk Preference</label>
+                <select id="risk-pref">
+                  <option value="Low">Low Risk (Conservative, High Volatility Penalty)</option>
+                  <option value="Medium" selected>Medium Risk (Balanced Portfolio)</option>
+                  <option value="High">High Risk (Profit Seeking)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="max-crops">Max Diversification</label>
+                <select id="max-crops">
+                  <option value="1">1 Crop (Mono-cropping)</option>
+                  <option value="2">Up to 2 Crops</option>
+                  <option value="3" selected>Up to 3 Crops (Recommended)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Optional Environmental Inputs Details Expander -->
+            <details class="env-accordion">
+              <summary>⚙️ Advanced: Soil & Weather Parameters (Auto-filled from District)</summary>
+              <div class="accordion-body">
+                <div class="form-grid-3">
+                  <div class="form-group">
+                    <label for="soil-n">Nitrogen (N kg/ha)</label>
+                    <input type="number" id="soil-n" step="0.1" />
+                  </div>
+                  <div class="form-group">
+                    <label for="soil-p">Phosphorus (P kg/ha)</label>
+                    <input type="number" id="soil-p" step="0.1" />
+                  </div>
+                  <div class="form-group">
+                    <label for="soil-k">Potassium (K kg/ha)</label>
+                    <input type="number" id="soil-k" step="0.1" />
+                  </div>
+                  <div class="form-group">
+                    <label for="soil-ph">Soil pH</label>
+                    <input type="number" id="soil-ph" step="0.1" />
+                  </div>
+                  <div class="form-group">
+                    <label for="temp">Temperature (°C)</label>
+                    <input type="number" id="temp" step="0.1" />
+                  </div>
+                  <div class="form-group">
+                    <label for="rainfall">Rainfall (mm)</label>
+                    <input type="number" id="rainfall" step="0.1" />
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <button type="submit" class="btn btn-primary" id="btn-optimize">
+              ⚡ Optimize Crop Portfolio
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Side: Recommendation Results Summary -->
+        <div class="card results-card" id="results-card">
+          <div class="empty-state" id="opt-empty-state">
+            <span class="empty-icon">📊</span>
+            <h4>No Portfolio Generated Yet</h4>
+            <p>Select your farm details on the left and click <strong>Optimize Crop Portfolio</strong> to generate recommendations.</p>
+          </div>
+
+          <div id="opt-results-content" class="hidden">
+            <div class="card-header">
+              <h3>🌾 Optimal Crop Plan</h3>
+              <span class="badge badge-success" id="roi-badge">ROI: +0%</span>
+            </div>
+
+            <!-- Summary KPI metrics -->
+            <div class="kpi-grid">
+              <div class="kpi-box">
+                <span class="kpi-label">Expected Net Profit</span>
+                <span class="kpi-value text-success" id="kpi-profit">₹0</span>
+              </div>
+              <div class="kpi-box">
+                <span class="kpi-label">Expected Revenue</span>
+                <span class="kpi-value" id="kpi-revenue">₹0</span>
+              </div>
+              <div class="kpi-box">
+                <span class="kpi-label">Switching Cost</span>
+                <span class="kpi-value text-warning" id="kpi-switch">₹0</span>
+              </div>
+              <div class="kpi-box">
+                <span class="kpi-label">Cultivation Cost</span>
+                <span class="kpi-value text-muted" id="kpi-cultivation">₹0</span>
+              </div>
+            </div>
+
+            <!-- Comparison Banner: AgriShift vs Naive -->
+            <div class="comparison-banner" id="comparison-banner">
+              <div class="comp-title">
+                <strong>💡 AgriShift Advantage vs. Traditional Single-Crop Approach</strong>
+              </div>
+              <div class="comp-details" id="comp-text">
+                Analyzing switching costs and market volatility...
+              </div>
+            </div>
+
+            <!-- Allocation Chart & Table -->
+            <div class="allocation-layout">
+              <div class="chart-wrapper">
+                <canvas id="portfolioChart"></canvas>
+              </div>
+              <div class="table-wrapper">
+                <table class="data-table" id="allocation-table">
+                  <thead>
+                    <tr>
+                      <th>Crop</th>
+                      <th>Area</th>
+                      <th>Yield</th>
+                      <th>Price / t</th>
+                      <th>Net Profit</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 2: YIELD & PRICE PREDICTOR ================= -->
+    <section id="tab-single" class="tab-content">
+      <div class="hero-banner">
+        <h2>Crop Yield & Market Price Predictor</h2>
+        <p>Inspect AI yield predictions and multi-horizon market price forecasts for any Indian crop.</p>
+      </div>
+
+      <div class="grid-layout">
+        <div class="card form-card">
+          <div class="card-header">
+            <h3>🔍 Select Crop & Region</h3>
+          </div>
+          <form id="single-predict-form">
+            <div class="form-group">
+              <label for="single-crop">Target Crop</label>
+              <select id="single-crop" required></select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="single-state">State</label>
+                <select id="single-state" required></select>
+              </div>
+              <div class="form-group">
+                <label for="single-district">District</label>
+                <select id="single-district" required></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="single-season">Season</label>
+              <select id="single-season">
+                <option value="Kharif" selected>Kharif</option>
+                <option value="Rabi">Rabi</option>
+                <option value="Whole Year">Whole Year</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">📊 Predict Yield & Forecast Price</button>
+          </form>
+        </div>
+
+        <div class="card results-card" id="single-results-card">
+          <div class="empty-state" id="single-empty-state">
+            <span class="empty-icon">📈</span>
+            <h4>Select a crop to predict yield and market price</h4>
+          </div>
+
+          <div id="single-results-content" class="hidden">
+            <div class="card-header">
+              <h3 id="single-title">Prediction Overview</h3>
+            </div>
+            <div class="kpi-grid">
+              <div class="kpi-box">
+                <span class="kpi-label">Predicted Yield</span>
+                <span class="kpi-value text-primary" id="single-yield">0 t/ha</span>
+              </div>
+              <div class="kpi-box">
+                <span class="kpi-label">Current Mandi Price</span>
+                <span class="kpi-value text-success" id="single-price">₹0 / t</span>
+              </div>
+              <div class="kpi-box">
+                <span class="kpi-label">Price Volatility</span>
+                <span class="kpi-value" id="single-volatility">0%</span>
+              </div>
+            </div>
+
+            <!-- Price Horizon Forecasts -->
+            <h4 style="margin: 1.5rem 0 0.5rem 0;">📅 Market Price Horizons</h4>
+            <div class="horizon-grid" id="horizon-grid"></div>
+
+            <div class="chart-wrapper" style="margin-top: 1.5rem; height: 240px;">
+              <canvas id="priceHorizonChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 3: COBWEB MARKET FEEDBACK ================= -->
+    <section id="tab-cobweb" class="tab-content">
+      <div class="hero-banner">
+        <h2>Cobweb Market Feedback & Supply Elasticity Simulator</h2>
+        <p>Simulate what happens when multiple farmers adopt a recommended crop. As aggregate supply rises, market price drops—protecting farmers from supply gluts.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="form-row" style="align-items: center;">
+          <div class="form-group" style="flex: 1;">
+            <label for="cw-crop-select">Select Crop to Simulate</label>
+            <select id="cw-crop-select"></select>
+          </div>
+          <div class="form-group" style="flex: 2;">
+            <label for="cw-adoption-slider">Farmer Adoption Rate: <span id="cw-rate-val">30%</span></label>
+            <input type="range" id="cw-adoption-slider" min="0" max="100" step="5" value="30" />
+          </div>
+          <div style="flex: 0 0 auto;">
+            <button class="btn btn-secondary" id="btn-run-cobweb">Simulate Market Feedback</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-layout">
+        <div class="card">
+          <div class="card-header">
+            <h3>📉 Supply vs Price Impact Across Adoption Scenarios</h3>
+          </div>
+          <div class="chart-wrapper" style="height: 320px;">
+            <canvas id="cobwebChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>📋 Adoption Impact Table</h3>
+          </div>
+          <table class="data-table" id="cobweb-table">
+            <thead>
+              <tr>
+                <th>Adoption %</th>
+                <th>Extra Supply</th>
+                <th>Supply Growth</th>
+                <th>Adjusted Price</th>
+                <th>Price Drop</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div class="info-note" style="margin-top: 1rem;">
+            <strong>Economic Law:</strong> Using price elasticity of demand (ε = -0.55), the system simulates downward price pressure when farmers collectively overproduce, preventing market collapse.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 4: ALL DISTRICTS & CROPS DIRECTORY ================= -->
+    <section id="tab-districts" class="tab-content">
+      <div class="hero-banner">
+        <h2>🗺️ All Districts & Crops Directory</h2>
+        <p>Explore all 40 agricultural districts across 10 Indian states, showing all crops grown, historical yields, and seasonal cycles.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="form-row" style="align-items: center; margin-bottom: 0;">
+          <div class="form-group" style="flex: 1;">
+            <label for="dir-state-filter">Filter by State</label>
+            <select id="dir-state-filter">
+              <option value="ALL">All States (10 States)</option>
+            </select>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="dir-crop-filter">Filter by Crop</label>
+            <select id="dir-crop-filter">
+              <option value="ALL">All Crops (10 Crops)</option>
+            </select>
+          </div>
+          <div class="form-group" style="flex: 1.5;">
+            <label for="dir-search-input">Search District</label>
+            <input type="text" id="dir-search-input" placeholder="Type district name (e.g. Belagavi, Pune, Ludhiana...)" />
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 id="dir-results-title">District Crop Directory</h3>
+          <span class="badge badge-success" id="dir-count-badge">40 Districts Loaded</span>
+        </div>
+        <div class="table-wrapper" style="max-height: 520px; overflow-y: auto;">
+          <table class="data-table" id="directory-table">
+            <thead>
+              <tr>
+                <th>State</th>
+                <th>District</th>
+                <th>Crops Grown</th>
+                <th>Highest Yielding Crop</th>
+                <th>Primary Season</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 5: MODEL EVALUATION & RESEARCH ================= -->
+    <section id="tab-research" class="tab-content">
+      <div class="hero-banner">
+        <h2>Model Evaluation & Research Validation</h2>
+        <p>Performance comparison of Ridge Regression, Random Forest, and XGBoost with Walk-Forward out-of-time test validation.</p>
+      </div>
+
+      <div class="grid-layout">
+        <div class="card">
+          <div class="card-header">
+            <h3>📊 Model Comparison (Train: 2015-2021 | Test: 2022-2023)</h3>
+          </div>
+          <table class="data-table" id="metrics-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>R² Score</th>
+                <th>RMSE (t/ha)</th>
+                <th>MAE (t/ha)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+
+          <div class="info-note" style="margin-top: 1.5rem;">
+            <strong>Validation Methodology:</strong> Models were strictly evaluated using time-based walk-forward validation (training on 2015–2021, testing on unseen 2022–2023). This guarantees zero future data leakage.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>🌳 Top Feature Importances (Yield Drivers)</h3>
+          </div>
+          <div class="chart-wrapper" style="height: 320px;">
+            <canvas id="featuresChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 5: SAVED PLANS ================= -->
+    <section id="tab-history" class="tab-content">
+      <div class="hero-banner">
+        <h2>Saved Farmer Recommendations</h2>
+        <p>Audit trail of portfolio optimizations logged to the SQLite database.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>📜 Recommendation History Log</h3>
+          <button class="btn btn-sm btn-secondary" id="btn-refresh-history">🔄 Refresh</button>
+        </div>
+        <table class="data-table" id="history-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date / Time</th>
+              <th>Farmer</th>
+              <th>Location</th>
+              <th>Farm Area</th>
+              <th>Previous Crop</th>
+              <th>Allocated Crops</th>
+              <th>Net Profit</th>
+              <th>Switching Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="9" style="text-align: center;">No history yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>AgriShift &copy; 2026 · AI Market-Aware Crop Optimization & Yield Forecasting System · Built with FastAPI, SciPy MILP, XGBoost & SQLite</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

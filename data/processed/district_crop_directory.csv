@@ -1,0 +1,401 @@
+State,District,Crop,Avg_Yield_kg_ha,Min_Yield_kg_ha,Max_Yield_kg_ha,Avg_Yield_t_ha,Avg_Area_ha,Total_Production_Tonnes,Seasons
+Andhra Pradesh,Guntur,Bajra,1245.6,992.7,1661.8,1.25,36381.8,365089.7,Kharif
+Andhra Pradesh,Guntur,Cotton,461.5,351.9,629.4,0.46,22046.9,75454.2,Kharif
+Andhra Pradesh,Guntur,Gram,998.2,711.6,1239.2,1.0,24825.3,155489.4,Rabi
+Andhra Pradesh,Guntur,Groundnut,1549.9,962.2,2142.0,1.55,20619.1,583440.6,"Kharif, Rabi"
+Andhra Pradesh,Guntur,Jowar,1118.8,726.1,1665.4,1.12,21331.4,343269.6,"Kharif, Rabi"
+Andhra Pradesh,Guntur,Maize,2603.3,1926.5,3507.9,2.6,25899.3,943451.3,"Kharif, Rabi"
+Andhra Pradesh,Guntur,Rice,2716.5,1857.0,3259.7,2.72,19946.1,333050.7,Kharif
+Andhra Pradesh,Guntur,Soyabean,1304.6,877.4,1632.6,1.3,20662.8,223076.1,Kharif
+Andhra Pradesh,Guntur,Sugarcane,66919.8,51201.3,82207.6,66.92,14907.8,7075903.0,Whole Year
+Andhra Pradesh,Guntur,Wheat,3051.3,2529.1,4224.3,3.05,25605.4,629592.4,Rabi
+Andhra Pradesh,Krishna,Bajra,1350.7,1026.1,1776.7,1.35,12556.4,119669.0,Kharif
+Andhra Pradesh,Krishna,Cotton,482.2,370.7,686.8,0.48,17766.9,80152.8,Kharif
+Andhra Pradesh,Krishna,Gram,1023.1,844.7,1297.5,1.02,29122.5,259780.0,Rabi
+Andhra Pradesh,Krishna,Groundnut,1534.4,947.6,1993.0,1.53,25817.2,618378.1,"Kharif, Rabi"
+Andhra Pradesh,Krishna,Jowar,1217.6,824.2,1561.5,1.22,22814.2,492778.5,"Kharif, Rabi"
+Andhra Pradesh,Krishna,Maize,2540.7,1906.1,3123.5,2.54,27370.3,1047372.6,"Kharif, Rabi"
+Andhra Pradesh,Krishna,Rice,2732.9,1988.3,3362.3,2.73,28217.2,618392.1,Kharif
+Andhra Pradesh,Krishna,Soyabean,1311.8,995.1,1498.3,1.31,14613.3,165676.1,Kharif
+Andhra Pradesh,Krishna,Sugarcane,70482.5,50937.2,91411.7,70.48,20111.1,11037476.6,Whole Year
+Andhra Pradesh,Krishna,Wheat,3286.5,2345.3,4483.7,3.29,19387.8,546661.6,Rabi
+Andhra Pradesh,Kurnool,Bajra,1442.8,931.9,1779.9,1.44,27034.6,229516.3,Kharif
+Andhra Pradesh,Kurnool,Cotton,498.7,371.2,640.8,0.5,20840.6,88706.7,Kharif
+Andhra Pradesh,Kurnool,Gram,943.8,704.8,1255.6,0.94,25731.0,171251.2,Rabi
+Andhra Pradesh,Kurnool,Groundnut,1394.7,1015.5,1776.3,1.39,22084.3,566481.5,"Kharif, Rabi"
+Andhra Pradesh,Kurnool,Jowar,1205.6,853.4,1669.7,1.21,22496.0,445008.8,"Kharif, Rabi"
+Andhra Pradesh,Kurnool,Maize,2639.5,1996.8,3656.5,2.64,24581.6,995665.3,"Kharif, Rabi"
+Andhra Pradesh,Kurnool,Rice,2425.8,1764.5,3416.4,2.43,17655.2,361263.5,Kharif
+Andhra Pradesh,Kurnool,Soyabean,1167.3,914.8,1543.5,1.17,25674.2,258930.2,Kharif
+Andhra Pradesh,Kurnool,Sugarcane,70062.3,53628.8,88055.4,70.06,23735.5,9773759.2,Whole Year
+Andhra Pradesh,Kurnool,Wheat,3227.8,2318.1,3989.1,3.23,25650.0,539228.8,Rabi
+Andhra Pradesh,West Godavari,Bajra,1383.6,1064.8,1918.9,1.38,26044.3,313279.7,Kharif
+Andhra Pradesh,West Godavari,Cotton,430.6,322.3,500.4,0.43,15640.6,39993.2,Kharif
+Andhra Pradesh,West Godavari,Gram,1040.8,756.1,1343.8,1.04,24564.2,148305.9,Rabi
+Andhra Pradesh,West Godavari,Groundnut,1592.4,938.4,2101.1,1.59,22143.7,554874.4,"Kharif, Rabi"
+Andhra Pradesh,West Godavari,Jowar,1121.5,790.4,1580.3,1.12,26659.4,484678.5,"Kharif, Rabi"
+Andhra Pradesh,West Godavari,Maize,2443.7,1901.1,2952.1,2.44,24576.7,971417.0,"Kharif, Rabi"
+Andhra Pradesh,West Godavari,Rice,2321.1,1787.5,2991.7,2.32,21272.5,375572.4,Kharif
+Andhra Pradesh,West Godavari,Soyabean,1330.7,920.4,1563.2,1.33,14518.3,145775.2,Kharif
+Andhra Pradesh,West Godavari,Sugarcane,72300.0,56355.0,81908.4,72.3,23344.5,11624959.1,Whole Year
+Andhra Pradesh,West Godavari,Wheat,2872.5,2601.9,3444.8,2.87,21587.5,447116.3,Rabi
+Bihar,Gaya,Bajra,1334.8,984.9,1584.2,1.33,23519.7,243473.7,Kharif
+Bihar,Gaya,Cotton,478.3,400.4,595.4,0.48,22713.1,89799.8,Kharif
+Bihar,Gaya,Gram,1042.5,829.6,1318.0,1.04,19129.4,177752.4,Rabi
+Bihar,Gaya,Groundnut,1487.8,1026.5,2054.9,1.49,23345.5,525676.5,"Kharif, Rabi"
+Bihar,Gaya,Jowar,1265.9,804.8,1573.4,1.27,25424.2,485704.8,"Kharif, Rabi"
+Bihar,Gaya,Maize,2604.2,1802.1,3274.4,2.6,21570.1,767076.4,"Kharif, Rabi"
+Bihar,Gaya,Rice,2345.6,1896.5,2914.9,2.35,23656.7,490385.4,Kharif
+Bihar,Gaya,Soyabean,1238.9,797.5,1606.3,1.24,23872.3,255324.5,Kharif
+Bihar,Gaya,Sugarcane,69900.7,55205.7,78554.6,69.9,21850.8,9390715.4,Whole Year
+Bihar,Gaya,Wheat,3205.5,2384.9,3797.3,3.21,23871.3,662945.2,Rabi
+Bihar,Muzaffarpur,Bajra,1200.8,907.5,1648.7,1.2,17007.0,167161.7,Kharif
+Bihar,Muzaffarpur,Cotton,468.2,351.2,616.0,0.47,16012.2,57799.3,Kharif
+Bihar,Muzaffarpur,Gram,1041.5,678.2,1312.9,1.04,26582.1,241675.9,Rabi
+Bihar,Muzaffarpur,Groundnut,1381.4,902.5,2002.3,1.38,23846.6,448624.8,"Kharif, Rabi"
+Bihar,Muzaffarpur,Jowar,1203.4,826.6,1678.9,1.2,28205.1,467777.7,"Kharif, Rabi"
+Bihar,Muzaffarpur,Maize,2580.5,1875.7,3299.3,2.58,21702.4,961366.0,"Kharif, Rabi"
+Bihar,Muzaffarpur,Rice,2638.5,1874.8,2970.1,2.64,24473.9,322355.4,Kharif
+Bihar,Muzaffarpur,Soyabean,1265.4,1011.1,1481.1,1.27,18790.7,164349.8,Kharif
+Bihar,Muzaffarpur,Sugarcane,69692.5,56957.2,90299.2,69.69,21853.9,13025492.1,Whole Year
+Bihar,Muzaffarpur,Wheat,3057.7,2158.9,4017.5,3.06,11794.5,250489.2,Rabi
+Bihar,Patna,Bajra,1305.5,876.0,1768.4,1.31,29635.0,316284.2,Kharif
+Bihar,Patna,Cotton,484.9,374.1,599.1,0.48,30662.8,122363.4,Kharif
+Bihar,Patna,Gram,950.2,628.7,1278.0,0.95,27107.7,174753.8,Rabi
+Bihar,Patna,Groundnut,1391.9,1004.9,1882.3,1.39,18444.3,358608.5,"Kharif, Rabi"
+Bihar,Patna,Jowar,1248.4,905.4,1664.4,1.25,28343.8,600603.6,"Kharif, Rabi"
+Bihar,Patna,Maize,2583.1,1842.8,3739.5,2.58,18203.5,771626.0,"Kharif, Rabi"
+Bihar,Patna,Rice,2441.2,1774.8,2957.1,2.44,21504.1,486883.6,Kharif
+Bihar,Patna,Soyabean,1254.6,923.3,1496.0,1.25,23037.4,228983.1,Kharif
+Bihar,Patna,Sugarcane,67188.9,55698.2,76003.8,67.19,21960.7,10830068.8,Whole Year
+Bihar,Patna,Wheat,3102.8,2591.7,3523.2,3.1,25728.7,715397.8,Rabi
+Bihar,Rohtas,Bajra,1240.6,906.6,1657.1,1.24,25605.6,296587.4,Kharif
+Bihar,Rohtas,Cotton,440.4,322.3,564.9,0.44,28293.5,105689.1,Kharif
+Bihar,Rohtas,Gram,1005.4,757.5,1288.3,1.01,13882.4,77359.1,Rabi
+Bihar,Rohtas,Groundnut,1530.3,1034.6,2071.3,1.53,20041.7,467803.7,"Kharif, Rabi"
+Bihar,Rohtas,Jowar,1153.9,796.4,1549.2,1.15,20815.8,429893.1,"Kharif, Rabi"
+Bihar,Rohtas,Maize,2637.1,2056.5,3601.4,2.64,21349.2,656800.1,"Kharif, Rabi"
+Bihar,Rohtas,Rice,2327.3,1736.1,2728.2,2.33,20984.9,440616.6,Kharif
+Bihar,Rohtas,Soyabean,1260.0,1037.0,1527.9,1.26,23858.6,274338.8,Kharif
+Bihar,Rohtas,Sugarcane,71944.9,58227.8,88485.7,71.94,19534.7,12705699.3,Whole Year
+Bihar,Rohtas,Wheat,3413.1,2487.5,4213.3,3.41,29217.1,589479.7,Rabi
+Haryana,Hisar,Bajra,1254.6,862.5,1675.6,1.25,26473.6,272766.2,Kharif
+Haryana,Hisar,Cotton,456.5,325.9,562.3,0.46,22518.0,86159.8,Kharif
+Haryana,Hisar,Gram,977.4,743.0,1382.0,0.98,22330.3,161516.9,Rabi
+Haryana,Hisar,Groundnut,1346.9,897.7,1767.3,1.35,23447.1,506440.0,"Kharif, Rabi"
+Haryana,Hisar,Jowar,1193.8,847.1,1451.8,1.19,18976.5,328805.5,"Kharif, Rabi"
+Haryana,Hisar,Maize,2725.5,1776.5,3431.0,2.73,26948.8,1000212.1,"Kharif, Rabi"
+Haryana,Hisar,Rice,2475.4,2098.2,2847.9,2.48,35150.2,612532.1,Kharif
+Haryana,Hisar,Soyabean,1235.4,1044.7,1398.5,1.24,22651.5,249112.7,Kharif
+Haryana,Hisar,Sugarcane,62303.6,53364.2,83753.9,62.3,23068.3,13268521.7,Whole Year
+Haryana,Hisar,Wheat,3227.4,2344.2,3954.2,3.23,17630.5,367742.3,Rabi
+Haryana,Karnal,Bajra,1170.5,929.7,1472.9,1.17,24259.4,236656.7,Kharif
+Haryana,Karnal,Cotton,508.5,396.4,614.7,0.51,26641.0,93907.6,Kharif
+Haryana,Karnal,Gram,1040.0,887.5,1298.4,1.04,23239.3,163038.6,Rabi
+Haryana,Karnal,Groundnut,1504.9,1006.1,2160.9,1.5,22522.9,483176.4,"Kharif, Rabi"
+Haryana,Karnal,Jowar,1242.2,826.3,1667.8,1.24,22500.0,463048.6,"Kharif, Rabi"
+Haryana,Karnal,Maize,2925.7,2086.2,3659.7,2.93,19833.4,801921.9,"Kharif, Rabi"
+Haryana,Karnal,Rice,2530.6,2153.4,3235.2,2.53,22810.4,447960.8,Kharif
+Haryana,Karnal,Soyabean,1172.0,829.8,1614.6,1.17,23094.1,194337.7,Kharif
+Haryana,Karnal,Sugarcane,70565.5,53378.5,88508.5,70.57,25546.1,14627440.2,Whole Year
+Haryana,Karnal,Wheat,3475.2,2810.4,3999.7,3.48,28718.2,802601.9,Rabi
+Haryana,Kurukshetra,Bajra,1264.8,828.7,1789.2,1.26,25923.8,223794.3,Kharif
+Haryana,Kurukshetra,Cotton,431.9,370.3,548.6,0.43,14201.4,42203.2,Kharif
+Haryana,Kurukshetra,Gram,998.0,755.5,1209.9,1.0,21725.4,141579.5,Rabi
+Haryana,Kurukshetra,Groundnut,1442.1,924.2,2091.2,1.44,23184.0,564912.5,"Kharif, Rabi"
+Haryana,Kurukshetra,Jowar,1248.7,818.1,1517.4,1.25,28472.3,526373.8,"Kharif, Rabi"
+Haryana,Kurukshetra,Maize,2717.1,1884.4,3699.3,2.72,23905.7,841204.9,"Kharif, Rabi"
+Haryana,Kurukshetra,Rice,2525.2,1749.4,3179.6,2.53,25834.3,534415.8,Kharif
+Haryana,Kurukshetra,Soyabean,1241.5,968.2,1684.3,1.24,24758.5,301408.5,Kharif
+Haryana,Kurukshetra,Sugarcane,72238.4,53883.7,92395.9,72.24,26211.6,14556927.5,Whole Year
+Haryana,Kurukshetra,Wheat,3540.0,2593.0,4572.8,3.54,26956.9,744643.7,Rabi
+Haryana,Sirsa,Bajra,1210.5,895.7,1594.7,1.21,17461.8,204691.8,Kharif
+Haryana,Sirsa,Cotton,458.2,307.7,577.5,0.46,23635.2,94718.3,Kharif
+Haryana,Sirsa,Gram,1160.9,892.9,1284.1,1.16,22803.7,181234.2,Rabi
+Haryana,Sirsa,Groundnut,1466.7,948.1,2052.7,1.47,19495.0,439358.0,"Kharif, Rabi"
+Haryana,Sirsa,Jowar,1066.5,708.0,1512.0,1.07,25414.4,377920.1,"Kharif, Rabi"
+Haryana,Sirsa,Maize,2645.0,1999.3,3281.2,2.65,21786.8,739825.9,"Kharif, Rabi"
+Haryana,Sirsa,Rice,2452.5,1857.7,2955.7,2.45,18983.6,374924.2,Kharif
+Haryana,Sirsa,Soyabean,1138.1,971.2,1482.6,1.14,23100.2,190355.3,Kharif
+Haryana,Sirsa,Sugarcane,65402.4,49449.5,85089.3,65.4,25037.9,12166238.8,Whole Year
+Haryana,Sirsa,Wheat,3161.9,2639.8,3718.2,3.16,18027.0,428600.2,Rabi
+Karnataka,Belagavi,Bajra,1182.5,811.0,1427.0,1.18,28276.3,168464.0,Kharif
+Karnataka,Belagavi,Cotton,586.0,437.4,696.2,0.59,23162.2,110079.6,Kharif
+Karnataka,Belagavi,Gram,970.5,691.4,1344.6,0.97,19886.3,171389.1,Rabi
+Karnataka,Belagavi,Groundnut,1505.5,947.6,2044.3,1.51,20653.7,473276.5,"Kharif, Rabi"
+Karnataka,Belagavi,Jowar,1191.0,749.8,1596.8,1.19,22450.5,426308.0,"Kharif, Rabi"
+Karnataka,Belagavi,Maize,2738.2,1857.4,3652.6,2.74,24031.2,1087655.3,"Kharif, Rabi"
+Karnataka,Belagavi,Rice,2498.9,1908.4,2938.8,2.5,20546.8,367291.4,Kharif
+Karnataka,Belagavi,Soyabean,1095.0,950.9,1357.8,1.09,16651.5,141453.6,Kharif
+Karnataka,Belagavi,Sugarcane,63261.7,54143.5,74134.7,63.26,18193.2,7791972.4,Whole Year
+Karnataka,Belagavi,Wheat,3457.7,2379.6,4013.0,3.46,17335.3,430665.5,Rabi
+Karnataka,Davanagere,Bajra,1430.8,900.9,1737.2,1.43,25644.1,201865.5,Kharif
+Karnataka,Davanagere,Cotton,512.0,382.5,644.4,0.51,27913.6,112147.4,Kharif
+Karnataka,Davanagere,Gram,1106.7,905.1,1301.8,1.11,26616.0,175513.0,Rabi
+Karnataka,Davanagere,Groundnut,1316.6,910.6,1713.7,1.32,25140.9,532376.9,"Kharif, Rabi"
+Karnataka,Davanagere,Jowar,1161.8,748.7,1550.2,1.16,26266.9,476473.4,"Kharif, Rabi"
+Karnataka,Davanagere,Maize,2485.9,1939.0,3690.7,2.49,20653.6,727334.9,"Kharif, Rabi"
+Karnataka,Davanagere,Rice,2339.9,1807.5,2815.4,2.34,26819.4,500628.6,Kharif
+Karnataka,Davanagere,Soyabean,1140.5,822.0,1525.8,1.14,17353.6,172872.7,Kharif
+Karnataka,Davanagere,Sugarcane,64230.3,47715.5,81001.7,64.23,32869.2,19222327.9,Whole Year
+Karnataka,Davanagere,Wheat,3319.3,2940.3,3721.5,3.32,14473.2,277455.6,Rabi
+Karnataka,Mysuru,Bajra,1358.0,1000.9,1656.6,1.36,21226.5,229340.4,Kharif
+Karnataka,Mysuru,Cotton,493.9,378.3,589.3,0.49,23946.6,92664.6,Kharif
+Karnataka,Mysuru,Gram,1003.0,781.5,1306.2,1.0,27023.7,191286.3,Rabi
+Karnataka,Mysuru,Groundnut,1487.9,946.4,2024.5,1.49,26185.0,501936.0,"Kharif, Rabi"
+Karnataka,Mysuru,Jowar,1146.5,845.5,1646.6,1.15,23181.2,351844.9,"Kharif, Rabi"
+Karnataka,Mysuru,Maize,2736.7,1935.2,3426.4,2.74,20329.8,834494.1,"Kharif, Rabi"
+Karnataka,Mysuru,Rice,2423.4,1832.1,2698.2,2.42,19473.0,367758.3,Kharif
+Karnataka,Mysuru,Soyabean,1232.1,899.9,1481.4,1.23,25522.9,215338.8,Kharif
+Karnataka,Mysuru,Sugarcane,71519.9,52624.5,88091.5,71.52,26813.0,12927610.8,Whole Year
+Karnataka,Mysuru,Wheat,3660.9,2544.9,4513.2,3.66,15720.8,344892.1,Rabi
+Karnataka,Raichur,Bajra,1310.6,939.0,1805.2,1.31,19976.7,162487.6,Kharif
+Karnataka,Raichur,Cotton,493.1,373.7,628.7,0.49,27201.1,107812.1,Kharif
+Karnataka,Raichur,Gram,1032.9,759.4,1345.4,1.03,22095.5,194335.3,Rabi
+Karnataka,Raichur,Groundnut,1495.8,1000.5,1883.9,1.5,23852.8,561113.9,"Kharif, Rabi"
+Karnataka,Raichur,Jowar,1184.1,802.9,1714.3,1.18,23938.8,374923.0,"Kharif, Rabi"
+Karnataka,Raichur,Maize,2759.5,1890.1,3610.2,2.76,20476.6,933267.2,"Kharif, Rabi"
+Karnataka,Raichur,Rice,2481.0,2197.2,2986.8,2.48,23561.9,340695.1,Kharif
+Karnataka,Raichur,Soyabean,1211.4,939.4,1352.1,1.21,28356.5,202947.4,Kharif
+Karnataka,Raichur,Sugarcane,65611.4,55448.8,79268.9,65.61,21202.9,11298159.8,Whole Year
+Karnataka,Raichur,Wheat,3175.5,2611.5,3828.5,3.18,20615.8,442150.9,Rabi
+Madhya Pradesh,Hoshangabad,Bajra,1079.0,883.3,1352.3,1.08,20486.5,207047.9,Kharif
+Madhya Pradesh,Hoshangabad,Cotton,467.1,321.2,584.9,0.47,20650.6,70720.0,Kharif
+Madhya Pradesh,Hoshangabad,Gram,880.3,711.9,1093.2,0.88,21800.8,154830.6,Rabi
+Madhya Pradesh,Hoshangabad,Groundnut,1369.7,982.9,1925.0,1.37,23919.6,539473.3,"Kharif, Rabi"
+Madhya Pradesh,Hoshangabad,Jowar,1207.0,762.3,1685.7,1.21,24475.0,363862.5,"Kharif, Rabi"
+Madhya Pradesh,Hoshangabad,Maize,2741.8,2182.1,3678.4,2.74,19534.1,785376.8,"Kharif, Rabi"
+Madhya Pradesh,Hoshangabad,Rice,2289.7,1751.1,3180.3,2.29,22565.4,405234.2,Kharif
+Madhya Pradesh,Hoshangabad,Soyabean,1110.3,890.4,1246.4,1.11,30543.2,235777.2,Kharif
+Madhya Pradesh,Hoshangabad,Sugarcane,70986.2,52616.6,81499.9,70.99,25617.5,14585469.2,Whole Year
+Madhya Pradesh,Hoshangabad,Wheat,3094.7,2498.7,4139.8,3.09,19426.3,603087.6,Rabi
+Madhya Pradesh,Indore,Bajra,1285.2,1037.8,1546.9,1.29,23836.3,249328.6,Kharif
+Madhya Pradesh,Indore,Cotton,488.1,432.4,542.1,0.49,26608.6,89396.4,Kharif
+Madhya Pradesh,Indore,Gram,1022.8,760.3,1220.1,1.02,25132.5,201675.0,Rabi
+Madhya Pradesh,Indore,Groundnut,1536.6,1105.5,2039.9,1.54,21056.0,428708.7,"Kharif, Rabi"
+Madhya Pradesh,Indore,Jowar,1103.2,712.3,1371.7,1.1,23336.6,370454.6,"Kharif, Rabi"
+Madhya Pradesh,Indore,Maize,2613.8,2042.5,3472.4,2.61,18615.4,739327.8,"Kharif, Rabi"
+Madhya Pradesh,Indore,Rice,2462.2,1916.0,3136.3,2.46,11794.9,175124.3,Kharif
+Madhya Pradesh,Indore,Soyabean,1246.4,1028.4,1546.1,1.25,22821.0,179734.1,Kharif
+Madhya Pradesh,Indore,Sugarcane,68792.6,54165.5,79257.7,68.79,24699.0,15532502.4,Whole Year
+Madhya Pradesh,Indore,Wheat,3422.0,2434.9,4137.1,3.42,30263.3,923936.6,Rabi
+Madhya Pradesh,Sehore,Bajra,1441.6,903.5,1887.7,1.44,28860.9,242070.6,Kharif
+Madhya Pradesh,Sehore,Cotton,521.6,425.3,665.5,0.52,25597.4,121151.4,Kharif
+Madhya Pradesh,Sehore,Gram,922.8,636.3,1299.9,0.92,18696.3,143838.8,Rabi
+Madhya Pradesh,Sehore,Groundnut,1584.1,1097.7,2083.0,1.58,25034.0,569524.6,"Kharif, Rabi"
+Madhya Pradesh,Sehore,Jowar,1133.9,747.5,1512.3,1.13,30107.1,549455.4,"Kharif, Rabi"
+Madhya Pradesh,Sehore,Maize,2502.4,1829.1,3096.3,2.5,30516.9,1136835.2,"Kharif, Rabi"
+Madhya Pradesh,Sehore,Rice,2382.7,1752.1,3003.4,2.38,22097.7,471276.5,Kharif
+Madhya Pradesh,Sehore,Soyabean,1179.1,851.7,1541.9,1.18,28924.3,321381.2,Kharif
+Madhya Pradesh,Sehore,Sugarcane,76140.6,57679.5,86226.5,76.14,27414.6,18619303.8,Whole Year
+Madhya Pradesh,Sehore,Wheat,3144.7,2399.0,4068.8,3.14,20567.8,591950.8,Rabi
+Madhya Pradesh,Ujjain,Bajra,1575.0,1205.7,1886.2,1.57,13584.8,155136.0,Kharif
+Madhya Pradesh,Ujjain,Cotton,436.0,312.0,591.4,0.44,23445.4,77619.5,Kharif
+Madhya Pradesh,Ujjain,Gram,1031.5,750.1,1333.4,1.03,24546.8,199678.4,Rabi
+Madhya Pradesh,Ujjain,Groundnut,1498.2,1079.9,1858.0,1.5,15648.7,302833.7,"Kharif, Rabi"
+Madhya Pradesh,Ujjain,Jowar,1231.0,837.3,1585.3,1.23,20299.0,381804.5,"Kharif, Rabi"
+Madhya Pradesh,Ujjain,Maize,2713.4,1947.9,3370.3,2.71,25342.8,886500.3,"Kharif, Rabi"
+Madhya Pradesh,Ujjain,Rice,2257.3,1696.6,3229.8,2.26,18038.2,258960.6,Kharif
+Madhya Pradesh,Ujjain,Soyabean,1173.1,829.1,1474.1,1.17,22611.6,215449.9,Kharif
+Madhya Pradesh,Ujjain,Sugarcane,66205.7,56693.6,75695.5,66.21,26550.0,12261647.1,Whole Year
+Madhya Pradesh,Ujjain,Wheat,3600.9,2833.2,4168.3,3.6,24722.3,797546.5,Rabi
+Maharashtra,Kolhapur,Bajra,1180.1,928.9,1654.0,1.18,16488.8,171445.2,Kharif
+Maharashtra,Kolhapur,Cotton,456.1,331.1,588.4,0.46,23608.1,89627.3,Kharif
+Maharashtra,Kolhapur,Gram,961.1,707.3,1219.7,0.96,22311.7,155081.0,Rabi
+Maharashtra,Kolhapur,Groundnut,1414.6,1000.3,1857.6,1.41,22276.7,434581.9,"Kharif, Rabi"
+Maharashtra,Kolhapur,Jowar,1211.7,830.2,1610.9,1.21,25027.5,481981.5,"Kharif, Rabi"
+Maharashtra,Kolhapur,Maize,2743.4,2215.1,3438.4,2.74,21646.5,835644.2,"Kharif, Rabi"
+Maharashtra,Kolhapur,Rice,2378.9,1845.8,3112.6,2.38,21378.0,387725.9,Kharif
+Maharashtra,Kolhapur,Soyabean,1260.2,1020.3,1580.9,1.26,28424.3,308022.4,Kharif
+Maharashtra,Kolhapur,Sugarcane,64602.3,49354.6,76971.0,64.6,22305.1,11497881.1,Whole Year
+Maharashtra,Kolhapur,Wheat,2988.0,2318.5,3859.4,2.99,22272.1,606960.6,Rabi
+Maharashtra,Nagpur,Bajra,1438.3,1048.4,1812.4,1.44,21671.8,285161.7,Kharif
+Maharashtra,Nagpur,Cotton,500.4,366.5,678.7,0.5,28034.0,111279.2,Kharif
+Maharashtra,Nagpur,Gram,969.8,647.7,1108.7,0.97,25048.0,114300.7,Rabi
+Maharashtra,Nagpur,Groundnut,1644.9,972.8,2058.1,1.64,27083.3,672549.9,"Kharif, Rabi"
+Maharashtra,Nagpur,Jowar,1180.6,812.9,1586.4,1.18,20239.3,447958.7,"Kharif, Rabi"
+Maharashtra,Nagpur,Maize,2504.4,1737.0,3185.4,2.5,27803.4,1134882.1,"Kharif, Rabi"
+Maharashtra,Nagpur,Rice,2215.6,1680.5,2690.6,2.22,23384.7,470192.9,Kharif
+Maharashtra,Nagpur,Soyabean,1236.1,985.4,1595.5,1.24,17738.9,160003.5,Kharif
+Maharashtra,Nagpur,Sugarcane,66961.1,52171.8,90044.2,66.96,30075.8,12186354.8,Whole Year
+Maharashtra,Nagpur,Wheat,3807.1,3340.7,4366.7,3.81,24715.8,654642.3,Rabi
+Maharashtra,Nashik,Bajra,1254.1,864.5,1776.0,1.25,25089.8,280168.8,Kharif
+Maharashtra,Nashik,Cotton,489.5,385.1,683.9,0.49,24722.3,111842.2,Kharif
+Maharashtra,Nashik,Gram,1026.7,746.7,1325.9,1.03,22794.0,159323.5,Rabi
+Maharashtra,Nashik,Groundnut,1417.2,1007.4,1699.4,1.42,26392.9,563231.6,"Kharif, Rabi"
+Maharashtra,Nashik,Jowar,1271.7,934.0,1666.9,1.27,21928.1,365582.6,"Kharif, Rabi"
+Maharashtra,Nashik,Maize,2596.6,1769.0,3331.7,2.6,24005.5,780004.7,"Kharif, Rabi"
+Maharashtra,Nashik,Rice,2233.0,1771.0,2549.1,2.23,26588.1,482652.0,Kharif
+Maharashtra,Nashik,Soyabean,1173.7,856.9,1650.6,1.17,19503.0,171712.1,Kharif
+Maharashtra,Nashik,Sugarcane,67114.6,52811.4,83821.7,67.11,25684.7,12473378.8,Whole Year
+Maharashtra,Nashik,Wheat,3051.5,2575.3,3594.9,3.05,9695.3,116368.6,Rabi
+Maharashtra,Pune,Bajra,1329.9,991.2,1700.1,1.33,23933.1,202907.2,Kharif
+Maharashtra,Pune,Cotton,463.2,339.8,518.9,0.46,22833.3,61976.5,Kharif
+Maharashtra,Pune,Gram,1029.2,690.4,1390.1,1.03,24901.1,171796.2,Rabi
+Maharashtra,Pune,Groundnut,1433.1,939.2,2028.9,1.43,20692.1,403938.7,"Kharif, Rabi"
+Maharashtra,Pune,Jowar,1076.7,736.6,1510.0,1.08,24210.9,414577.8,"Kharif, Rabi"
+Maharashtra,Pune,Maize,2592.5,1978.1,3080.1,2.59,22073.4,866578.4,"Kharif, Rabi"
+Maharashtra,Pune,Rice,2626.2,1860.1,2992.9,2.63,26011.8,624169.0,Kharif
+Maharashtra,Pune,Soyabean,1268.5,1039.2,1509.3,1.27,19973.1,146096.9,Kharif
+Maharashtra,Pune,Sugarcane,66001.6,51161.7,84331.7,66.0,17590.7,10532218.8,Whole Year
+Maharashtra,Pune,Wheat,2977.3,2560.0,3852.9,2.98,16408.8,409887.6,Rabi
+Punjab,Amritsar,Bajra,1324.3,896.6,1931.1,1.32,22252.2,255892.8,Kharif
+Punjab,Amritsar,Cotton,502.0,327.5,643.9,0.5,26475.8,98474.1,Kharif
+Punjab,Amritsar,Gram,1052.5,766.8,1305.6,1.05,23811.3,204796.7,Rabi
+Punjab,Amritsar,Groundnut,1394.2,914.5,2041.5,1.39,23002.9,548282.4,"Kharif, Rabi"
+Punjab,Amritsar,Jowar,1222.7,915.3,1718.5,1.22,23081.1,481699.2,"Kharif, Rabi"
+Punjab,Amritsar,Maize,2551.8,1814.7,3570.0,2.55,23388.6,998172.0,"Kharif, Rabi"
+Punjab,Amritsar,Rice,2370.8,1779.7,3057.1,2.37,27560.7,592888.0,Kharif
+Punjab,Amritsar,Soyabean,1134.2,884.2,1553.8,1.13,22471.1,215035.8,Kharif
+Punjab,Amritsar,Sugarcane,69748.2,61655.4,78021.1,69.75,20517.8,9803240.1,Whole Year
+Punjab,Amritsar,Wheat,3303.1,2891.6,4169.8,3.3,22427.6,527330.4,Rabi
+Punjab,Bathinda,Bajra,1498.3,1296.1,1681.2,1.5,21336.8,230438.5,Kharif
+Punjab,Bathinda,Cotton,440.2,305.8,571.1,0.44,28816.8,93286.7,Kharif
+Punjab,Bathinda,Gram,891.4,775.5,1057.2,0.89,25490.0,161237.7,Rabi
+Punjab,Bathinda,Groundnut,1413.7,897.0,1903.1,1.41,25541.3,616246.4,"Kharif, Rabi"
+Punjab,Bathinda,Jowar,1206.1,742.5,1609.1,1.21,26056.7,459061.4,"Kharif, Rabi"
+Punjab,Bathinda,Maize,2801.2,2162.6,3636.4,2.8,15174.0,623987.0,"Kharif, Rabi"
+Punjab,Bathinda,Rice,2433.6,1970.2,2927.4,2.43,14482.3,263889.0,Kharif
+Punjab,Bathinda,Soyabean,1265.8,951.7,1542.7,1.27,20765.9,201138.3,Kharif
+Punjab,Bathinda,Sugarcane,66097.8,53472.3,77862.2,66.1,23995.5,13785884.1,Whole Year
+Punjab,Bathinda,Wheat,3218.6,2789.4,3847.5,3.22,32585.5,742978.8,Rabi
+Punjab,Ludhiana,Bajra,1325.0,939.7,1608.8,1.33,25727.0,192157.9,Kharif
+Punjab,Ludhiana,Cotton,471.3,365.0,584.7,0.47,28417.9,93942.1,Kharif
+Punjab,Ludhiana,Gram,908.6,645.4,1246.5,0.91,17826.1,134691.8,Rabi
+Punjab,Ludhiana,Groundnut,1539.8,1053.0,2069.0,1.54,24923.3,449027.4,"Kharif, Rabi"
+Punjab,Ludhiana,Jowar,1218.2,836.2,1664.3,1.22,24791.6,535631.7,"Kharif, Rabi"
+Punjab,Ludhiana,Maize,2857.1,2185.5,3667.3,2.86,20995.3,827022.1,"Kharif, Rabi"
+Punjab,Ludhiana,Rice,2243.1,1902.2,2776.6,2.24,19584.6,371033.3,Kharif
+Punjab,Ludhiana,Soyabean,1270.1,994.0,1707.1,1.27,22877.2,268896.0,Kharif
+Punjab,Ludhiana,Sugarcane,65215.2,53459.0,87495.7,65.22,14828.6,7835796.5,Whole Year
+Punjab,Ludhiana,Wheat,3366.4,2393.7,4141.5,3.37,23340.9,554900.7,Rabi
+Punjab,Patiala,Bajra,1226.5,966.6,1586.2,1.23,21124.5,162936.5,Kharif
+Punjab,Patiala,Cotton,452.7,339.2,604.5,0.45,24089.9,99392.4,Kharif
+Punjab,Patiala,Gram,1009.0,747.2,1296.3,1.01,24838.3,198824.4,Rabi
+Punjab,Patiala,Groundnut,1443.4,1053.1,2082.4,1.44,24666.0,586480.2,"Kharif, Rabi"
+Punjab,Patiala,Jowar,1085.8,746.0,1582.8,1.09,17486.1,320608.8,"Kharif, Rabi"
+Punjab,Patiala,Maize,2869.8,1972.5,3564.4,2.87,23086.7,1060720.0,"Kharif, Rabi"
+Punjab,Patiala,Rice,2768.3,2060.7,3313.7,2.77,26842.3,537346.9,Kharif
+Punjab,Patiala,Soyabean,1220.8,952.9,1544.9,1.22,14827.5,126834.2,Kharif
+Punjab,Patiala,Sugarcane,61646.2,47614.6,74198.2,61.65,14845.6,6371662.2,Whole Year
+Punjab,Patiala,Wheat,3161.4,2500.8,3542.5,3.16,24952.5,556989.3,Rabi
+Tamil Nadu,Coimbatore,Bajra,1359.7,1019.2,1762.9,1.36,17785.6,186586.7,Kharif
+Tamil Nadu,Coimbatore,Cotton,460.9,332.8,575.0,0.46,21840.1,87681.6,Kharif
+Tamil Nadu,Coimbatore,Gram,1100.2,778.3,1408.9,1.1,23737.6,244252.5,Rabi
+Tamil Nadu,Coimbatore,Groundnut,1368.0,977.4,1819.5,1.37,22150.3,498936.1,"Kharif, Rabi"
+Tamil Nadu,Coimbatore,Jowar,1158.6,770.8,1543.9,1.16,21196.9,384929.4,"Kharif, Rabi"
+Tamil Nadu,Coimbatore,Maize,2663.1,2040.8,3646.5,2.66,24815.5,1003465.4,"Kharif, Rabi"
+Tamil Nadu,Coimbatore,Rice,2383.8,1781.4,2874.9,2.38,25404.5,511148.6,Kharif
+Tamil Nadu,Coimbatore,Soyabean,995.4,934.5,1086.0,1.0,18175.8,126564.2,Kharif
+Tamil Nadu,Coimbatore,Sugarcane,62974.8,54202.5,72569.9,62.97,29991.3,15303282.5,Whole Year
+Tamil Nadu,Coimbatore,Wheat,3389.8,2846.1,4454.7,3.39,25326.5,691925.9,Rabi
+Tamil Nadu,Erode,Bajra,1307.0,961.9,1683.9,1.31,20473.5,250117.5,Kharif
+Tamil Nadu,Erode,Cotton,457.6,383.1,600.8,0.46,21411.3,78311.7,Kharif
+Tamil Nadu,Erode,Gram,1020.9,855.0,1342.5,1.02,20306.4,164321.3,Rabi
+Tamil Nadu,Erode,Groundnut,1360.4,1039.2,1891.0,1.36,26789.4,549377.6,"Kharif, Rabi"
+Tamil Nadu,Erode,Jowar,1147.4,849.2,1579.7,1.15,19774.5,334201.1,"Kharif, Rabi"
+Tamil Nadu,Erode,Maize,2598.4,2087.9,3656.0,2.6,26587.2,1189455.8,"Kharif, Rabi"
+Tamil Nadu,Erode,Rice,2431.3,1751.1,3128.3,2.43,20625.6,420157.1,Kharif
+Tamil Nadu,Erode,Soyabean,1315.9,1095.6,1656.7,1.32,19337.0,207450.3,Kharif
+Tamil Nadu,Erode,Sugarcane,67434.3,56794.0,79661.6,67.43,16108.9,9970383.4,Whole Year
+Tamil Nadu,Erode,Wheat,3399.0,2583.7,4364.7,3.4,23309.1,686770.7,Rabi
+Tamil Nadu,Salem,Bajra,1318.2,847.0,1759.9,1.32,25253.5,289138.1,Kharif
+Tamil Nadu,Salem,Cotton,461.2,382.2,628.1,0.46,22793.9,74826.3,Kharif
+Tamil Nadu,Salem,Gram,870.7,661.7,1012.0,0.87,19658.5,135937.4,Rabi
+Tamil Nadu,Salem,Groundnut,1474.0,1072.5,1905.4,1.47,21848.7,460349.8,"Kharif, Rabi"
+Tamil Nadu,Salem,Jowar,1168.3,802.0,1596.4,1.17,18951.3,387980.2,"Kharif, Rabi"
+Tamil Nadu,Salem,Maize,2678.3,2053.4,3313.3,2.68,18518.7,677028.1,"Kharif, Rabi"
+Tamil Nadu,Salem,Rice,2686.0,1677.0,3336.0,2.69,22519.8,435489.9,Kharif
+Tamil Nadu,Salem,Soyabean,1344.5,869.3,1659.5,1.34,28833.2,198992.3,Kharif
+Tamil Nadu,Salem,Sugarcane,69239.5,59029.3,80118.1,69.24,27071.0,15193482.5,Whole Year
+Tamil Nadu,Salem,Wheat,3141.8,2619.6,4019.4,3.14,30453.5,574864.9,Rabi
+Tamil Nadu,Thanjavur,Bajra,1195.0,899.3,1566.0,1.2,24271.8,225321.6,Kharif
+Tamil Nadu,Thanjavur,Cotton,484.9,427.9,545.8,0.48,21582.8,60856.6,Kharif
+Tamil Nadu,Thanjavur,Gram,1109.0,991.7,1303.0,1.11,26390.5,206572.4,Rabi
+Tamil Nadu,Thanjavur,Groundnut,1451.6,952.3,1876.1,1.45,20247.6,402501.2,"Kharif, Rabi"
+Tamil Nadu,Thanjavur,Jowar,1212.4,812.3,1472.3,1.21,24325.9,407762.0,"Kharif, Rabi"
+Tamil Nadu,Thanjavur,Maize,2590.0,1755.5,3682.3,2.59,30760.4,1226932.4,"Kharif, Rabi"
+Tamil Nadu,Thanjavur,Rice,2514.9,2066.0,3149.1,2.51,19332.7,396062.8,Kharif
+Tamil Nadu,Thanjavur,Soyabean,1290.9,924.7,1664.7,1.29,21925.1,273121.1,Kharif
+Tamil Nadu,Thanjavur,Sugarcane,66646.4,57297.8,76493.7,66.65,17872.6,8240758.8,Whole Year
+Tamil Nadu,Thanjavur,Wheat,2903.7,2278.6,3562.6,2.9,18841.9,429909.5,Rabi
+Uttar Pradesh,Bareilly,Bajra,1361.6,888.4,1736.1,1.36,15990.6,181894.8,Kharif
+Uttar Pradesh,Bareilly,Cotton,484.8,403.3,589.4,0.48,13870.0,47576.7,Kharif
+Uttar Pradesh,Bareilly,Gram,1024.7,790.4,1231.8,1.02,29199.0,206268.1,Rabi
+Uttar Pradesh,Bareilly,Groundnut,1549.0,1077.1,2112.9,1.55,21103.7,589207.7,"Kharif, Rabi"
+Uttar Pradesh,Bareilly,Jowar,1166.0,744.4,1516.6,1.17,21198.6,402005.2,"Kharif, Rabi"
+Uttar Pradesh,Bareilly,Maize,2482.6,1940.3,2994.0,2.48,17180.8,664974.5,"Kharif, Rabi"
+Uttar Pradesh,Bareilly,Rice,2456.4,1739.6,3172.8,2.46,24741.1,536242.0,Kharif
+Uttar Pradesh,Bareilly,Soyabean,1304.4,1093.1,1676.2,1.3,23110.2,210474.5,Kharif
+Uttar Pradesh,Bareilly,Sugarcane,66365.9,55254.4,83081.2,66.37,19061.5,11199460.4,Whole Year
+Uttar Pradesh,Bareilly,Wheat,3294.6,2275.2,3991.1,3.29,28309.9,639231.6,Rabi
+Uttar Pradesh,Gorakhpur,Bajra,1202.6,920.2,1662.3,1.2,18645.0,177543.6,Kharif
+Uttar Pradesh,Gorakhpur,Cotton,494.0,394.9,648.0,0.49,18991.1,58191.9,Kharif
+Uttar Pradesh,Gorakhpur,Gram,960.9,687.3,1248.1,0.96,13970.3,104840.1,Rabi
+Uttar Pradesh,Gorakhpur,Groundnut,1416.1,1011.1,1941.6,1.42,21358.0,460531.3,"Kharif, Rabi"
+Uttar Pradesh,Gorakhpur,Jowar,1138.5,808.2,1580.3,1.14,13677.0,235459.0,"Kharif, Rabi"
+Uttar Pradesh,Gorakhpur,Maize,2690.9,1977.6,3206.2,2.69,19083.4,841550.9,"Kharif, Rabi"
+Uttar Pradesh,Gorakhpur,Rice,2214.8,1769.5,3008.2,2.21,29141.2,566126.7,Kharif
+Uttar Pradesh,Gorakhpur,Soyabean,1090.2,904.5,1270.5,1.09,26790.0,238385.3,Kharif
+Uttar Pradesh,Gorakhpur,Sugarcane,76530.6,63945.8,86138.5,76.53,17259.6,10539676.1,Whole Year
+Uttar Pradesh,Gorakhpur,Wheat,3379.6,2809.8,4503.2,3.38,21887.0,667114.3,Rabi
+Uttar Pradesh,Kanpur Dehat,Bajra,1333.4,1089.6,1694.2,1.33,21130.2,254483.4,Kharif
+Uttar Pradesh,Kanpur Dehat,Cotton,528.5,433.0,662.1,0.53,26719.9,115039.8,Kharif
+Uttar Pradesh,Kanpur Dehat,Gram,1108.3,973.2,1287.2,1.11,34109.8,190263.7,Rabi
+Uttar Pradesh,Kanpur Dehat,Groundnut,1421.3,1004.8,1979.9,1.42,21909.9,579285.4,"Kharif, Rabi"
+Uttar Pradesh,Kanpur Dehat,Jowar,1059.2,745.9,1642.3,1.06,21806.1,291986.2,"Kharif, Rabi"
+Uttar Pradesh,Kanpur Dehat,Maize,2505.6,1837.4,3733.6,2.51,24885.0,994388.9,"Kharif, Rabi"
+Uttar Pradesh,Kanpur Dehat,Rice,2573.7,1660.2,3305.4,2.57,27382.7,509264.3,Kharif
+Uttar Pradesh,Kanpur Dehat,Soyabean,1159.2,967.3,1362.6,1.16,15009.8,127795.5,Kharif
+Uttar Pradesh,Kanpur Dehat,Sugarcane,67310.9,59140.3,78739.6,67.31,20266.1,10788524.3,Whole Year
+Uttar Pradesh,Kanpur Dehat,Wheat,3372.1,2589.1,3976.1,3.37,26387.8,630676.7,Rabi
+Uttar Pradesh,Meerut,Bajra,1368.6,978.8,1692.9,1.37,24534.5,192037.2,Kharif
+Uttar Pradesh,Meerut,Cotton,484.6,382.1,588.5,0.48,19946.3,75350.3,Kharif
+Uttar Pradesh,Meerut,Gram,1019.2,610.3,1308.0,1.02,32511.9,271079.1,Rabi
+Uttar Pradesh,Meerut,Groundnut,1703.3,1136.5,2006.1,1.7,28444.4,740906.6,"Kharif, Rabi"
+Uttar Pradesh,Meerut,Jowar,1182.0,882.5,1545.0,1.18,22332.9,461685.7,"Kharif, Rabi"
+Uttar Pradesh,Meerut,Maize,2611.3,1966.8,3439.7,2.61,24091.4,734878.8,"Kharif, Rabi"
+Uttar Pradesh,Meerut,Rice,2356.9,1693.3,2988.3,2.36,21567.0,409047.9,Kharif
+Uttar Pradesh,Meerut,Soyabean,1196.2,964.6,1444.4,1.2,17303.9,162331.3,Kharif
+Uttar Pradesh,Meerut,Sugarcane,66913.3,55354.5,85532.1,66.91,18457.1,10652162.4,Whole Year
+Uttar Pradesh,Meerut,Wheat,3302.7,2624.6,4255.9,3.3,13003.8,310519.4,Rabi
+West Bengal,Bardhaman,Bajra,1272.6,933.0,1769.0,1.27,25366.6,232714.7,Kharif
+West Bengal,Bardhaman,Cotton,462.4,380.8,549.6,0.46,15882.0,48764.7,Kharif
+West Bengal,Bardhaman,Gram,1020.5,816.5,1315.6,1.02,27594.6,212979.6,Rabi
+West Bengal,Bardhaman,Groundnut,1512.8,1009.0,2129.9,1.51,24347.9,612035.8,"Kharif, Rabi"
+West Bengal,Bardhaman,Jowar,1168.7,758.4,1500.6,1.17,26336.9,540698.4,"Kharif, Rabi"
+West Bengal,Bardhaman,Maize,2687.9,2017.1,3570.3,2.69,19754.6,978427.2,"Kharif, Rabi"
+West Bengal,Bardhaman,Rice,2421.3,1818.5,3311.3,2.42,20483.1,411176.9,Kharif
+West Bengal,Bardhaman,Soyabean,1193.8,930.0,1412.8,1.19,12885.9,112273.6,Kharif
+West Bengal,Bardhaman,Sugarcane,68285.4,52722.4,77441.8,68.29,25998.9,11952778.8,Whole Year
+West Bengal,Bardhaman,Wheat,3243.8,2405.8,3784.5,3.24,23381.7,725091.7,Rabi
+West Bengal,Hooghly,Bajra,1496.0,1260.7,1806.6,1.5,27302.8,245970.4,Kharif
+West Bengal,Hooghly,Cotton,495.3,336.6,645.4,0.5,19564.9,80593.5,Kharif
+West Bengal,Hooghly,Gram,953.5,661.4,1372.5,0.95,16292.8,125119.7,Rabi
+West Bengal,Hooghly,Groundnut,1563.4,897.0,1961.1,1.56,20658.9,499057.2,"Kharif, Rabi"
+West Bengal,Hooghly,Jowar,1228.7,959.6,1611.4,1.23,22222.8,400194.4,"Kharif, Rabi"
+West Bengal,Hooghly,Maize,2844.1,1954.7,3596.0,2.84,27868.4,1360892.8,"Kharif, Rabi"
+West Bengal,Hooghly,Rice,2507.2,1947.2,3172.3,2.51,21695.0,446834.7,Kharif
+West Bengal,Hooghly,Soyabean,1195.1,908.7,1529.9,1.2,24734.0,279208.7,Kharif
+West Bengal,Hooghly,Sugarcane,68488.5,53554.5,81401.9,68.49,28327.7,12717294.8,Whole Year
+West Bengal,Hooghly,Wheat,3130.4,2296.5,4033.7,3.13,27030.2,578679.9,Rabi
+West Bengal,Murshidabad,Bajra,1353.9,895.3,1697.6,1.35,24485.6,267584.1,Kharif
+West Bengal,Murshidabad,Cotton,461.0,327.6,599.3,0.46,26372.4,108752.2,Kharif
+West Bengal,Murshidabad,Gram,1019.8,715.8,1343.5,1.02,20975.3,185295.9,Rabi
+West Bengal,Murshidabad,Groundnut,1381.7,951.1,1960.6,1.38,18068.3,260254.2,"Kharif, Rabi"
+West Bengal,Murshidabad,Jowar,1129.9,725.2,1614.7,1.13,20538.9,398825.4,"Kharif, Rabi"
+West Bengal,Murshidabad,Maize,2644.8,2010.6,3391.1,2.64,24114.0,877302.5,"Kharif, Rabi"
+West Bengal,Murshidabad,Rice,2591.2,1982.4,3146.9,2.59,30501.0,638507.6,Kharif
+West Bengal,Murshidabad,Soyabean,1426.4,1171.8,1606.5,1.43,11726.6,136819.9,Kharif
+West Bengal,Murshidabad,Sugarcane,67124.4,55903.6,78007.3,67.12,28898.6,13133524.5,Whole Year
+West Bengal,Murshidabad,Wheat,3300.4,2973.5,3978.4,3.3,19266.1,510226.0,Rabi
+West Bengal,Nadia,Bajra,1632.4,1353.3,1857.9,1.63,26034.1,384243.4,Kharif
+West Bengal,Nadia,Cotton,465.7,358.3,564.3,0.47,22497.6,81253.9,Kharif
+West Bengal,Nadia,Gram,924.5,702.9,1207.9,0.92,21608.4,151083.7,Rabi
+West Bengal,Nadia,Groundnut,1514.1,993.7,2139.3,1.51,21357.3,531920.5,"Kharif, Rabi"
+West Bengal,Nadia,Jowar,1197.8,782.8,1575.8,1.2,21007.0,299477.1,"Kharif, Rabi"
+West Bengal,Nadia,Maize,2634.5,1867.0,3262.5,2.63,19165.2,631530.1,"Kharif, Rabi"
+West Bengal,Nadia,Rice,2512.3,1861.7,3183.2,2.51,24637.8,509828.4,Kharif
+West Bengal,Nadia,Soyabean,1102.1,813.6,1480.9,1.1,13931.4,96593.8,Kharif
+West Bengal,Nadia,Sugarcane,69977.1,52093.8,83840.9,69.98,22797.2,14394016.8,Whole Year
+West Bengal,Nadia,Wheat,2964.0,2305.1,3873.7,2.96,26644.0,510307.4,Rabi
