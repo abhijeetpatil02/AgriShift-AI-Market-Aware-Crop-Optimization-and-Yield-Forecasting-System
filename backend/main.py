@@ -1,6 +1,6 @@
 """
 AgriShift FastAPI Backend Server
-Serves ML yield  predictions, price forecasting, switching cost matrices,
+Serves ML yield  predictions, price  forecasting, switching cost matrices,
 Cobweb  market feedback simulation, and MILP crop portfolio optimization.
 """
 
