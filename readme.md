@@ -1,6 +1,6 @@
 # AgriShift: AI Market-Aware Crop Optimization & Yield Forecasting System 
 
-An intelligent, agro-climatic crop recommendation system tailored for Karnataka farmers and agricultural stakeholders. The system evaluates soil health ($N, P, K, \text{pH}$), historical seasonal patterns, and real-time weather data to recommend the **Top 3 Best Compatible Crops** with probability match meters, expected yield benchmarks, and actionable agronomic advice.
+An intelligent, agro-climatic crop recommendation system tailored for Karnataka farmers and agricultural stakeholders. The system evaluates soil health ($N, P, K, \text{pH}$), historical seasonal patterns, and real-time weather data to recommend the **Top 3 Best Compatible Crops** with probability match meters, expected yield benchmarks, and actionable agronomic advice. 
 
 ---
 
