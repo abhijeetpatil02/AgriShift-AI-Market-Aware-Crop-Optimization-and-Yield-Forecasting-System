@@ -87,7 +87,7 @@ def run_training_pipeline():
     print("Training Model 1: Random Forest Classifier...")
     rf_pipeline = Pipeline([
         ('preprocessor', preprocessor),
-        ('classifier', RandomForestClassifier(n_estimators=120, max_depth=18, min_samples_split=4, random_state=42, n_jobs=-1))
+        ('classifier', RandomForestClassifier(n_estimators=140, max_depth=25, min_samples_split=2, random_state=42, n_jobs=-1))
     ])
     rf_pipeline.fit(X_train, y_train)
     
