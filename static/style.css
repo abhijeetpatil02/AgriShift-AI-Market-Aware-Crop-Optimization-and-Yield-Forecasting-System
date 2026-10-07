@@ -721,3 +721,232 @@ body {
     color: var(--text-dim);
     margin-top: 3rem;
 }
+
+/* ========================================================
+   MODEL 1 & MODEL 2 & MARKET ECONOMICS SYSTEM STYLES
+   ======================================================== */
+
+.pipeline-badges {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.9rem;
+}
+
+.tag-model {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+}
+
+.tag-m1 {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #6ee7b7;
+}
+
+.tag-m2 {
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fbbf24;
+}
+
+.tag-m3 {
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    color: #93c5fd;
+}
+
+.crop-header-row {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.model-badge-row {
+    margin-top: 0.85rem;
+    margin-bottom: 0.35rem;
+}
+
+.model-tag-chip {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.model-tag-chip.m1 {
+    background: rgba(16, 185, 129, 0.12);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.model-tag-chip.m2 {
+    background: rgba(245, 158, 11, 0.14);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.model-tag-chip.m3 {
+    background: rgba(59, 130, 246, 0.12);
+    color: #93c5fd;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+/* Model 2 Yield Forecast Card Box */
+.yield-highlight-box {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background: rgba(245, 158, 11, 0.06);
+    border: 1px solid rgba(245, 158, 11, 0.22);
+    border-radius: 12px;
+    padding: 0.75rem 0.9rem;
+    margin-bottom: 0.6rem;
+}
+
+.yield-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.yield-val {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fbbf24;
+    line-height: 1.1;
+}
+
+.yield-lbl {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.yield-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(245, 158, 11, 0.25);
+}
+
+/* Market Price & Revenue Card Box */
+.economics-card-box {
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 12px;
+    padding: 0.8rem 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.econ-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+}
+
+.econ-row strong {
+    color: var(--text-main);
+}
+
+.revenue-val {
+    color: #34d399 !important;
+    font-size: 0.92rem;
+}
+
+.highlight-profit {
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-top: 0.45rem;
+    margin-top: 0.45rem;
+}
+
+.profit-val {
+    color: #10b981 !important;
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.mandi-source {
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    margin-top: 0.35rem;
+    font-style: italic;
+}
+
+/* Economic Decision Matrix Table */
+.economic-table-card {
+    margin-top: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+.economic-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.economic-table th {
+    background: rgba(6, 18, 13, 0.8);
+    color: #6ee7b7;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.economic-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+}
+
+.economic-table tr:hover td {
+    background: rgba(16, 185, 129, 0.04);
+}
+
+.economic-table .subtext {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+}
+
+.score-badge {
+    background: rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.revenue-cell {
+    color: #34d399;
+    font-weight: 600;
+}
+
+.profit-cell {
+    color: #10b981;
+    font-weight: 800;
+    font-size: 0.98rem;
+}
+
+.input-with-hint {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.input-with-hint .subtext {
+    font-size: 0.73rem;
+    color: var(--text-dim);
+}

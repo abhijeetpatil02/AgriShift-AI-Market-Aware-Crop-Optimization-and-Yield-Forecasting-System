@@ -146,6 +146,7 @@ async function handlePrediction(e) {
     const payload = {
         district: document.getElementById('districtSelect').value,
         season: document.querySelector('input[name="season"]:checked').value,
+        farm_area: parseFloat(document.getElementById('farmAreaInput').value || 2.0),
         N: parseFloat(document.getElementById('nitrogenNum').value),
         P: parseFloat(document.getElementById('phosphorusNum').value),
         K: parseFloat(document.getElementById('potassiumNum').value),
@@ -177,20 +178,21 @@ async function handlePrediction(e) {
     } finally {
         btnPredict.disabled = false;
         spinner.classList.add('hidden');
-        btnText.textContent = '🌾 Recommend Best 3 Crops';
+        btnText.textContent = '🌾 Run Crop & Yield AI Analysis';
     }
 }
 
-// Render Top 3 Cards in the Podium
+// Render Top 3 Cards in the Podium & Decision Matrix Table
 function renderRecommendations(data) {
     const container = document.getElementById('podiumCards');
     const summary = document.getElementById('resultSummary');
     const adviceList = document.getElementById('soilAdviceList');
+    const tableBody = document.getElementById('economicTableBody');
 
-    summary.textContent = `Recommended for ${data.district} during ${data.season} season based on ${payloadNpkSummary()}`;
+    summary.textContent = `Analyzed ${data.district} for ${data.season} season across ${data.farm_area_ha} Hectares based on ${payloadNpkSummary()}`;
     container.innerHTML = '';
 
-    const rankIcons = ['🥇 #1 Best Fit', '🥈 #2 Alternative', '🥉 #3 Alternative'];
+    const rankIcons = ['🥇 #1 Top Recommendation', '🥈 #2 Viable Alternative', '🥉 #3 Viable Alternative'];
 
     data.recommendations.forEach((item, index) => {
         const card = document.createElement('div');
@@ -198,22 +200,65 @@ function renderRecommendations(data) {
 
         card.innerHTML = `
             <div class="rank-banner">${rankIcons[index]}</div>
-            <div class="crop-icon-large">${item.icon}</div>
-            <h3 class="crop-name">${item.crop}</h3>
-            <span class="crop-category-badge">${item.category}</span>
-
-            <div class="match-meter-wrap">
-                <div class="match-label-row">
-                    <span>Compatibility Match</span>
-                    <span class="score-text">${item.match_score}%</span>
-                </div>
-                <div class="match-bar-bg">
-                    <div class="match-bar-fill" style="width: ${item.match_score}%;"></div>
+            <div class="crop-header-row">
+                <div class="crop-icon-large">${item.icon}</div>
+                <div>
+                    <h3 class="crop-name">${item.crop}</h3>
+                    <span class="crop-category-badge">${item.category}</span>
                 </div>
             </div>
 
+            <!-- MODEL 1: Suitability Score -->
+            <div class="model-badge-row">
+                <span class="model-tag-chip m1">🤖 Model 1: Crop Suitability</span>
+            </div>
+            <div class="match-meter-wrap">
+                <div class="match-label-row">
+                    <span>Agronomic Compatibility</span>
+                    <span class="score-text">${item.model1_match_score}%</span>
+                </div>
+                <div class="match-bar-bg">
+                    <div class="match-bar-fill" style="width: ${item.model1_match_score}%;"></div>
+                </div>
+            </div>
+
+            <!-- MODEL 2: Machine Learning Yield Prediction -->
+            <div class="model-badge-row">
+                <span class="model-tag-chip m2">🌾 Model 2: AI Yield Forecast</span>
+            </div>
+            <div class="yield-highlight-box">
+                <div class="yield-stat">
+                    <span class="yield-val">${item.model2_predicted_yield_ha}</span>
+                    <span class="yield-lbl">Tonnes / Hectare</span>
+                </div>
+                <div class="yield-divider"></div>
+                <div class="yield-stat">
+                    <span class="yield-val">${item.total_production_tonnes} t</span>
+                    <span class="yield-lbl">Total Harvest (${data.farm_area_ha} Ha)</span>
+                </div>
+            </div>
+
+            <!-- MARKET-AWARE ECONOMICS -->
+            <div class="model-badge-row">
+                <span class="model-tag-chip m3">📈 APMC Market Economics</span>
+            </div>
+            <div class="economics-card-box">
+                <div class="econ-row">
+                    <span>Mandi Price:</span>
+                    <strong>₹${item.mandi_price_qtl.toLocaleString('en-IN')} / qtl</strong>
+                </div>
+                <div class="econ-row">
+                    <span>Gross Revenue:</span>
+                    <strong class="revenue-val">₹${item.gross_revenue_inr.toLocaleString('en-IN')}</strong>
+                </div>
+                <div class="econ-row highlight-profit">
+                    <span>Est. Net Profit:</span>
+                    <strong class="profit-val">₹${item.net_profit_inr.toLocaleString('en-IN')}</strong>
+                </div>
+                <div class="mandi-source">📍 ${item.mandi_location}</div>
+            </div>
+
             <ul class="crop-metrics-list">
-                <li><span>Expected Yield:</span> <strong>${item.expected_yield_range}</strong></li>
                 <li><span>Water Requirement:</span> <strong>${item.water_requirement}</strong></li>
                 <li><span>Growing Duration:</span> <strong>${item.duration}</strong></li>
                 <li><span>Ideal Soil:</span> <strong>${item.ideal_soil}</strong></li>
@@ -222,15 +267,35 @@ function renderRecommendations(data) {
         container.appendChild(card);
     });
 
-    // Populate Soil Advice
-    adviceList.innerHTML = '';
-    const firstCrop = data.recommendations[0];
-    if (firstCrop && firstCrop.soil_advice) {
-        firstCrop.soil_advice.forEach(tip => {
-            const li = document.createElement('li');
-            li.textContent = tip;
-            adviceList.appendChild(li);
+    // Populate Decision Matrix Table
+    if (tableBody) {
+        tableBody.innerHTML = '';
+        data.recommendations.forEach(item => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><strong>#${item.rank} ${item.icon} ${item.crop}</strong> <div class="subtext">${item.category}</div></td>
+                <td><span class="score-badge">${item.model1_match_score}%</span></td>
+                <td><strong>${item.model2_predicted_yield_ha} t/ha</strong></td>
+                <td><strong>${item.total_production_tonnes} Tonnes</strong> <div class="subtext">(${item.total_production_quintals} qtl)</div></td>
+                <td>₹${item.mandi_price_qtl.toLocaleString('en-IN')} / qtl</td>
+                <td class="revenue-cell">₹${item.gross_revenue_inr.toLocaleString('en-IN')}</td>
+                <td class="profit-cell"><strong>₹${item.net_profit_inr.toLocaleString('en-IN')}</strong></td>
+            `;
+            tableBody.appendChild(tr);
         });
+    }
+
+    // Populate Soil Advice
+    if (adviceList) {
+        adviceList.innerHTML = '';
+        const firstCrop = data.recommendations[0];
+        if (firstCrop && firstCrop.soil_advice) {
+            firstCrop.soil_advice.forEach(tip => {
+                const li = document.createElement('li');
+                li.textContent = tip;
+                adviceList.appendChild(li);
+            });
+        }
     }
 }
 
@@ -239,5 +304,5 @@ function payloadNpkSummary() {
     const p = document.getElementById('phosphorusNum').value;
     const k = document.getElementById('potassiumNum').value;
     const ph = document.getElementById('phNum').value;
-    return `N:${n}, P:${p}, K:${k}, pH:${ph}`;
+    return `Soil N:${n}, P:${p}, K:${k}, pH:${ph}`;
 }
