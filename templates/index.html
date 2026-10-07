@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgriShift — AI Crop Recommendation System</title>
-    <!-- Google Fonts -->
+    <!-- Google Fonts  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
 </head>
+
 <body>
     <!-- Top Navigation Header -->
     <header class="app-header">
@@ -35,7 +39,8 @@
         <!-- Hero Intro -->
         <section class="hero-section">
             <h2>Recommend the <span class="highlight-text">Top 3 Best Crops</span> For Your Soil & Land</h2>
-            <p>Select your Karnataka district and season to auto-fetch soil health and live weather, or customize the parameters manually to receive your personalized crop recommendations.</p>
+            <p>Select your Karnataka district and season to auto-fetch soil health and live weather, or customize the
+                parameters manually to receive your personalized crop recommendations.</p>
         </section>
 
         <!-- Quick District Presets -->
@@ -43,9 +48,11 @@
             <span class="preset-label">Quick Presets:</span>
             <button class="preset-chip" onclick="applyPreset('DHARWAD', 'Kharif')">📍 Dharwad (Kharif)</button>
             <button class="preset-chip" onclick="applyPreset('BELAGAVI', 'Rabi')">📍 Belagavi (Rabi)</button>
-            <button class="preset-chip" onclick="applyPreset('MANDYA', 'Kharif')">📍 Mandya (Sugarcane/Paddy Zone)</button>
+            <button class="preset-chip" onclick="applyPreset('MANDYA', 'Kharif')">📍 Mandya (Sugarcane/Paddy
+                Zone)</button>
             <button class="preset-chip" onclick="applyPreset('UDUPI', 'Kharif')">📍 Udupi (Coastal Wet)</button>
-            <button class="preset-chip" onclick="applyPreset('VIJAYAPURA', 'Rabi')">📍 Vijayapura (Dry Jowar Zone)</button>
+            <button class="preset-chip" onclick="applyPreset('VIJAYAPURA', 'Rabi')">📍 Vijayapura (Dry Jowar
+                Zone)</button>
         </div>
 
         <!-- Input Form Grid -->
@@ -60,7 +67,7 @@
                     <label for="districtSelect">District in Karnataka</label>
                     <select id="districtSelect" name="district" class="form-control" required>
                         {% for d in districts %}
-                            <option value="{{ d }}" {% if d == 'DHARWAD' %}selected{% endif %}>{{ d }}</option>
+                        <option value="{{ d }}" {% if d=='DHARWAD' %}selected{% endif %}>{{ d }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -90,7 +97,8 @@
                 <div class="form-group">
                     <label for="farmAreaInput">Farm Land Size <span class="unit-tag">Hectares</span></label>
                     <div class="input-with-hint">
-                        <input type="number" id="farmAreaInput" name="farm_area" class="form-control" min="0.1" max="100" step="0.1" value="2.0" required>
+                        <input type="number" id="farmAreaInput" name="farm_area" class="form-control" min="0.1"
+                            max="100" step="0.1" value="2.0" required>
                         <span class="subtext">💡 1 Hectare ≈ 2.47 Acres</span>
                     </div>
                 </div>
@@ -129,7 +137,8 @@
                 <div class="slider-group">
                     <div class="slider-label-row">
                         <label for="phosphorusRange">Phosphorus (P) <span class="unit-tag">kg/ha</span></label>
-                        <input type="number" id="phosphorusNum" class="num-box" min="0" max="150" step="any" value="58.2">
+                        <input type="number" id="phosphorusNum" class="num-box" min="0" max="150" step="any"
+                            value="58.2">
                     </div>
                     <input type="range" id="phosphorusRange" min="0" max="150" step="0.1" value="58.2" class="slider">
                 </div>
@@ -138,7 +147,8 @@
                 <div class="slider-group">
                     <div class="slider-label-row">
                         <label for="potassiumRange">Potassium (K) <span class="unit-tag">kg/ha</span></label>
-                        <input type="number" id="potassiumNum" class="num-box" min="0" max="150" step="any" value="62.4">
+                        <input type="number" id="potassiumNum" class="num-box" min="0" max="150" step="any"
+                            value="62.4">
                     </div>
                     <input type="range" id="potassiumRange" min="0" max="150" step="0.1" value="62.4" class="slider">
                 </div>
@@ -250,7 +260,8 @@
                 </div>
                 <div class="guidance-card">
                     <h4>💧 Water & Irrigation Blueprint</h4>
-                    <p id="waterGuidanceText" class="guidance-p">Based on your climate profile, ensure proper drainage during heavy showers and drip irrigation during drier cycles.</p>
+                    <p id="waterGuidanceText" class="guidance-p">Based on your climate profile, ensure proper drainage
+                        during heavy showers and drip irrigation during drier cycles.</p>
                 </div>
             </div>
         </section>
@@ -263,4 +274,5 @@
 
     <script src="/static/script.js"></script>
 </body>
+
 </html>
