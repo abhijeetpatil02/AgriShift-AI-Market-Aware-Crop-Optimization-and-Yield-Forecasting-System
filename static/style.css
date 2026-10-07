@@ -5,18 +5,18 @@
     --bg-card-hover: rgba(18, 50, 37, 0.85);
     --border-color: rgba(52, 211, 153, 0.2);
     --border-highlight: rgba(52, 211, 153, 0.5);
-    
+
     --primary-green: #10b981;
     --primary-glow: rgba(16, 185, 129, 0.35);
     --accent-gold: #f59e0b;
     --accent-gold-glow: rgba(245, 158, 11, 0.3);
     --accent-silver: #94a3b8;
     --accent-bronze: #d97706;
-    
+
     --text-main: #f1f5f9;
     --text-muted: #94a3b8;
     --text-dim: #64748b;
-    
+
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
 }
@@ -117,9 +117,20 @@ body {
 }
 
 @keyframes pulse {
-    0% { transform: scale(0.95); opacity: 0.8; }
-    50% { transform: scale(1.25); opacity: 1; }
-    100% { transform: scale(0.95); opacity: 0.8; }
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.25);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
 }
 
 /* Main Container */
@@ -311,7 +322,7 @@ body {
     transition: all 0.2s;
 }
 
-.season-pill input:checked + span {
+.season-pill input:checked+span {
     background: rgba(16, 185, 129, 0.25);
     border-color: var(--primary-green);
     color: #6ee7b7;
@@ -472,8 +483,13 @@ body {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Results Section */
@@ -483,8 +499,15 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .section-title-wrap {
