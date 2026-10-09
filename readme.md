@@ -4,7 +4,7 @@ An intelligent, agro-climatic crop recommendation system tailored for Karnataka 
 
 ---
 
-## 🌾 System Architecture & 10-Step Workflow
+## 🌾 System Architecture & 10-Step Workflow 
 
 ```mermaid
 flowchart TD
