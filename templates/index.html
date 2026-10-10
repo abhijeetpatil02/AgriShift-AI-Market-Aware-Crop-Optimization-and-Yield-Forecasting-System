@@ -21,14 +21,29 @@
             <div class="brand">
                 <span class="brand-icon">🌱</span>
                 <div>
-                    <h1>AgriShift <span class="badge-ai">AI Advisor</span></h1>
-                    <p class="tagline">Market-Aware & Soil-Specific Crop Optimization System</p>
+                    <h1><span data-i18n="brand_name">AgriShift</span> <span class="badge-ai" data-i18n="brand_badge">AI Advisor</span></h1>
+                    <p class="tagline" data-i18n="brand_tagline">Market-Aware & Soil-Specific Crop Optimization System</p>
                 </div>
             </div>
-            <div class="header-status">
-                <div class="status-indicator">
-                    <span class="status-dot"></span>
-                    <span class="status-text">WeatherAPI & Karnataka Soil Model Active</span>
+            
+            <div class="header-actions">
+                <!-- Multi-Language Selector Toggle -->
+                <div class="lang-switch-wrapper">
+                    <div class="lang-toggle" role="group" aria-label="Language Selector">
+                        <button type="button" class="lang-btn active" id="langBtnEn" onclick="switchLanguage('en')">
+                            <span>🇬🇧 English</span>
+                        </button>
+                        <button type="button" class="lang-btn" id="langBtnKn" onclick="switchLanguage('kn')">
+                            <span>🇮🇳 ಕನ್ನಡ</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="header-status">
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text" data-i18n="header_status">WeatherAPI & Karnataka Soil Model Active</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -38,21 +53,23 @@
     <main class="main-container">
         <!-- Hero Intro -->
         <section class="hero-section">
-            <h2>Recommend the <span class="highlight-text">Top 3 Best Crops</span> For Your Soil & Land</h2>
-            <p>Select your Karnataka district and season to auto-fetch soil health and live weather, or customize the
+            <h2>
+                <span data-i18n="hero_title_prefix">Recommend the</span>
+                <span class="highlight-text" data-i18n="hero_title_highlight">Top 3 Best Crops</span>
+                <span data-i18n="hero_title_suffix">For Your Soil & Land</span>
+            </h2>
+            <p data-i18n="hero_desc">Select your Karnataka district and season to auto-fetch soil health and live weather, or customize the
                 parameters manually to receive your personalized crop recommendations.</p>
         </section>
 
         <!-- Quick District Presets -->
         <div class="preset-bar">
-            <span class="preset-label">Quick Presets:</span>
-            <button class="preset-chip" onclick="applyPreset('DHARWAD', 'Kharif')">📍 Dharwad (Kharif)</button>
-            <button class="preset-chip" onclick="applyPreset('BELAGAVI', 'Rabi')">📍 Belagavi (Rabi)</button>
-            <button class="preset-chip" onclick="applyPreset('MANDYA', 'Kharif')">📍 Mandya (Sugarcane/Paddy
-                Zone)</button>
-            <button class="preset-chip" onclick="applyPreset('UDUPI', 'Kharif')">📍 Udupi (Coastal Wet)</button>
-            <button class="preset-chip" onclick="applyPreset('VIJAYAPURA', 'Rabi')">📍 Vijayapura (Dry Jowar
-                Zone)</button>
+            <span class="preset-label" data-i18n="preset_label">Quick Presets:</span>
+            <button class="preset-chip" onclick="applyPreset('DHARWAD', 'Kharif')" data-i18n="preset_dharwad">📍 Dharwad (Kharif)</button>
+            <button class="preset-chip" onclick="applyPreset('BELAGAVI', 'Rabi')" data-i18n="preset_belagavi">📍 Belagavi (Rabi)</button>
+            <button class="preset-chip" onclick="applyPreset('MANDYA', 'Kharif')" data-i18n="preset_mandya">📍 Mandya (Sugarcane/Paddy Zone)</button>
+            <button class="preset-chip" onclick="applyPreset('UDUPI', 'Kharif')" data-i18n="preset_udupi">📍 Udupi (Coastal Wet)</button>
+            <button class="preset-chip" onclick="applyPreset('VIJAYAPURA', 'Rabi')" data-i18n="preset_vijayapura">📍 Vijayapura (Dry Jowar Zone)</button>
         </div>
 
         <!-- Input Form Grid -->
@@ -60,11 +77,11 @@
             <!-- Panel 1: Location & Season -->
             <div class="glass-card">
                 <div class="card-header">
-                    <span class="card-badge">Step 1</span>
-                    <h3>Location & Season</h3>
+                    <span class="card-badge" data-i18n="step1_badge">Step 1</span>
+                    <h3 data-i18n="step1_title">Location & Season</h3>
                 </div>
                 <div class="form-group">
-                    <label for="districtSelect">District in Karnataka</label>
+                    <label for="districtSelect" data-i18n="label_district">District in Karnataka</label>
                     <select id="districtSelect" name="district" class="form-control" required>
                         {% for d in districts %}
                         <option value="{{ d }}" {% if d=='DHARWAD' %}selected{% endif %}>{{ d }}</option>
@@ -73,38 +90,41 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Farming Season</label>
+                    <label data-i18n="label_season">Farming Season</label>
                     <div class="season-selector">
                         <label class="season-pill">
                             <input type="radio" name="season" value="Kharif" checked>
-                            <span>🌧️ Kharif (Monsoon)</span>
+                            <span data-i18n="season_kharif">🌧️ Kharif (Monsoon)</span>
                         </label>
                         <label class="season-pill">
                             <input type="radio" name="season" value="Rabi">
-                            <span>❄️ Rabi (Winter)</span>
+                            <span data-i18n="season_rabi">❄️ Rabi (Winter)</span>
                         </label>
                         <label class="season-pill">
                             <input type="radio" name="season" value="Summer">
-                            <span>☀️ Summer</span>
+                            <span data-i18n="season_summer">☀️ Summer</span>
                         </label>
                         <label class="season-pill">
                             <input type="radio" name="season" value="Whole Year">
-                            <span>📅 Whole Year</span>
+                            <span data-i18n="season_whole_year">📅 Whole Year</span>
                         </label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="farmAreaInput">Farm Land Size <span class="unit-tag">Hectares</span></label>
+                    <label for="farmAreaInput">
+                        <span data-i18n="label_farm_area">Farm Land Size</span> 
+                        <span class="unit-tag" data-i18n="unit_hectares">Hectares</span>
+                    </label>
                     <div class="input-with-hint">
                         <input type="number" id="farmAreaInput" name="farm_area" class="form-control" min="0.1"
                             max="100" step="0.1" value="2.0" required>
-                        <span class="subtext">💡 1 Hectare ≈ 2.47 Acres</span>
+                        <span class="subtext" data-i18n="area_hint">💡 1 Hectare ≈ 2.47 Acres</span>
                     </div>
                 </div>
 
                 <button type="button" id="btnAutoFetch" class="btn-secondary" onclick="fetchLiveWeatherAndSoil()">
-                    <span class="btn-icon">⚡</span> Auto-Fetch Live Weather & Soil
+                    <span class="btn-icon">⚡</span> <span id="btnAutoFetchText" data-i18n="btn_autofetch">Auto-Fetch Live Weather & Soil</span>
                 </button>
                 <div id="liveWeatherStatus" class="weather-status-box hidden">
                     <div class="weather-status-header">
@@ -120,14 +140,14 @@
             <!-- Panel 2: Soil Nutrients -->
             <div class="glass-card">
                 <div class="card-header">
-                    <span class="card-badge">Step 2</span>
-                    <h3>Soil Nutrients & pH</h3>
+                    <span class="card-badge" data-i18n="step2_badge">Step 2</span>
+                    <h3 data-i18n="step2_title">Soil Nutrients & pH</h3>
                 </div>
 
                 <!-- Nitrogen -->
                 <div class="slider-group">
                     <div class="slider-label-row">
-                        <label for="nitrogenRange">Nitrogen (N) <span class="unit-tag">kg/ha</span></label>
+                        <label for="nitrogenRange"><span data-i18n="label_nitrogen">Nitrogen (N)</span> <span class="unit-tag" data-i18n="unit_kgha">kg/ha</span></label>
                         <input type="number" id="nitrogenNum" class="num-box" min="0" max="150" step="any" value="25.5">
                     </div>
                     <input type="range" id="nitrogenRange" min="0" max="150" step="0.1" value="25.5" class="slider">
@@ -136,7 +156,7 @@
                 <!-- Phosphorus -->
                 <div class="slider-group">
                     <div class="slider-label-row">
-                        <label for="phosphorusRange">Phosphorus (P) <span class="unit-tag">kg/ha</span></label>
+                        <label for="phosphorusRange"><span data-i18n="label_phosphorus">Phosphorus (P)</span> <span class="unit-tag" data-i18n="unit_kgha">kg/ha</span></label>
                         <input type="number" id="phosphorusNum" class="num-box" min="0" max="150" step="any"
                             value="58.2">
                     </div>
@@ -146,7 +166,7 @@
                 <!-- Potassium -->
                 <div class="slider-group">
                     <div class="slider-label-row">
-                        <label for="potassiumRange">Potassium (K) <span class="unit-tag">kg/ha</span></label>
+                        <label for="potassiumRange"><span data-i18n="label_potassium">Potassium (K)</span> <span class="unit-tag" data-i18n="unit_kgha">kg/ha</span></label>
                         <input type="number" id="potassiumNum" class="num-box" min="0" max="150" step="any"
                             value="62.4">
                     </div>
@@ -156,7 +176,7 @@
                 <!-- pH -->
                 <div class="slider-group">
                     <div class="slider-label-row">
-                        <label for="phRange">Soil pH Level <span class="unit-tag">3.5 - 9.5</span></label>
+                        <label for="phRange"><span data-i18n="label_ph">Soil pH Level</span> <span class="unit-tag">3.5 - 9.5</span></label>
                         <input type="number" id="phNum" class="num-box" min="3.5" max="9.5" step="any" value="7.1">
                     </div>
                     <input type="range" id="phRange" min="3.5" max="9.5" step="0.05" value="7.1" class="slider">
@@ -166,14 +186,14 @@
             <!-- Panel 3: Climate & Weather -->
             <div class="glass-card">
                 <div class="card-header">
-                    <span class="card-badge">Step 3</span>
-                    <h3>Climate & Weather</h3>
+                    <span class="card-badge" data-i18n="step3_badge">Step 3</span>
+                    <h3 data-i18n="step3_title">Climate & Weather</h3>
                 </div>
 
                 <!-- Temperature -->
                 <div class="slider-group">
                     <div class="slider-label-row">
-                        <label for="tempRange">Average Temperature <span class="unit-tag">°C</span></label>
+                        <label for="tempRange"><span data-i18n="label_temperature">Average Temperature</span> <span class="unit-tag" data-i18n="unit_celsius">°C</span></label>
                         <input type="number" id="tempNum" class="num-box" min="5" max="50" step="any" value="26.5">
                     </div>
                     <input type="range" id="tempRange" min="5" max="50" step="0.1" value="26.5" class="slider">
@@ -182,7 +202,7 @@
                 <!-- Humidity -->
                 <div class="slider-group">
                     <div class="slider-label-row">
-                        <label for="humidityRange">Relative Humidity <span class="unit-tag">%</span></label>
+                        <label for="humidityRange"><span data-i18n="label_humidity">Relative Humidity</span> <span class="unit-tag" data-i18n="unit_percent">%</span></label>
                         <input type="number" id="humidityNum" class="num-box" min="10" max="100" step="any" value="72">
                     </div>
                     <input type="range" id="humidityRange" min="10" max="100" step="1" value="72" class="slider">
@@ -191,7 +211,7 @@
                 <!-- Rainfall -->
                 <div class="slider-group">
                     <div class="slider-label-row">
-                        <label for="rainfallRange">Seasonal Rainfall <span class="unit-tag">mm</span></label>
+                        <label for="rainfallRange"><span data-i18n="label_rainfall">Seasonal Rainfall</span> <span class="unit-tag" data-i18n="unit_mm">mm</span></label>
                         <input type="number" id="rainfallNum" class="num-box" min="0" max="4500" step="any" value="550">
                     </div>
                     <input type="range" id="rainfallRange" min="0" max="4500" step="1" value="550" class="slider">
@@ -200,7 +220,7 @@
                 <!-- Submit CTA Button -->
                 <div class="action-wrap">
                     <button type="submit" id="btnPredict" class="btn-primary">
-                        <span class="btn-text">🌾 Run Crop & Yield AI Analysis</span>
+                        <span class="btn-text" data-i18n="btn_predict">🌾 Run Crop & Yield AI Analysis</span>
                         <div class="spinner hidden" id="loadingSpinner"></div>
                     </button>
                 </div>
@@ -211,11 +231,11 @@
         <section id="resultsSection" class="results-section hidden">
             <div class="section-title-wrap">
                 <div class="pipeline-badges">
-                    <span class="tag-model tag-m1">🤖 Model 1: Crop Suitability</span>
-                    <span class="tag-model tag-m2">🌾 Model 2: Yield Forecast (XGBoost R²=0.94)</span>
-                    <span class="tag-model tag-m3">📈 APMC Mandi Market Economics</span>
+                    <span class="tag-model tag-m1" data-i18n="badge_model1">🤖 Model 1: Crop Suitability</span>
+                    <span class="tag-model tag-m2" data-i18n="badge_model2">🌾 Model 2: Yield Forecast (XGBoost R²=0.94)</span>
+                    <span class="tag-model tag-m3" data-i18n="badge_model3">📈 APMC Mandi Market Economics</span>
                 </div>
-                <h2 id="resultHeading">Top 3 Recommended Crops & Yield Forecasts</h2>
+                <h2 id="resultHeading" data-i18n="results_heading">Top 3 Recommended Crops & Yield Forecasts</h2>
                 <p id="resultSummary" class="result-summary-text"></p>
             </div>
 
@@ -227,20 +247,20 @@
             <!-- Economic Decision Matrix Table -->
             <div class="glass-card economic-table-card">
                 <div class="card-header">
-                    <span class="card-badge">Decision Matrix</span>
-                    <h3>💰 Side-by-Side Harvest & Revenue Comparison</h3>
+                    <span class="card-badge" data-i18n="matrix_badge">Decision Matrix</span>
+                    <h3 data-i18n="matrix_title">💰 Side-by-Side Harvest & Revenue Comparison</h3>
                 </div>
                 <div class="table-responsive">
                     <table class="economic-table" id="economicTable">
                         <thead>
                             <tr>
-                                <th>Rank & Crop</th>
-                                <th>Model 1 Match</th>
-                                <th>Model 2 Yield (t/ha)</th>
-                                <th>Total Harvest</th>
-                                <th>Mandi Rate (₹/qtl)</th>
-                                <th>Gross Revenue (₹)</th>
-                                <th>Est. Net Profit (₹)</th>
+                                <th data-i18n="th_rank_crop">Rank & Crop</th>
+                                <th data-i18n="th_match">Model 1 Match</th>
+                                <th data-i18n="th_yield">Model 2 Yield (t/ha)</th>
+                                <th data-i18n="th_total_harvest">Total Harvest</th>
+                                <th data-i18n="th_mandi_rate">Mandi Rate (₹/qtl)</th>
+                                <th data-i18n="th_gross_rev">Gross Revenue (₹)</th>
+                                <th data-i18n="th_net_profit">Est. Net Profit (₹)</th>
                             </tr>
                         </thead>
                         <tbody id="economicTableBody">
@@ -253,14 +273,14 @@
             <!-- Deep Comparison & Soil Guidance -->
             <div class="guidance-grid">
                 <div class="guidance-card">
-                    <h4>🧪 Soil Health & Fertilizer Advice</h4>
+                    <h4 data-i18n="guidance_soil_title">🧪 Soil Health & Fertilizer Advice</h4>
                     <ul id="soilAdviceList" class="advice-list">
                         <!-- Injected -->
                     </ul>
                 </div>
                 <div class="guidance-card">
-                    <h4>💧 Water & Irrigation Blueprint</h4>
-                    <p id="waterGuidanceText" class="guidance-p">Based on your climate profile, ensure proper drainage
+                    <h4 data-i18n="guidance_water_title">💧 Water & Irrigation Blueprint</h4>
+                    <p id="waterGuidanceText" class="guidance-p" data-i18n="guidance_water_text">Based on your climate profile, ensure proper drainage
                         during heavy showers and drip irrigation during drier cycles.</p>
                 </div>
             </div>
@@ -269,9 +289,11 @@
 
     <!-- Footer -->
     <footer class="app-footer">
-        <p>AgriShift AI Crop Recommendation System • Trained on Karnataka Agricultural Records & Soil Data</p>
+        <p data-i18n="footer_text">AgriShift AI Crop Recommendation System • Trained on Karnataka Agricultural Records & Soil Data</p>
     </footer>
 
+    <!-- Translations & Application Scripts -->
+    <script src="/static/translations.js"></script>
     <script src="/static/script.js"></script>
 </body>
 
