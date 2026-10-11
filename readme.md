@@ -59,13 +59,34 @@ http://127.0.0.1:5000
 
 ## 🎯 Key Features
 
-1. **Top 3 Ranked Recommendations**:
+1. **Farmer Authentication & Separation of Concerns**:
+   - Clean, professional login and signup system (`/login`, `/signup`) tailored specifically for farmers and agricultural professionals.
+   - Strict separation between account security (credentials, user role, preferred language) and farm soil/crop data (configured independently in the dashboard).
+   - MySQL database integration (via `PyMySQL`) with automatic schema initialization and resilient SQLite fallback.
+2. **Top 3 Ranked Recommendations**:
    - 🥇 **#1 Primary Crop**: Highest compatibility score with expected yield in Tonnes/Hectare.
    - 🥈 **#2 Alternative Crop**: Viable backup option with comparative advantages.
    - 🥉 **#3 Alternative Crop**: Diversification option for crop rotation or risk mitigation.
-2. **Auto-Fill from District Soil & Weather**:
+3. **Saved Prediction History**:
+   - Farmers can save their seasonal ML recommendations and APMC Mandi revenue forecasts directly to their account history (`/api/history`).
+4. **Auto-Fill from District Soil & Weather**:
    - Selecting a Karnataka district automatically fetches live weather (via WeatherAPI) and pre-populates typical local soil nutrient levels.
-3. **Manual Customization**:
-   - Interactive sliders allow farmers to input exact laboratory soil test results ($N, P, K, \text{pH}$).
-4. **Fertilizer & Soil Conditioning Tips**:
+5. **Multi-Language Advisory**:
+   - Bilingually localized in English and ಕನ್ನಡ (Kannada) with seamless language selection.
+6. **Fertilizer & Soil Conditioning Tips**:
    - Provides targeted guidance on nutrient deficiencies (e.g., lime for acidic soils, urea top-dressing for low nitrogen).
+
+---
+
+## 🔐 MySQL Configuration
+
+AgriShift connects to MySQL automatically. To specify your local MySQL credentials, create a `.env` file or export environment variables:
+```bash
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=your_password
+DB_NAME=agrishift_db
+SECRET_KEY=your_secret_key
+```
+*(If MySQL credentials are not yet supplied, AgriShift automatically uses an integrated SQLite database fallback so development and testing never stall.)*

@@ -274,6 +274,18 @@ function renderRecommendations(data) {
     const tableBody = document.getElementById('economicTableBody');
     const heading = document.getElementById('resultHeading');
 
+    // Update Save button status
+    const saveBtn = document.getElementById('btnSaveHistory');
+    if (saveBtn) {
+        if (data.saved_to_history) {
+            saveBtn.classList.add('saved');
+            saveBtn.innerHTML = '<span>✅</span> <span>Saved to MySQL History</span>';
+        } else {
+            saveBtn.classList.remove('saved');
+            saveBtn.innerHTML = '<span>💾</span> <span>Save to My History</span>';
+        }
+    }
+
     if (heading) {
         heading.textContent = dict.results_heading;
     }
@@ -435,3 +447,281 @@ function payloadNpkSummary() {
     }
     return `Soil N:${n}, P:${p}, K:${k}, pH:${ph}`;
 }
+
+// ----------------- Prediction History & Session Controls -----------------
+
+// Toggle Prediction History Drawer
+function toggleHistoryDrawer() {
+    const overlay = document.getElementById('historyOverlay');
+    const drawer = document.getElementById('historyDrawer');
+    if (!drawer) return;
+    const isActive = drawer.classList.contains('active');
+    if (isActive) {
+        drawer.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+    } else {
+        drawer.classList.add('active');
+        if (overlay) overlay.classList.add('active');
+        fetchPredictionHistory();
+    }
+}
+
+// Fetch user prediction history from backend
+async function fetchPredictionHistory() {
+    const loading = document.getElementById('historyLoading');
+    const list = document.getElementById('historyItemsList');
+    const empty = document.getElementById('historyEmpty');
+    if (!list) return;
+
+    list.innerHTML = '';
+    if (loading) loading.style.display = 'block';
+    if (empty) empty.style.display = 'none';
+
+    try {
+        const res = await fetch('/api/history');
+        if (res.status === 401) {
+            if (loading) loading.style.display = 'none';
+            list.innerHTML = '<div style="padding:1rem;color:#fca5a5;text-align:center;">Please <a href="/login" style="color:#34d399;font-weight:bold;">sign in</a> to view your prediction history.</div>';
+            return;
+        }
+        const data = await res.json();
+        if (loading) loading.style.display = 'none';
+
+        if (data.success && data.records && data.records.length > 0) {
+            list.innerHTML = data.records.map(rec => {
+                const cropsList = [
+                    { rank: '🥇 #1', name: rec.top_crop_1, yield: rec.crop1_yield || rec.predicted_yield, rev: rec.crop1_revenue || rec.estimated_revenue },
+                    { rank: '🥈 #2', name: rec.top_crop_2, yield: rec.crop2_yield, rev: rec.crop2_revenue },
+                    { rank: '🥉 #3', name: rec.top_crop_3, yield: rec.crop3_yield, rev: rec.crop3_revenue }
+                ].filter(c => c.name);
+
+                const cropsHtml = cropsList.map(c => `
+                    <div class="history-crop-box">
+                        <div class="crop-rank-name">${c.rank} <strong>${c.name}</strong></div>
+                        <div class="crop-metrics-pair">
+                            <span>Yield: <strong>${c.yield ? c.yield + ' t/ha' : 'N/A'}</strong></span>
+                            <span class="crop-rev">Rev: <strong>₹${c.rev ? Number(c.rev).toLocaleString('en-IN') : 'N/A'}</strong></span>
+                        </div>
+                    </div>
+                `).join('');
+
+                const dateStr = rec.created_at ? new Date(rec.created_at).toLocaleDateString(undefined, {
+                    month: 'short', day: 'numeric', year: 'numeric'
+                }) : 'Recent';
+
+                return `
+                    <div class="history-card-item" id="history-item-${rec.id}">
+                        <button class="btn-del-history" onclick="deleteHistoryRecord(${rec.id})" title="Delete record">&times;</button>
+                        <div class="history-card-top">
+                            <span class="history-dist-badge">📍 ${rec.district} (${rec.season})</span>
+                            <span class="history-date">${dateStr} • Land: ${rec.farm_area_ha} Ha</span>
+                        </div>
+                        <div class="history-3crops-grid">${cropsHtml}</div>
+                    </div>
+                `;
+            }).join('');
+        } else {
+            if (empty) empty.style.display = 'block';
+        }
+    } catch (e) {
+        if (loading) loading.style.display = 'none';
+        list.innerHTML = `<div style="padding:1rem;color:#fca5a5;text-align:center;">Failed to load history: ${e.message}</div>`;
+    }
+}
+
+// Delete history record
+async function deleteHistoryRecord(id) {
+    if (!confirm('Are you sure you want to delete this prediction record?')) return;
+    try {
+        const res = await fetch(`/api/history/${id}`, { method: 'DELETE' });
+        const data = await res.json();
+        if (data.success) {
+            const el = document.getElementById(`history-item-${id}`);
+            if (el) el.remove();
+            const list = document.getElementById('historyItemsList');
+            if (list && list.children.length === 0) {
+                const empty = document.getElementById('historyEmpty');
+                if (empty) empty.style.display = 'block';
+            }
+        }
+    } catch (e) {
+        alert('Failed to delete history record: ' + e.message);
+    }
+}
+
+// Save current prediction to history
+async function saveCurrentPrediction() {
+    if (!lastPredictionData) {
+        alert('Please run a crop prediction first.');
+        return;
+    }
+    const btn = document.getElementById('btnSaveHistory');
+    if (!btn) return;
+
+    btn.disabled = true;
+    btn.innerHTML = '<span>⏳</span> <span>Saving...</span>';
+
+    const payload = {
+        district: lastPredictionData.district || document.getElementById('districtSelect').value,
+        season: lastPredictionData.season || document.querySelector('input[name="season"]:checked').value,
+        farm_area_ha: parseFloat(lastPredictionData.farm_area_ha || document.getElementById('farmAreaInput').value || 1.0),
+        nitrogen: parseFloat(document.getElementById('nitrogenNum').value),
+        phosphorus: parseFloat(document.getElementById('phosphorusNum').value),
+        potassium: parseFloat(document.getElementById('potassiumNum').value),
+        ph: parseFloat(document.getElementById('phNum').value),
+        temperature: parseFloat(document.getElementById('tempNum').value),
+        humidity: parseFloat(document.getElementById('humidityNum').value),
+        rainfall: parseFloat(document.getElementById('rainfallNum').value),
+        top_crops: lastPredictionData.recommendations || []
+    };
+
+    try {
+        const res = await fetch('/api/history/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        if (res.status === 401) {
+            alert('Please sign in or create an account to save predictions.');
+            window.location.href = '/login';
+            return;
+        }
+        const data = await res.json();
+        if (data.success) {
+            btn.classList.add('saved');
+            btn.innerHTML = '<span>✅</span> <span>Saved to History</span>';
+        } else {
+            btn.disabled = false;
+            btn.innerHTML = '<span>💾</span> <span>Save to My History</span>';
+            alert('Could not save prediction: ' + (data.error || 'Server error'));
+        }
+    } catch (e) {
+        btn.disabled = false;
+        btn.innerHTML = '<span>💾</span> <span>Save to My History</span>';
+        alert('Failed to save prediction: ' + e.message);
+    }
+}
+
+// Toggle Farm Profile Modal
+function toggleFarmProfileModal() {
+    const modal = document.getElementById('farmProfileModal');
+    if (!modal) return;
+    modal.classList.toggle('active');
+    const alertBox = document.getElementById('farmProfileAlert');
+    if (alertBox) alertBox.style.display = 'none';
+}
+
+// Save Farm Profile to MySQL
+async function handleSaveFarmProfile(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btnSaveFarmProfile');
+    const alertBox = document.getElementById('farmProfileAlert');
+    const landArea = parseFloat(document.getElementById('profileLandArea').value);
+    const landUnit = document.getElementById('profileLandUnit').value;
+    const soilType = document.getElementById('profileSoilType').value;
+    const irrigation = document.getElementById('profileIrrigation').value;
+
+    if (isNaN(landArea) || landArea <= 0) {
+        alert('Please enter a valid land area size.');
+        return false;
+    }
+
+    if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Saving to MySQL...';
+    }
+
+    try {
+        const res = await fetch('/api/farm-profile', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                land_area: landArea,
+                land_unit: landUnit,
+                primary_soil_type: soilType,
+                irrigation_source: irrigation
+            })
+        });
+
+        const data = await res.json();
+        if (data.success) {
+            if (alertBox) {
+                alertBox.className = 'modal-msg success';
+                alertBox.style.display = 'block';
+                alertBox.textContent = '✅ Farm profile saved successfully to MySQL database!';
+            }
+            // Auto sync to main dashboard input
+            const mainArea = document.getElementById('farmAreaInput');
+            if (mainArea) {
+                const inHa = landUnit === 'Acres' ? (landArea / 2.471).toFixed(2) : landArea.toFixed(1);
+                mainArea.value = inHa;
+            }
+            setTimeout(() => {
+                toggleFarmProfileModal();
+                if (btn) {
+                    btn.disabled = false;
+                    btn.textContent = '💾 Save to MySQL';
+                }
+            }, 1200);
+        } else {
+            alert('Failed to save farm profile: ' + (data.error || 'Server error'));
+            if (btn) {
+                btn.disabled = false;
+                btn.textContent = '💾 Save to MySQL';
+            }
+        }
+    } catch (err) {
+        alert('Server error saving farm profile: ' + err.message);
+        if (btn) {
+            btn.disabled = false;
+            btn.textContent = '💾 Save to MySQL';
+        }
+    }
+    return false;
+}
+
+// Auto-initialize profile preferences from session metadata
+window.addEventListener('DOMContentLoaded', () => {
+    const meta = document.getElementById('userSessionMeta');
+    if (meta) {
+        const userDistrict = meta.getAttribute('data-user-district');
+        const userLang = meta.getAttribute('data-user-lang');
+        const farmArea = meta.getAttribute('data-farm-area');
+        const farmUnit = meta.getAttribute('data-farm-unit');
+
+        if (userLang && ['en', 'kn'].includes(userLang) && typeof switchLanguage === 'function') {
+            switchLanguage(userLang);
+        }
+        if (userDistrict) {
+            const districtSelect = document.getElementById('districtSelect');
+            if (districtSelect) {
+                districtSelect.value = userDistrict.toUpperCase();
+                if (typeof fetchLiveWeatherAndSoil === 'function') {
+                    fetchLiveWeatherAndSoil();
+                }
+            }
+        }
+        if (farmArea && parseFloat(farmArea) > 0) {
+            const mainArea = document.getElementById('farmAreaInput');
+            if (mainArea) {
+                const inHa = farmUnit === 'Acres' ? (parseFloat(farmArea) / 2.471).toFixed(2) : parseFloat(farmArea).toFixed(1);
+                mainArea.value = inHa;
+            }
+        }
+    }
+
+    // Close modal on Escape key
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const farmModal = document.getElementById('farmProfileModal');
+            if (farmModal && farmModal.classList.contains('active')) {
+                farmModal.classList.remove('active');
+            }
+            const historyDrawer = document.getElementById('historyDrawer');
+            if (historyDrawer && historyDrawer.classList.contains('active')) {
+                toggleHistoryDrawer();
+            }
+        }
+    });
+});
+

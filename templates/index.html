@@ -11,7 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/style.css?v=2">
 </head>
 
 <body>
@@ -38,6 +38,30 @@
                         </button>
                     </div>
                 </div>
+
+                {% if session.get('user_id') %}
+                <div class="user-nav-profile">
+                    <button type="button" class="btn-farm-profile-toggle" id="openFarmProfileBtn" onclick="toggleFarmProfileModal()" title="Manage My Farm Profile">
+                        <span>🚜</span> <span class="nav-btn-text">Farm Profile</span>
+                    </button>
+                    <button type="button" class="btn-history-toggle" id="openHistoryBtn" onclick="toggleHistoryDrawer()" title="View Saved Forecasts">
+                        <span>📋</span> <span class="nav-btn-text">History</span>
+                    </button>
+                    <div class="user-info-pill">
+                        <span class="user-avatar">👤</span>
+                        <div class="user-details">
+                            <span class="user-name">{{ session.get('user_name', 'Farmer') }}</span>
+                            <span class="user-badge">{{ session.get('user_role', 'Farmer') }}</span>
+                        </div>
+                    </div>
+                    <a href="/logout" class="btn-logout" title="Sign Out">Logout 🚪</a>
+                </div>
+                {% else %}
+                <div class="auth-cta-group">
+                    <a href="/login" class="btn-login-header">Sign In</a>
+                    <a href="/signup" class="btn-signup-header">Create Account</a>
+                </div>
+                {% endif %}
 
                 <div class="header-status">
                     <div class="status-indicator">
@@ -230,10 +254,21 @@
         <!-- Recommendations & Yield Forecast Section -->
         <section id="resultsSection" class="results-section hidden">
             <div class="section-title-wrap">
-                <div class="pipeline-badges">
-                    <span class="tag-model tag-m1" data-i18n="badge_model1">🤖 Model 1: Crop Suitability</span>
-                    <span class="tag-model tag-m2" data-i18n="badge_model2">🌾 Model 2: Yield Forecast (XGBoost R²=0.94)</span>
-                    <span class="tag-model tag-m3" data-i18n="badge_model3">📈 APMC Mandi Market Economics</span>
+                <div class="title-top-row">
+                    <div class="pipeline-badges">
+                        <span class="tag-model tag-m1" data-i18n="badge_model1">🤖 Model 1: Crop Suitability</span>
+                        <span class="tag-model tag-m2" data-i18n="badge_model2">🌾 Model 2: Yield Forecast (XGBoost R²=0.94)</span>
+                        <span class="tag-model tag-m3" data-i18n="badge_model3">📈 APMC Mandi Market Economics</span>
+                    </div>
+                    {% if session.get('user_id') %}
+                    <button type="button" class="btn-save-prediction" id="btnSaveHistory" onclick="saveCurrentPrediction()">
+                        <span id="saveIcon">💾</span> <span id="saveText">Save to My History</span>
+                    </button>
+                    {% else %}
+                    <a href="/login" class="btn-save-prediction guest-prompt" title="Sign in to save this prediction to your account">
+                        <span>💾</span> <span>Sign in to Save Result</span>
+                    </a>
+                    {% endif %}
                 </div>
                 <h2 id="resultHeading" data-i18n="results_heading">Top 3 Recommended Crops & Yield Forecasts</h2>
                 <p id="resultSummary" class="result-summary-text"></p>
@@ -292,9 +327,115 @@
         <p data-i18n="footer_text">AgriShift AI Crop Recommendation System • Trained on Karnataka Agricultural Records & Soil Data</p>
     </footer>
 
+    <!-- Slide-out Prediction History Drawer -->
+    <div class="history-drawer-overlay" id="historyOverlay" onclick="toggleHistoryDrawer()"></div>
+    <aside class="history-drawer" id="historyDrawer">
+        <div class="drawer-header">
+            <div class="drawer-title">
+                <span class="drawer-icon">📜</span>
+                <div>
+                    <h3>Saved Prediction History</h3>
+                    <p class="drawer-sub">Previous ML recommendations & APMC revenue records</p>
+                </div>
+            </div>
+            <button type="button" class="btn-close-drawer" onclick="toggleHistoryDrawer()">&times;</button>
+        </div>
+        <div class="drawer-body" id="historyListContainer">
+            <div class="drawer-loading" id="historyLoading" style="display:none;">⏳ Loading saved records...</div>
+            <div class="history-items-list" id="historyItemsList"></div>
+            <div class="history-empty" id="historyEmpty" style="display:none;">
+                <span class="empty-icon">🌾</span>
+                <p>No saved crop predictions yet.</p>
+                <small>Run an analysis and click "Save to My History" to track your seasonal records.</small>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Farm Profile Modal -->
+    <div class="modal-backdrop" id="farmProfileModal" onclick="if(event.target === this) toggleFarmProfileModal()">
+        <div class="modal-box farm-profile-modal-box">
+            <div class="modal-header">
+                <div class="drawer-title">
+                    <span class="drawer-icon">🚜</span>
+                    <div>
+                        <h3>My Farm Profile</h3>
+                        <p class="drawer-sub">Save your permanent land & irrigation details to MySQL</p>
+                    </div>
+                </div>
+                <button type="button" class="btn-close-modal" onclick="toggleFarmProfileModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="farmProfileForm" onsubmit="return handleSaveFarmProfile(event)">
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <label for="profileLandArea">Land Area Size <span class="req">*</span></label>
+                            <input type="number" id="profileLandArea" step="0.1" min="0.1" max="1000" class="modal-input" placeholder="e.g. 2.5" value="{{ farm_profile.land_area if farm_profile and farm_profile.land_area else '2.0' }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profileLandUnit">Unit</label>
+                            <div class="select-wrapper">
+                                <select id="profileLandUnit" class="modal-input">
+                                    <option value="Hectares" {% if farm_profile and farm_profile.land_unit == 'Hectares' %}selected{% endif %}>Hectares</option>
+                                    <option value="Acres" {% if farm_profile and farm_profile.land_unit == 'Acres' %}selected{% endif %}>Acres</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 1rem;">
+                        <label for="profileSoilType">Primary Soil Type</label>
+                        <div class="select-wrapper">
+                            <select id="profileSoilType" class="modal-input">
+                                <option value="Medium Black Soil" {% if farm_profile and farm_profile.primary_soil_type == 'Medium Black Soil' %}selected{% endif %}>Medium Black Soil (Regur)</option>
+                                <option value="Deep Black Soil" {% if farm_profile and farm_profile.primary_soil_type == 'Deep Black Soil' %}selected{% endif %}>Deep Black Soil</option>
+                                <option value="Red Loamy Soil" {% if farm_profile and farm_profile.primary_soil_type == 'Red Loamy Soil' %}selected{% endif %}>Red Loamy Soil</option>
+                                <option value="Laterite Soil" {% if farm_profile and farm_profile.primary_soil_type == 'Laterite Soil' %}selected{% endif %}>Laterite Soil</option>
+                                <option value="Coastal Alluvial Soil" {% if farm_profile and farm_profile.primary_soil_type == 'Coastal Alluvial Soil' %}selected{% endif %}>Coastal Alluvial Soil</option>
+                                <option value="Sandy Loam" {% if farm_profile and farm_profile.primary_soil_type == 'Sandy Loam' %}selected{% endif %}>Sandy Loam</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 1rem;">
+                        <label for="profileIrrigation">Irrigation Facility</label>
+                        <div class="select-wrapper">
+                            <select id="profileIrrigation" class="modal-input">
+                                <option value="Borewell / Tube Well" {% if farm_profile and farm_profile.irrigation_source == 'Borewell / Tube Well' %}selected{% endif %}>Borewell / Tube Well</option>
+                                <option value="Canal Irrigation" {% if farm_profile and farm_profile.irrigation_source == 'Canal Irrigation' %}selected{% endif %}>Canal Irrigation (River/Dam)</option>
+                                <option value="Rainfed (Monsoon Only)" {% if farm_profile and farm_profile.irrigation_source == 'Rainfed (Monsoon Only)' %}selected{% endif %}>Rainfed (Monsoon Only)</option>
+                                <option value="Drip / Sprinkler" {% if farm_profile and farm_profile.irrigation_source == 'Drip / Sprinkler' %}selected{% endif %}>Drip / Sprinkler System</option>
+                                <option value="Open Well / Farm Pond" {% if farm_profile and farm_profile.irrigation_source == 'Open Well / Farm Pond' %}selected{% endif %}>Open Well / Farm Pond</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="farmProfileAlert" class="modal-msg" style="display:none; margin-top: 1rem;"></div>
+
+                    <div class="modal-footer" style="margin-top: 1.5rem;">
+                        <button type="button" class="btn-secondary-link" onclick="toggleFarmProfileModal()">Cancel</button>
+                        <button type="submit" class="btn-modal-action" id="btnSaveFarmProfile">💾 Save to MySQL</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden User Session Config -->
+    <div id="userSessionMeta"
+         data-user-id="{{ session.get('user_id', '') }}"
+         data-user-name="{{ session.get('user_name', '') }}"
+         data-user-role="{{ session.get('user_role', '') }}"
+         data-user-lang="{{ session.get('user_lang', '') }}"
+         data-user-district="{{ session.get('user_district', '') }}"
+         data-farm-area="{{ farm_profile.land_area if farm_profile and farm_profile.land_area else '' }}"
+         data-farm-unit="{{ farm_profile.land_unit if farm_profile and farm_profile.land_unit else 'Hectares' }}"
+         data-soil-type="{{ farm_profile.primary_soil_type if farm_profile and farm_profile.primary_soil_type else '' }}"
+         data-irrigation="{{ farm_profile.irrigation_source if farm_profile and farm_profile.irrigation_source else '' }}"
+         style="display: none;"></div>
+
     <!-- Translations & Application Scripts -->
-    <script src="/static/translations.js"></script>
-    <script src="/static/script.js"></script>
+    <script src="/static/translations.js?v=2"></script>
+    <script src="/static/script.js?v=2"></script>
 </body>
 
 </html>

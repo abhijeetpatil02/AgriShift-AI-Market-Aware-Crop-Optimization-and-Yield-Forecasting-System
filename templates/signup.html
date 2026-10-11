@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account — AgriPredict AI Crop Advisor</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/auth.css">
+</head>
+<body class="auth-page-body">
+    <!-- Top Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="brand">
+                <span class="brand-icon">🌱</span>
+                <div>
+                    <h1><span>AgriPredict</span> <span class="badge-ai">AI Advisor</span></h1>
+                    <p class="tagline">Market-Aware & Soil-Specific Crop Optimization System</p>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <a href="/login" class="btn-secondary-link">Sign In</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Auth Container -->
+    <main class="auth-main-wrapper">
+        <div class="auth-split-card signup-layout">
+            <!-- Left Info Panel -->
+            <div class="auth-info-panel">
+                <div class="panel-badge">🌾 Farmer-First System</div>
+                <h2>AgriPredict</h2>
+                <h3 class="panel-hero-sub">AI-Powered Crop Recommendation & Yield Prediction</h3>
+                <p class="panel-subtitle">Create your account to get personalized crop recommendations and yield estimates.</p>
+                
+                <div class="info-callout-box">
+                    <div class="callout-header">
+                        <span class="callout-icon">💡</span>
+                        <strong>Smart Separation of Information</strong>
+                    </div>
+                    <p>Signup manages your personal login security. Land size, soil test results (N-P-K, pH), and live weather predictions are configured independently inside your dashboard.</p>
+                </div>
+
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="feat-icon">🌐</span>
+                        <div>
+                            <h4>Localized Multilingual Advisory</h4>
+                            <p>Seamlessly toggle between English, Kannada, Hindi, and Marathi.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feat-icon">📊</span>
+                        <div>
+                            <h4>Saved Prediction History</h4>
+                            <p>Compare seasonal recommendations and estimated APMC revenues over time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer-note">
+                    🔒 Certified MySQL / Argon2 / Werkzeug secure credential protection.
+                </div>
+            </div>
+
+            <!-- Right Form Panel -->
+            <div class="auth-form-panel">
+                <div class="form-header">
+                    <h2>Create your account</h2>
+                    <p>Enter your details to get started.</p>
+                </div>
+
+                {% if error %}
+                <div class="auth-alert auth-alert-error" role="alert">
+                    <span class="alert-icon">⚠️</span>
+                    <span>{{ error }}</span>
+                </div>
+                {% endif %}
+
+                <form action="/signup" method="POST" class="auth-form" id="signupForm" onsubmit="return validateSignupForm()">
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="full_name">Full name <span class="req">*</span></label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="full_name" name="full_name" required placeholder="e.g. Ramesh Patil" value="{{ request.form.full_name if request.form else '' }}">
+                        </div>
+                    </div>
+
+                    <!-- Email & Mobile row -->
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <label for="email">Email address <span class="req">*</span></label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">✉️</span>
+                                <input type="email" id="email" name="email" required placeholder="farmer@agrishift.in" value="{{ request.form.email if request.form else '' }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mobile">Mobile number</label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">📱</span>
+                                <input type="tel" id="mobile" name="mobile" placeholder="+91 98765 43210" value="{{ request.form.mobile if request.form else '' }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- I am a (Role Selection) -->
+                    <div class="form-group">
+                        <label class="group-label">I am a <span class="req">*</span></label>
+                        <div class="role-selector-grid">
+                            <label class="role-card">
+                                <input type="radio" name="user_type" value="Farmer" checked>
+                                <span class="role-card-inner">
+                                    <span class="role-icon">🚜</span>
+                                    <span class="role-title">Farmer</span>
+                                </span>
+                            </label>
+                            <label class="role-card">
+                                <input type="radio" name="user_type" value="Agriculture student">
+                                <span class="role-card-inner">
+                                    <span class="role-icon">🎓</span>
+                                    <span class="role-title">Agriculture student</span>
+                                </span>
+                            </label>
+                            <label class="role-card">
+                                <input type="radio" name="user_type" value="Agriculture expert">
+                                <span class="role-card-inner">
+                                    <span class="role-icon">🔬</span>
+                                    <span class="role-title">Agriculture expert</span>
+                                </span>
+                            </label>
+                            <label class="role-card">
+                                <input type="radio" name="user_type" value="Other">
+                                <span class="role-card-inner">
+                                    <span class="role-icon">🌱</span>
+                                    <span class="role-title">Other</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- State & District row -->
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <label for="state">State <span class="req">*</span></label>
+                            <div class="select-wrapper">
+                                <select id="state" name="state" required>
+                                    <option value="Karnataka" selected>Karnataka</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="district">District</label>
+                            <div class="select-wrapper">
+                                <select id="district" name="district">
+                                    <option value="">Select your district</option>
+                                    {% for d in districts %}
+                                    <option value="{{ d }}">{{ d.title() }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preferred Language -->
+                    <div class="form-group">
+                        <label for="preferred_language">Preferred language <span class="req">*</span></label>
+                        <div class="lang-selector-grid">
+                            <label class="lang-option-pill">
+                                <input type="radio" name="preferred_language" value="en" checked>
+                                <span class="pill-body">English</span>
+                            </label>
+                            <label class="lang-option-pill">
+                                <input type="radio" name="preferred_language" value="kn">
+                                <span class="pill-body">ಕನ್ನಡ (Kannada)</span>
+                            </label>
+                            <label class="lang-option-pill">
+                                <input type="radio" name="preferred_language" value="hi">
+                                <span class="pill-body">हिन्दी (Hindi)</span>
+                            </label>
+                            <label class="lang-option-pill">
+                                <input type="radio" name="preferred_language" value="mr">
+                                <span class="pill-body">मराठी (Marathi)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Password & Confirm Password -->
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <label for="password">Password <span class="req">*</span></label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" id="password" name="password" required minlength="6" placeholder="Min. 6 characters">
+                                <button type="button" class="btn-toggle-pwd" onclick="togglePasswordVisibility('password', this)">👁️</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm_password">Confirm password <span class="req">*</span></label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">🔐</span>
+                                <input type="password" id="confirm_password" name="confirm_password" required minlength="6" placeholder="Re-type password">
+                                <button type="button" class="btn-toggle-pwd" onclick="togglePasswordVisibility('confirm_password', this)">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="pwdMismatchAlert" class="inline-error" style="display: none;">
+                        ⚠️ Passwords do not match. Please verify.
+                    </div>
+
+                    <!-- Terms Checkbox -->
+                    <div class="form-row-terms">
+                        <label class="custom-checkbox-container">
+                            <input type="checkbox" name="terms" id="terms" required checked>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">
+                                I agree to the <a href="#terms-modal" onclick="alert('AgriPredict Terms of Service: This AI decision support system provides crop advisories based on agricultural machine learning models. Always consult local Krishi Vigyan Kendra (KVK) for specialized on-ground interventions.')">Terms of Service</a> and <a href="#privacy" onclick="alert('Privacy Policy: Your personal information is encrypted and strictly protected. We do not sell user data to third parties.')">Privacy Policy</a>.
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-auth-submit" id="signupSubmitBtn">
+                        <span class="btn-text">Create Account</span>
+                    </button>
+                </form>
+
+                <div class="auth-switch-prompt">
+                    <p>Already have an account? <a href="/login">Sign in</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function togglePasswordVisibility(inputId, btn) {
+            const input = document.getElementById(inputId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                btn.textContent = '🙈';
+            } else {
+                input.type = 'password';
+                btn.textContent = '👁️';
+            }
+        }
+
+        function validateSignupForm() {
+            const pwd = document.getElementById('password').value;
+            const confirmPwd = document.getElementById('confirm_password').value;
+            const alertBox = document.getElementById('pwdMismatchAlert');
+
+            if (pwd !== confirmPwd) {
+                alertBox.style.display = 'block';
+                return false;
+            }
+            alertBox.style.display = 'none';
+            return true;
+        }
+
+        // Live check
+        document.getElementById('confirm_password').addEventListener('input', function() {
+            const pwd = document.getElementById('password').value;
+            const alertBox = document.getElementById('pwdMismatchAlert');
+            if (this.value && pwd !== this.value) {
+                alertBox.style.display = 'block';
+            } else {
+                alertBox.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

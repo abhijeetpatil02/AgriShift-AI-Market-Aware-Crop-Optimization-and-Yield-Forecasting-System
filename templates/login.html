@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In — AgriPredict AI Crop Advisor</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/auth.css">
+</head>
+<body class="auth-page-body">
+    <!-- Top Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="brand">
+                <span class="brand-icon">🌱</span>
+                <div>
+                    <h1><span>AgriPredict</span> <span class="badge-ai">AI Advisor</span></h1>
+                    <p class="tagline">Market-Aware & Soil-Specific Crop Optimization System</p>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <a href="/signup" class="btn-secondary-link">Create Account</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Auth Container -->
+    <main class="auth-main-wrapper">
+        <div class="auth-split-card">
+            <!-- Left Info Panel -->
+            <div class="auth-info-panel">
+                <div class="panel-badge">🚀 Smart Agriculture</div>
+                <h2>AI-Powered Crop Recommendation & Yield Prediction</h2>
+                <p class="panel-subtitle">Sign in to access your agricultural insights, personalized soil models, and previous harvest records.</p>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="feat-icon">🌾</span>
+                        <div>
+                            <h4>Top-3 Crop Recommendations</h4>
+                            <p>Optimized for soil nutrients (N, P, K, pH) and seasonal conditions.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feat-icon">📈</span>
+                        <div>
+                            <h4>AI Harvest Yield Forecast</h4>
+                            <p>Pre-harvest yield estimation per hectare using trained regression models.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feat-icon">💰</span>
+                        <div>
+                            <h4>APMC Mandi Economics</h4>
+                            <p>Live district prices and expected revenue calculation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer-note">
+                    🔒 Account security strictly decoupled from soil & farm test inputs.
+                </div>
+            </div>
+
+            <!-- Right Form Panel -->
+            <div class="auth-form-panel">
+                <div class="form-header">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to access your agricultural insights.</p>
+                </div>
+
+                {% if error %}
+                <div class="auth-alert auth-alert-error" role="alert">
+                    <span class="alert-icon">⚠️</span>
+                    <span>{{ error }}</span>
+                </div>
+                {% endif %}
+
+                {% if success %}
+                <div class="auth-alert auth-alert-success" role="alert">
+                    <span class="alert-icon">✅</span>
+                    <span>{{ success }}</span>
+                </div>
+                {% endif %}
+
+                <form action="/login" method="POST" class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email address <span class="req">*</span></label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">✉️</span>
+                            <input type="email" id="email" name="email" required placeholder="farmer@agrishift.in" autocomplete="email" value="{{ request.form.email if request.form else '' }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-row">
+                            <label for="password">Password <span class="req">*</span></label>
+                            <a href="#forgot" class="forgot-link" id="forgotPwdLink">Forgot password?</a>
+                        </div>
+                        <div class="input-with-icon">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="password" name="password" required placeholder="••••••••" autocomplete="current-password">
+                            <button type="button" class="btn-toggle-pwd" onclick="togglePasswordVisibility('password', this)" title="Show/Hide Password">👁️</button>
+                        </div>
+                    </div>
+
+                    <div class="form-row-remember">
+                        <label class="custom-checkbox-container">
+                            <input type="checkbox" name="remember_me" id="remember_me" checked>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Remember me on this device</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-auth-submit" id="loginSubmitBtn">
+                        <span class="btn-text">Sign In</span>
+                    </button>
+                </form>
+
+                <div class="auth-switch-prompt">
+                    <p>New to AgriPredict? <a href="/signup">Create an account</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal-backdrop" id="forgotModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Reset Password</h3>
+                <button type="button" class="btn-close-modal" id="closeForgotModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your registered email address. We will verify your account and help you restore access.</p>
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label for="forgotEmail">Email Address</label>
+                    <input type="email" id="forgotEmail" placeholder="farmer@agrishift.in" class="modal-input">
+                </div>
+                <div id="forgotMsg" class="modal-msg" style="display:none;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary-link" id="cancelForgotModal">Cancel</button>
+                <button type="button" class="btn-modal-action" id="submitForgotBtn">Send Recovery Link</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePasswordVisibility(inputId, btn) {
+            const input = document.getElementById(inputId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                btn.textContent = '🙈';
+            } else {
+                input.type = 'password';
+                btn.textContent = '👁️';
+            }
+        }
+
+        // Forgot password modal handler
+        const forgotModal = document.getElementById('forgotModal');
+        const forgotLink = document.getElementById('forgotPwdLink');
+        const closeForgot = document.getElementById('closeForgotModal');
+        const cancelForgot = document.getElementById('cancelForgotModal');
+        const submitForgot = document.getElementById('submitForgotBtn');
+        const forgotEmail = document.getElementById('forgotEmail');
+        const forgotMsg = document.getElementById('forgotMsg');
+
+        if (forgotLink) {
+            forgotLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                forgotModal.classList.add('active');
+            });
+        }
+        function hideForgot() {
+            forgotModal.classList.remove('active');
+            if (forgotMsg) forgotMsg.style.display = 'none';
+        }
+        if (closeForgot) closeForgot.addEventListener('click', hideForgot);
+        if (cancelForgot) cancelForgot.addEventListener('click', hideForgot);
+
+        if (submitForgot) {
+            submitForgot.addEventListener('click', () => {
+                const val = forgotEmail.value.trim();
+                if (!val) {
+                    alert('Please enter your email address.');
+                    return;
+                }
+                submitForgot.disabled = true;
+                submitForgot.textContent = 'Sending...';
+                setTimeout(() => {
+                    forgotMsg.style.display = 'block';
+                    forgotMsg.className = 'modal-msg success';
+                    forgotMsg.textContent = 'A password recovery link has been simulated & dispatched to ' + val;
+                    submitForgot.textContent = 'Sent';
+                    setTimeout(hideForgot, 2000);
+                }, 800);
+            });
+        }
+    </script>
+</body>
+</html>

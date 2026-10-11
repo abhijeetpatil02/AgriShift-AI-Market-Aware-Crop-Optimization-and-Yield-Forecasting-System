@@ -5,15 +5,20 @@ Production-ready Flask application for AgriShift Top-3 Crop Recommendation Syste
 Integrates trained ML model, district soil database, live WeatherAPI, and historical yield benchmarks.
 """
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for, session, flash
+from werkzeug.security import generate_password_hash, check_password_hash
 import pandas as pd
 import numpy as np
 import joblib
 import urllib.request
 import json
 import os
+from config import Config
+import db
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
+app.secret_key = Config.SECRET_KEY
+app.config['PERMANENT_SESSION_LIFETIME'] = Config.PERMANENT_SESSION_LIFETIME
 
 # Configuration
 MODEL_PATH = 'models/crop_recommendation_model.joblib'
@@ -54,6 +59,40 @@ DISTRICT_NAME_MAP = {
     'UDUPI': 'UDUPI', 'UTTARA KANNADA': 'UTTARA KANNADA',
     'UTTAR KANNAD': 'UTTARA KANNADA', 'VIJAYAPURA': 'VIJAYAPURA',
     'BIJAPUR': 'VIJAYAPURA', 'YADGIR': 'YADGIR', 'YADAGIRI': 'YADGIR'
+}
+
+# Accurate district HQ coordinates (Latitude, Longitude) for all 30 Karnataka districts
+DISTRICT_COORDINATES = {
+    'BAGALKOTE': (16.1817, 75.6958),
+    'BALLARI': (15.1394, 76.9214),
+    'BELAGAVI': (15.8497, 74.4977),
+    'BANGALORE RURAL': (13.2847, 77.5878),
+    'BENGALURU URBAN': (12.9716, 77.5946),
+    'BIDAR': (17.9104, 77.5199),
+    'CHAMARAJANAGAR': (11.9261, 76.9437),
+    'CHIKKABALLAPURA': (13.4325, 77.7275),
+    'CHIKKAMAGALURU': (13.3161, 75.7720),
+    'CHITRADURGA': (14.2251, 76.3980),
+    'DAKSHINA KANNADA': (12.9141, 74.8560),
+    'DAVANGERE': (14.4644, 75.9218),
+    'DHARWAD': (15.4589, 75.0078),
+    'GADAG': (15.4316, 75.6355),
+    'KALABURAGI': (17.3297, 76.8343),
+    'HASSAN': (13.0068, 76.0996),
+    'HAVERI': (14.7955, 75.4014),
+    'KODAGU': (12.4244, 75.7382),
+    'KOLAR': (13.1367, 78.1291),
+    'KOPPAL': (15.3468, 76.1550),
+    'MANDYA': (12.5242, 76.8958),
+    'MYSURU': (12.2958, 76.6394),
+    'RAICHUR': (16.2120, 77.3439),
+    'RAMANAGARA': (12.7209, 77.2799),
+    'SHIVAMOGGA': (13.9299, 75.5681),
+    'TUMAKURU': (13.3409, 77.1010),
+    'UDUPI': (13.3409, 74.7421),
+    'UTTARA KANNADA': (14.8136, 74.1297),
+    'VIJAYAPURA': (16.8302, 75.7100),
+    'YADGIR': (16.7700, 77.1378)
 }
 
 # Rich agronomic database for Karnataka crops
@@ -197,6 +236,12 @@ def initialize_app():
                 'records': int(row['count'])
             }
 
+    # Initialize Database (MySQL with fallback)
+    try:
+        db.init_db()
+    except Exception as e:
+        print(f"[!] DB Initialization warning: {e}")
+
 initialize_app()
 
 @app.route('/')
@@ -211,7 +256,214 @@ def home():
             'RAICHUR', 'RAMANAGARA', 'SHIVAMOGGA', 'TUMAKURU', 'UDUPI', 'UTTARA KANNADA',
             'VIJAYAPURA', 'YADGIR'
         ]
-    return render_template('index.html', districts=districts)
+    farm_profile = db.get_farm_profile(session['user_id']) if session.get('user_id') else None
+    return render_template('index.html', districts=districts, session=session, farm_profile=farm_profile)
+
+# ----------------- Authentication Routes -----------------
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if session.get('user_id'):
+        return redirect(url_for('home'))
+
+    error = None
+    if request.method == 'POST':
+        email = request.form.get('email', '').strip()
+        password = request.form.get('password', '')
+        remember_me = request.form.get('remember_me')
+
+        if not email or not password:
+            error = "Please provide both your email address and password."
+        else:
+            user = db.get_user_by_email(email)
+            if not user or not check_password_hash(user['password_hash'], password):
+                error = "Invalid email address or password. Please verify your credentials."
+            else:
+                session.permanent = bool(remember_me)
+                session['user_id'] = user['id']
+                session['user_name'] = user['full_name']
+                session['user_email'] = user['email']
+                session['user_role'] = user.get('user_type', 'Farmer')
+                session['user_lang'] = user.get('preferred_language', 'en')
+                session['user_district'] = user.get('district', '')
+                return redirect(url_for('home'))
+
+    return render_template('login.html', error=error)
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if session.get('user_id'):
+        return redirect(url_for('home'))
+
+    districts = sorted(list(district_soil_map.keys()))
+    if not districts:
+        districts = [
+            'BAGALKOTE', 'BALLARI', 'BELAGAVI', 'BANGALORE RURAL', 'BENGALURU URBAN',
+            'BIDAR', 'CHAMARAJANAGAR', 'CHIKKABALLAPURA', 'CHIKKAMAGALURU', 'CHITRADURGA',
+            'DAKSHINA KANNADA', 'DAVANGERE', 'DHARWAD', 'GADAG', 'KALABURAGI',
+            'HASSAN', 'HAVERI', 'KODAGU', 'KOLAR', 'KOPPAL', 'MANDYA', 'MYSURU',
+            'RAICHUR', 'RAMANAGARA', 'SHIVAMOGGA', 'TUMAKURU', 'UDUPI', 'UTTARA KANNADA',
+            'VIJAYAPURA', 'YADGIR'
+        ]
+
+    error = None
+    if request.method == 'POST':
+        full_name = request.form.get('full_name', '').strip()
+        email = request.form.get('email', '').strip()
+        mobile = request.form.get('mobile', '').strip()
+        user_type = request.form.get('user_type', 'Farmer').strip()
+        state = request.form.get('state', 'Karnataka').strip()
+        district = request.form.get('district', '').strip()
+        preferred_language = request.form.get('preferred_language', 'en').strip()
+        password = request.form.get('password', '')
+        confirm_password = request.form.get('confirm_password', '')
+
+        if not full_name or not email or not password:
+            error = "Please fill in all required fields (*)."
+        elif password != confirm_password:
+            error = "Passwords do not match. Please verify."
+        elif len(password) < 6:
+            error = "Password must be at least 6 characters long."
+        else:
+            existing = db.get_user_by_email(email)
+            if existing:
+                error = "An account with this email address already exists. Please sign in."
+            else:
+                pwd_hash = generate_password_hash(password, method='pbkdf2:sha256')
+                new_id = db.create_user(
+                    full_name=full_name,
+                    email=email,
+                    password_hash=pwd_hash,
+                    mobile=mobile if mobile else None,
+                    user_type=user_type,
+                    state=state,
+                    district=district if district else None,
+                    preferred_language=preferred_language
+                )
+                session.permanent = True
+                session['user_id'] = new_id
+                session['user_name'] = full_name
+                session['user_email'] = email
+                session['user_role'] = user_type
+                session['user_lang'] = preferred_language
+                session['user_district'] = district
+                return redirect(url_for('home'))
+
+    return render_template('signup.html', districts=districts, error=error)
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
+
+@app.route('/api/me')
+def get_me():
+    if not session.get('user_id'):
+        return jsonify({'authenticated': False})
+    user = db.get_user_by_id(session['user_id'])
+    if not user:
+        session.clear()
+        return jsonify({'authenticated': False})
+    return jsonify({
+        'authenticated': True,
+        'user': user
+    })
+
+@app.route('/api/history', methods=['GET'])
+def get_history():
+    if not session.get('user_id'):
+        return jsonify({'error': 'Unauthorized. Please sign in to view history.'}), 401
+    records = db.get_user_prediction_history(session['user_id'])
+    # Convert dates to string for JSON serialization
+    for r in records:
+        if 'created_at' in r and r['created_at']:
+            r['created_at'] = str(r['created_at'])
+    return jsonify({'success': True, 'records': records})
+
+@app.route('/api/history/save', methods=['POST'])
+def save_history():
+    if not session.get('user_id'):
+        return jsonify({'error': 'Unauthorized. Please sign in to save predictions.'}), 401
+
+    data = request.get_json(silent=True) or {}
+    district = data.get('district', '')
+    season = data.get('season', '')
+    farm_area_ha = float(data.get('farm_area_ha', 1.0) or 1.0)
+    top_crops = data.get('top_crops', [])
+
+    top_crop_1 = top_crops[0]['crop'] if len(top_crops) > 0 else None
+    c1_yield = top_crops[0].get('model2_predicted_yield_ha') if len(top_crops) > 0 else None
+    c1_rev = top_crops[0].get('gross_revenue_inr') if len(top_crops) > 0 else None
+
+    top_crop_2 = top_crops[1]['crop'] if len(top_crops) > 1 else None
+    c2_yield = top_crops[1].get('model2_predicted_yield_ha') if len(top_crops) > 1 else None
+    c2_rev = top_crops[1].get('gross_revenue_inr') if len(top_crops) > 1 else None
+
+    top_crop_3 = top_crops[2]['crop'] if len(top_crops) > 2 else None
+    c3_yield = top_crops[2].get('model2_predicted_yield_ha') if len(top_crops) > 2 else None
+    c3_rev = top_crops[2].get('gross_revenue_inr') if len(top_crops) > 2 else None
+
+    rec_id = db.save_prediction_history(
+        user_id=session['user_id'],
+        district=district,
+        season=season,
+        farm_area_ha=farm_area_ha,
+        nitrogen=data.get('nitrogen'),
+        phosphorus=data.get('phosphorus'),
+        potassium=data.get('potassium'),
+        ph=data.get('ph'),
+        rainfall=data.get('rainfall'),
+        temperature=data.get('temperature'),
+        humidity=data.get('humidity'),
+        top_crop_1=top_crop_1,
+        crop1_yield=c1_yield,
+        crop1_revenue=c1_rev,
+        top_crop_2=top_crop_2,
+        crop2_yield=c2_yield,
+        crop2_revenue=c2_rev,
+        top_crop_3=top_crop_3,
+        crop3_yield=c3_yield,
+        crop3_revenue=c3_rev,
+        predicted_yield=c1_yield,
+        estimated_revenue=c1_rev
+    )
+    return jsonify({'success': True, 'history_id': rec_id})
+
+@app.route('/api/history/<int:history_id>', methods=['DELETE'])
+def delete_history_item(history_id):
+    if not session.get('user_id'):
+        return jsonify({'error': 'Unauthorized'}), 401
+    success = db.delete_prediction_history(history_id, session['user_id'])
+    return jsonify({'success': success})
+
+@app.route('/api/farm-profile', methods=['GET', 'POST'])
+def manage_farm_profile():
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'Unauthorized. Please sign in.'}), 401
+
+    if request.method == 'GET':
+        profile = db.get_farm_profile(user_id)
+        return jsonify({'success': True, 'profile': profile})
+
+    data = request.get_json(silent=True) or {}
+    land_area = float(data.get('land_area', 2.0) or 2.0)
+    land_unit = data.get('land_unit', 'Hectares')
+    primary_soil_type = data.get('primary_soil_type', 'Medium Black Soil')
+    irrigation_source = data.get('irrigation_source', 'Borewell / Tube Well')
+
+    profile_id = db.save_or_update_farm_profile(
+        user_id=user_id,
+        land_area=land_area,
+        land_unit=land_unit,
+        primary_soil_type=primary_soil_type,
+        irrigation_source=irrigation_source
+    )
+    return jsonify({
+        'success': True,
+        'profile_id': profile_id,
+        'message': 'Farm profile saved successfully to MySQL!'
+    })
 
 @app.route('/api/districts', methods=['GET'])
 def get_districts():
@@ -222,14 +474,23 @@ def get_districts():
 
 @app.route('/api/weather', methods=['GET'])
 def get_weather():
-    district = request.args.get('district', '').strip()
-    if not district:
+    raw_district = request.args.get('district', '').strip()
+    if not raw_district:
         return jsonify({'error': 'District is required'}), 400
-    
-    # Query WeatherAPI
-    query_dist = district.title()
-    url = f"http://api.weatherapi.com/v1/current.json?key={WEATHER_API_KEY}&q={urllib.parse.quote(query_dist)}+Karnataka"
-    
+
+    clean_dist = raw_district.upper()
+    clean_dist = DISTRICT_NAME_MAP.get(clean_dist, clean_dist)
+    display_title = clean_dist.title()
+
+    # Query WeatherAPI with exact lat,lon coordinates to avoid erroneous fuzzy name matches
+    if clean_dist in DISTRICT_COORDINATES:
+        lat, lon = DISTRICT_COORDINATES[clean_dist]
+        query_val = f"{lat},{lon}"
+    else:
+        query_val = f"{display_title}+Karnataka"
+
+    url = f"http://api.weatherapi.com/v1/current.json?key={WEATHER_API_KEY}&q={urllib.parse.quote(query_val)}"
+
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'AgriShift/1.0'})
         with urllib.request.urlopen(req, timeout=5) as response:
@@ -238,7 +499,9 @@ def get_weather():
             loc = data.get('location', {})
             return jsonify({
                 'success': True,
-                'location': f"{loc.get('name', district)}, Karnataka",
+                'location': f"{display_title}, Karnataka",
+                'district_name': display_title,
+                'resolved_place': loc.get('name', display_title),
                 'temperature': round(float(curr.get('temp_c', 26.0)), 1),
                 'humidity': int(curr.get('humidity', 65)),
                 'precipitation': round(float(curr.get('precip_mm', 0.0)), 1),
@@ -250,6 +513,7 @@ def get_weather():
         return jsonify({
             'success': False,
             'fallback': True,
+            'location': f"{display_title}, Karnataka",
             'message': str(e),
             'temperature': 27.5,
             'humidity': 65,
@@ -392,12 +656,59 @@ def recommend_crops():
                 'soil_advice': soil_advice
             })
 
+        # Automatically save prediction to MySQL history if user is logged in
+        saved_history_id = None
+        user_id = session.get('user_id')
+        if user_id:
+            try:
+                top_1 = top_crops[0]['crop'] if len(top_crops) > 0 else None
+                c1_y = top_crops[0].get('model2_predicted_yield_ha') if len(top_crops) > 0 else None
+                c1_r = top_crops[0].get('gross_revenue_inr') if len(top_crops) > 0 else None
+
+                top_2 = top_crops[1]['crop'] if len(top_crops) > 1 else None
+                c2_y = top_crops[1].get('model2_predicted_yield_ha') if len(top_crops) > 1 else None
+                c2_r = top_crops[1].get('gross_revenue_inr') if len(top_crops) > 1 else None
+
+                top_3 = top_crops[2]['crop'] if len(top_crops) > 2 else None
+                c3_y = top_crops[2].get('model2_predicted_yield_ha') if len(top_crops) > 2 else None
+                c3_r = top_crops[2].get('gross_revenue_inr') if len(top_crops) > 2 else None
+
+                saved_history_id = db.save_prediction_history(
+                    user_id=user_id,
+                    district=district,
+                    season=season,
+                    farm_area_ha=area_ha,
+                    nitrogen=n,
+                    phosphorus=p,
+                    potassium=k,
+                    ph=ph,
+                    rainfall=rainfall,
+                    temperature=temp,
+                    humidity=humidity,
+                    top_crop_1=top_1,
+                    crop1_yield=c1_y,
+                    crop1_revenue=c1_r,
+                    top_crop_2=top_2,
+                    crop2_yield=c2_y,
+                    crop2_revenue=c2_r,
+                    top_crop_3=top_3,
+                    crop3_yield=c3_y,
+                    crop3_revenue=c3_r,
+                    predicted_yield=c1_y,
+                    estimated_revenue=c1_r
+                )
+                print(f"[*] Successfully saved prediction with all 3 crops to MySQL for user_id={user_id} (History ID: {saved_history_id})")
+            except Exception as save_err:
+                print(f"[!] Warning: Could not auto-save prediction: {save_err}")
+
         return jsonify({
             'success': True,
             'district': district,
             'season': season,
             'farm_area_ha': area_ha,
             'recommendations': top_crops,
+            'saved_to_history': bool(saved_history_id),
+            'history_id': saved_history_id,
             'model2_info': {
                 'algorithm': yield_model_bundle['metadata']['model_name'] if yield_model_bundle else 'XGBoost Regressor',
                 'r2_score': yield_model_bundle['metadata']['r2_score'] if yield_model_bundle else 0.9446,
