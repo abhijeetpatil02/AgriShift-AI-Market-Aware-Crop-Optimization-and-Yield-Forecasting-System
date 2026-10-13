@@ -639,15 +639,42 @@ body {
 }
 
 .rank-banner {
-    position: absolute;
-    top: 1rem;
-    right: 1.2rem;
-    font-size: 1.6rem;
+    position: static;
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.85rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    letter-spacing: 0.02em;
+}
+
+.podium-card.rank-1 .rank-banner {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.45);
+    color: #fbbf24;
+}
+
+.podium-card.rank-2 .rank-banner {
+    background: rgba(148, 163, 184, 0.15);
+    border-color: rgba(148, 163, 184, 0.45);
+    color: #cbd5e1;
+}
+
+.podium-card.rank-3 .rank-banner {
+    background: rgba(217, 119, 6, 0.15);
+    border-color: rgba(217, 119, 6, 0.45);
+    color: #f59e0b;
 }
 
 .crop-icon-large {
     font-size: 3.2rem;
-    margin-bottom: 0.6rem;
+    line-height: 1;
+    margin-bottom: 0;
 }
 
 .crop-name {
@@ -665,7 +692,7 @@ body {
     background: rgba(255, 255, 255, 0.08);
     padding: 0.2rem 0.6rem;
     border-radius: 6px;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0;
 }
 
 /* Match Score Meter */
