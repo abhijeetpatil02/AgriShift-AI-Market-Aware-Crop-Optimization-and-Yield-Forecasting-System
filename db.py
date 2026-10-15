@@ -1,6 +1,6 @@
 """
 db.py
-Database connection and repository layer supporting MySQL (via PyMySQL)
+Database  connection and repository layer supporting MySQL (via PyMySQL)
 with automatic table initialization and resilient fallback.
 """
 
