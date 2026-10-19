@@ -1,5 +1,5 @@
 -- ============================================================
--- AgriPredict / AgriShift Database Setup Script
+-- AgriPredict / AgriShift Database  Setup Script
 -- Open and Execute this script in MySQL Workbench
 -- ============================================================
 
