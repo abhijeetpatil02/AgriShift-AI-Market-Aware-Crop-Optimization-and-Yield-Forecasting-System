@@ -28,7 +28,7 @@ HISTORICAL_PATH = 'DataSet/karnataka_only.csv'
 WEATHER_API_KEY = '61866e956c5c40229b3110056260410'
 MARKET_API_KEY = '579b464db66ec23bdd000001ae1adebc0f894d2757abeed798ea11c7'
 
-# Global in-memory caches
+# Global in -memory caches
 model_bundle = None
 yield_model_bundle = None
 district_soil_map = {}
