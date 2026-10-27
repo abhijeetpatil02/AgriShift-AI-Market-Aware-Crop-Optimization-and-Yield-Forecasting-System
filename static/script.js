@@ -710,7 +710,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Close modal on Escapee key
+    // Close modal on Escapee key 
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             const farmModal = document.getElementById('farmProfileModal');

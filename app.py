@@ -2,7 +2,7 @@
 """
 app.py
 Production-ready Flask application for AgriShift Top-3 Crop Recommendation System.
-Integrates trained  ML model,  district soil database, live WeatherAPI, and historical yield benchmarks.
+Integrates trained  ML model, district soil database, live WeatherAPI, and historical yield benchmarks.
 """
 
 from flask import Flask, render_template, request, jsonify, redirect, url_for, session, flash
