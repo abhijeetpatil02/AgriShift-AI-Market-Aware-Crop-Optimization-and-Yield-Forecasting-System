@@ -8,7 +8,7 @@ let lastPredictionData = null;
 document.addEventListener('DOMContentLoaded', () => {
     bindSyncInputs();
     loadDistrictSoilCache();
-    
+
     // Initialize UI language
     switchLanguage(currentLanguage, false);
 
@@ -153,7 +153,7 @@ async function fetchLiveWeatherAndSoil() {
         if (w.success || w.temperature) {
             updateValue('tempRange', 'tempNum', w.temperature);
             updateValue('humidityRange', 'humidityNum', w.humidity);
-            
+
             if (w.precipitation && w.precipitation > 0) {
                 const estRain = Math.max(w.precipitation * 30, 150);
                 updateValue('rainfallRange', 'rainfallNum', estRain);
@@ -163,11 +163,11 @@ async function fetchLiveWeatherAndSoil() {
                 statusBox.classList.remove('hidden');
                 const locEl = document.getElementById('weatherLocation');
                 const condEl = document.getElementById('weatherConditionText');
-                
-                const dispDistrict = (currentLanguage === 'kn' && DISTRICT_TRANSLATIONS[district]) 
-                    ? DISTRICT_TRANSLATIONS[district] 
+
+                const dispDistrict = (currentLanguage === 'kn' && DISTRICT_TRANSLATIONS[district])
+                    ? DISTRICT_TRANSLATIONS[district]
                     : (w.location || `${district}, Karnataka`);
-                
+
                 if (locEl) locEl.textContent = dispDistrict;
                 if (condEl) {
                     const condPrefix = dict.weather_live_prefix || "Live Weather:";
@@ -291,12 +291,12 @@ function renderRecommendations(data) {
     }
 
     // Format District & Season localized name for summary
-    const dispDistrict = (currentLanguage === 'kn' && DISTRICT_TRANSLATIONS[data.district]) 
-        ? DISTRICT_TRANSLATIONS[data.district] 
+    const dispDistrict = (currentLanguage === 'kn' && DISTRICT_TRANSLATIONS[data.district])
+        ? DISTRICT_TRANSLATIONS[data.district]
         : data.district;
-        
-    const dispSeason = SEASON_TRANSLATIONS[data.season] 
-        ? SEASON_TRANSLATIONS[data.season][currentLanguage] 
+
+    const dispSeason = SEASON_TRANSLATIONS[data.season]
+        ? SEASON_TRANSLATIONS[data.season][currentLanguage]
         : data.season;
 
     if (summary) {
@@ -710,7 +710,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Close modal on Escape key
+    // Close modal on Escapee key
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             const farmModal = document.getElementById('farmProfileModal');
