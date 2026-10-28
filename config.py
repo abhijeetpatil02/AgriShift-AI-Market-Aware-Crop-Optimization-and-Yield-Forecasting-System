@@ -1,6 +1,6 @@
 import os
 
-# Automatically load .env file if present
+# Automatically load .env file if present 
 env_path = os.path.join(os.path.dirname(__file__), '.env')
 if os.path.exists(env_path):
     with open(env_path, 'r', encoding='utf-8') as f:
