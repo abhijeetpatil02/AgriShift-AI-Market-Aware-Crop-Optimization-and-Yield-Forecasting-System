@@ -35,7 +35,7 @@ district_soil_map = {}
 crop_agronomy_meta = {}
 crop_yield_stats = {}
 
-# District name alias  dictionary
+# District  name alias  dictionary
 DISTRICT_NAME_MAP = {
     'BAGALKOT': 'BAGALKOTE', 'BAGALKOTE': 'BAGALKOTE',
     'BALLARI': 'BALLARI', 'BELLARY': 'BALLARI',
