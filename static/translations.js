@@ -1,5 +1,5 @@
 /**
- * AgriShift —  Multi - Language Translation System (English & Kannada)
+ * AgriShift —  Multi- Language Translation System (English & Kannada)
  * High-accuracy localization layer decoupled from ML models.
  */
 
