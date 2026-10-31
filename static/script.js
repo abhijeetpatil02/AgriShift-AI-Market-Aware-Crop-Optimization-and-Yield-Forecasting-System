@@ -1,4 +1,4 @@
-/* AgriShift — Frontend Logic , Multi-Language & Model Integration */
+/* AgriShift — Frontend Logic, Multi-Language & Model Integration */
 
 let districtSoilCache = {};
 let currentLanguage = localStorage.getItem('agrishift_lang') || 'en';
