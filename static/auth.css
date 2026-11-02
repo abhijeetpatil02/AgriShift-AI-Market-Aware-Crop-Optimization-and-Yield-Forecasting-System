@@ -1,4 +1,4 @@
-/* auth.css — Premium Authentication Styles for AgriPredict */
+/* auth.css — Premium  Authentication Styles for AgriPredict */
 
 .auth-page-body {
     background: radial-gradient(circle at 10% 20%, #0d2b1f 0%, #06150f 50%, #020805 100%);
@@ -39,6 +39,7 @@
         opacity: 0;
         transform: translateY(12px) scale(0.98);
     }
+
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -223,7 +224,8 @@
     gap: 0.4rem;
 }
 
-.form-group label, .group-label {
+.form-group label,
+.group-label {
     font-size: 0.85rem;
     font-weight: 600;
     color: #cbd5e1;
@@ -278,7 +280,8 @@
     transition: all 0.2s ease;
 }
 
-.input-with-icon input:focus, .select-wrapper select:focus {
+.input-with-icon input:focus,
+.select-wrapper select:focus {
     outline: none;
     border-color: #10b981;
     box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
@@ -373,13 +376,13 @@
     color: var(--text-muted);
 }
 
-.role-card input:checked + .role-card-inner {
+.role-card input:checked+.role-card-inner {
     background: rgba(16, 185, 129, 0.2);
     border-color: #10b981;
     box-shadow: 0 0 12px rgba(16, 185, 129, 0.25);
 }
 
-.role-card input:checked + .role-card-inner .role-title {
+.role-card input:checked+.role-card-inner .role-title {
     color: #34d399;
 }
 
@@ -416,7 +419,7 @@
     transition: all 0.2s ease;
 }
 
-.lang-option-pill input:checked + .pill-body {
+.lang-option-pill input:checked+.pill-body {
     background: rgba(16, 185, 129, 0.2);
     border-color: #10b981;
     color: #34d399;
@@ -450,12 +453,12 @@
     transition: all 0.2s ease;
 }
 
-.custom-checkbox-container input:checked + .checkmark {
+.custom-checkbox-container input:checked+.checkmark {
     background: #10b981;
     border-color: #10b981;
 }
 
-.custom-checkbox-container input:checked + .checkmark::after {
+.custom-checkbox-container input:checked+.checkmark::after {
     content: "✓";
     position: absolute;
     color: white;
@@ -638,10 +641,12 @@
 
 /* Responsive */
 @media (max-width: 900px) {
-    .auth-split-card, .auth-split-card.signup-layout {
+
+    .auth-split-card,
+    .auth-split-card.signup-layout {
         grid-template-columns: 1fr;
     }
-    
+
     .auth-info-panel {
         display: none;
     }
@@ -650,7 +655,8 @@
         padding: 2rem 1.5rem;
     }
 
-    .role-selector-grid, .lang-selector-grid {
+    .role-selector-grid,
+    .lang-selector-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
