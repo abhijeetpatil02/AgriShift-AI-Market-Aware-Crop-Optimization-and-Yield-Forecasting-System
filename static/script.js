@@ -70,6 +70,12 @@ function switchLanguage(lang, reRenderResults = true) {
         autoFetchText.textContent = dict.btn_autofetch;
     }
 
+    // 3b. Update IoT sync button label
+    const syncIoTText = document.getElementById('btnSyncIoTText');
+    if (syncIoTText) {
+        syncIoTText.textContent = dict.btn_sync_iot || "Read Live IoT Data";
+    }
+
     // 4. Update predict CTA button text (if not currently loading)
     const btnPredict = document.getElementById('btnPredict');
     if (btnPredict && !btnPredict.disabled) {
@@ -191,6 +197,202 @@ function updateValue(sliderId, numId, val) {
     if (num) num.value = val;
 }
 
+// ----------------- IoT Device & Telemetry Handlers -----------------
+
+let currentDataSourceMode = 'weather_api';
+let iotPollingInterval = null;
+
+/**
+ * Switch Active Data Input Mode ('weather_api' <-> 'iot_device')
+ */
+function switchDataSourceMode(mode) {
+    currentDataSourceMode = mode;
+
+    const btnWeather = document.getElementById('srcBtnWeather');
+    const btnIoT = document.getElementById('srcBtnIoT');
+    const iotPanel = document.getElementById('iotControlPanel');
+    const hiddenSource = document.getElementById('inputSourceField');
+    const hiddenDeviceId = document.getElementById('deviceIdField');
+
+    if (hiddenSource) hiddenSource.value = mode;
+
+    if (mode === 'iot_device') {
+        if (btnWeather) btnWeather.classList.remove('active');
+        if (btnIoT) btnIoT.classList.add('active');
+        if (iotPanel) iotPanel.classList.remove('hidden');
+
+        const deviceIdInput = document.getElementById('iotDeviceIdInput');
+        if (hiddenDeviceId && deviceIdInput) {
+            hiddenDeviceId.value = deviceIdInput.value.trim();
+        }
+
+        // Fetch latest telemetry immediately upon activating IoT mode
+        syncIoTDataManual();
+    } else {
+        if (btnWeather) btnWeather.classList.add('active');
+        if (btnIoT) btnIoT.classList.remove('active');
+        if (iotPanel) iotPanel.classList.add('hidden');
+        if (hiddenDeviceId) hiddenDeviceId.value = '';
+
+        // Stop polling if active
+        const autoSyncCheck = document.getElementById('autoSyncCheck');
+        if (autoSyncCheck && autoSyncCheck.checked) {
+            autoSyncCheck.checked = false;
+            toggleAutoSync(false);
+        }
+
+        // Re-apply baseline weather and soil
+        fetchLiveWeatherAndSoil();
+    }
+}
+
+/**
+ * Manual Trigger to Fetch and Sync IoT Telemetry into Form
+ */
+async function syncIoTDataManual() {
+    const deviceInput = document.getElementById('iotDeviceIdInput');
+    const deviceId = (deviceInput ? deviceInput.value.trim() : '') || 'AGRI_ESP32_01';
+    const btn = document.getElementById('btnSyncIoT');
+    const btnText = document.getElementById('btnSyncIoTText');
+    const dict = TRANSLATIONS[currentLanguage] || TRANSLATIONS.en;
+
+    if (btn) btn.disabled = true;
+    if (btnText) btnText.textContent = dict.btn_sync_iot_loading || "⏳ Reading IoT Node...";
+
+    try {
+        await fetchAndApplyIoTReading(deviceId);
+    } finally {
+        if (btn) btn.disabled = false;
+        if (btnText) btnText.textContent = dict.btn_sync_iot || "Read Live IoT Data";
+    }
+}
+
+/**
+ * Auto-Sync Polling Handler
+ */
+function toggleAutoSync(enabled) {
+    if (iotPollingInterval) {
+        clearInterval(iotPollingInterval);
+        iotPollingInterval = null;
+    }
+
+    if (enabled) {
+        syncIoTDataManual(); // Initial sync
+        iotPollingInterval = setInterval(() => {
+            const deviceInput = document.getElementById('iotDeviceIdInput');
+            const deviceId = (deviceInput ? deviceInput.value.trim() : '') || 'AGRI_ESP32_01';
+            fetchAndApplyIoTReading(deviceId, true);
+        }, 10000); // Poll every 10 seconds
+    }
+}
+
+/**
+ * Core function to query /api/iot/latest and populate form sliders
+ */
+async function fetchAndApplyIoTReading(deviceId, isSilentPoll = false) {
+    const feed = document.getElementById('iotTelemetryFeed');
+    const statusText = document.getElementById('iotStatusText');
+    const timestampText = document.getElementById('iotTimestampText');
+    const pulseDot = document.getElementById('iotPulseDot');
+    const metaNotice = document.getElementById('iotMetaNotice');
+
+    const tempVal = document.getElementById('iotTempVal');
+    const humVal = document.getElementById('iotHumVal');
+    const moistureVal = document.getElementById('iotMoistureVal');
+    const npkVal = document.getElementById('iotNpkVal');
+    const phVal = document.getElementById('iotPhVal');
+
+    try {
+        const res = await fetch(`/api/iot/latest?device_id=${encodeURIComponent(deviceId)}`);
+        const json = await res.json();
+
+        if (json.success && json.reading) {
+            const r = json.reading;
+            if (feed) feed.classList.remove('hidden');
+
+            // 1. Status and Recency Indicator
+            const isLive = r.is_online;
+            if (pulseDot) pulseDot.className = isLive ? 'live-pulse online' : 'live-pulse offline';
+            if (statusText) {
+                statusText.textContent = isLive 
+                    ? `Node ${r.device_id} Online (${r.seconds_ago}s ago)`
+                    : `Node ${r.device_id} Offline (Last recorded ${Math.round(r.seconds_ago / 60)}m ago)`;
+            }
+            if (timestampText) timestampText.textContent = r.recorded_at.split(' ')[1] || r.recorded_at;
+
+            // 2. Update IoT Feed Display Cards
+            if (tempVal) tempVal.textContent = (r.temperature !== null && r.temperature !== undefined) ? `${r.temperature} °C` : '--';
+            if (humVal) humVal.textContent = (r.humidity !== null && r.humidity !== undefined) ? `${r.humidity} %` : '--';
+            if (moistureVal) moistureVal.textContent = (r.soil_moisture !== null && r.soil_moisture !== undefined) ? `${r.soil_moisture} %` : '--';
+            
+            const nStr = (r.nitrogen !== null && r.nitrogen !== undefined) ? r.nitrogen : '--';
+            const pStr = (r.phosphorus !== null && r.phosphorus !== undefined) ? r.phosphorus : '--';
+            const kStr = (r.potassium !== null && r.potassium !== undefined) ? r.potassium : '--';
+            if (npkVal) npkVal.textContent = `${nStr} / ${pStr} / ${kStr}`;
+
+            if (phVal) phVal.textContent = (r.ph !== null && r.ph !== undefined) ? r.ph : '--';
+
+            // 3. Populate Form Inputs and Sliders
+            if (r.temperature !== null && r.temperature !== undefined) {
+                updateValue('tempRange', 'tempNum', r.temperature);
+            }
+            if (r.humidity !== null && r.humidity !== undefined) {
+                updateValue('humidityRange', 'humidityNum', r.humidity);
+            }
+            if (r.nitrogen !== null && r.nitrogen !== undefined) {
+                updateValue('nitrogenRange', 'nitrogenNum', r.nitrogen);
+            }
+            if (r.phosphorus !== null && r.phosphorus !== undefined) {
+                updateValue('phosphorusRange', 'phosphorusNum', r.phosphorus);
+            }
+            if (r.potassium !== null && r.potassium !== undefined) {
+                updateValue('potassiumRange', 'potassiumNum', r.potassium);
+            }
+            if (r.ph !== null && r.ph !== undefined) {
+                updateValue('phRange', 'phNum', r.ph);
+            }
+            // If device sends rainfall
+            if (r.rainfall !== null && r.rainfall !== undefined && r.rainfall > 0) {
+                updateValue('rainfallRange', 'rainfallNum', r.rainfall);
+            }
+
+            if (metaNotice) {
+                if (r.nitrogen === null) {
+                    metaNotice.innerHTML = "<small>💡 Temperature & Humidity read live from IoT; Soil N-P-K supplemented from Karnataka District Soil database.</small>";
+                } else {
+                    metaNotice.innerHTML = "<small>✅ Full agro-telemetry (Climate & Soil NPK) applied directly from IoT hardware probe.</small>";
+                }
+            }
+
+            // Visual feedback: brief highlight animation on populated cards
+            highlightElement('nitrogenNum');
+            highlightElement('tempNum');
+            highlightElement('humidityNum');
+
+            const hiddenDeviceId = document.getElementById('deviceIdField');
+            if (hiddenDeviceId) hiddenDeviceId.value = r.device_id;
+        } else {
+            if (!isSilentPoll) {
+                alert(`No live telemetry found for device '${deviceId}'. Ensure your ESP32 or simulation script is sending data to /api/iot/telemetry.`);
+            }
+            if (feed) feed.classList.remove('hidden');
+            if (statusText) statusText.textContent = `Node ${deviceId} Not Detected`;
+            if (pulseDot) pulseDot.className = 'live-pulse offline';
+        }
+    } catch (err) {
+        console.error('Failed to fetch IoT telemetry:', err);
+    }
+}
+
+function highlightElement(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.add('input-synced-highlight');
+    setTimeout(() => {
+        el.classList.remove('input-synced-highlight');
+    }, 1200);
+}
+
 // Quick Preset handler
 function applyPreset(district, season) {
     const districtSelect = document.getElementById('districtSelect');
@@ -223,10 +425,15 @@ async function handlePrediction(e) {
     if (btnText) btnText.textContent = dict.btn_predict_loading;
 
     // Normalization Layer: Canonical English categorical values and numeric floats
+    const iotInput = document.getElementById('iotDeviceIdInput');
+    const activeDeviceId = (currentDataSourceMode === 'iot_device' && iotInput) ? iotInput.value.trim() : null;
+
     const payload = {
         district: document.getElementById('districtSelect').value,
         season: document.querySelector('input[name="season"]:checked').value,
         farm_area: parseFloat(document.getElementById('farmAreaInput').value || 2.0),
+        input_source: currentDataSourceMode,
+        device_id: activeDeviceId,
         N: parseFloat(document.getElementById('nitrogenNum').value),
         P: parseFloat(document.getElementById('phosphorusNum').value),
         K: parseFloat(document.getElementById('potassiumNum').value),

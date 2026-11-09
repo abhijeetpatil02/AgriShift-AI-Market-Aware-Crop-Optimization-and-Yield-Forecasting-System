@@ -63,10 +63,44 @@ CREATE TABLE IF NOT EXISTS `prediction_history` (
     `crop3_revenue` DECIMAL(14,2) DEFAULT NULL,
     `predicted_yield` DECIMAL(10,2) DEFAULT NULL,
     `estimated_revenue` DECIMAL(14,2) DEFAULT NULL,
+    `input_source` VARCHAR(30) DEFAULT 'weather_api',
+    `device_id` VARCHAR(50) DEFAULT NULL,
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT `fk_history_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 6. Verification Queries (Run these to confirm tables are created)
+-- 6. Create IoT Devices Table
+CREATE TABLE IF NOT EXISTS `iot_devices` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `user_id` INT DEFAULT NULL,
+    `device_id` VARCHAR(50) NOT NULL UNIQUE,
+    `device_name` VARCHAR(100) DEFAULT 'AgriShift Farm Sensor Node',
+    `district` VARCHAR(100) DEFAULT NULL,
+    `status` VARCHAR(20) DEFAULT 'offline',
+    `last_seen` TIMESTAMP NULL DEFAULT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT `fk_iot_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 7. Create IoT Telemetry Table
+CREATE TABLE IF NOT EXISTS `iot_telemetry` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `device_id` VARCHAR(50) NOT NULL,
+    `temperature` DECIMAL(5,2) DEFAULT NULL,
+    `humidity` DECIMAL(5,2) DEFAULT NULL,
+    `soil_moisture` DECIMAL(5,2) DEFAULT NULL,
+    `nitrogen` DECIMAL(8,2) DEFAULT NULL,
+    `phosphorus` DECIMAL(8,2) DEFAULT NULL,
+    `potassium` DECIMAL(8,2) DEFAULT NULL,
+    `ph` DECIMAL(4,2) DEFAULT NULL,
+    `rainfall` DECIMAL(8,2) DEFAULT NULL,
+    `raw_data` TEXT DEFAULT NULL,
+    `recorded_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX `idx_device_time` (`device_id`, `recorded_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 8. Verification Queries (Run these to confirm tables are created)
 SHOW TABLES;
 DESCRIBE `users`;
+DESCRIBE `iot_devices`;
+DESCRIBE `iot_telemetry`;

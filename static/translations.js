@@ -25,6 +25,18 @@ const TRANSLATIONS = {
         preset_udupi: "📍 Udupi (Coastal Wet)",
         preset_vijayapura: "📍 Vijayapura (Dry Jowar Zone)",
 
+        // Mode Selector
+        source_badge: "Input Source",
+        source_heading: "Select Data Input Source",
+        source_weather_title: "Regional Weather & Soil Database",
+        source_weather_desc: "Live WeatherAPI + Karnataka District Soil Profiles",
+        source_iot_title: "Live IoT Farm Sensors",
+        source_iot_desc: "Real-time Node Telemetry (DHT22, Soil Moisture, NPK)",
+        label_iot_device: "Sensor Node ID",
+        btn_sync_iot: "Read Live IoT Data",
+        btn_sync_iot_loading: "⏳ Reading IoT Node...",
+        label_auto_sync: "Auto-Sync (10s)",
+
         // Form - Step 1: Location & Season
         step1_badge: "Step 1",
         step1_title: "Location & Season",
@@ -131,6 +143,18 @@ const TRANSLATIONS = {
         preset_mandya: "📍 ಮಂಡ್ಯ (ಕಬ್ಬು/ಭತ್ತ ವಲಯ)",
         preset_udupi: "📍 ಉಡುಪಿ (ಕರಾವಳಿ ಮಳೆ ವಲಯ)",
         preset_vijayapura: "📍 ವಿಜಯಪುರ (ಒಣ ಜೋಳ ವಲಯ)",
+
+        // Mode Selector
+        source_badge: "ದತ್ತಾಂಶ ಮೂಲ",
+        source_heading: "ದತ್ತಾಂಶ ಒದಗಿಸುವ ಮೂಲವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+        source_weather_title: "ಪ್ರಾದೇಶಿಕ ಹವಾಮಾನ & ಮಣ್ಣಿನ ದತ್ತಾಂಶ",
+        source_weather_desc: "ನೇರ WeatherAPI + ಕರ್ನಾಟಕ ಜಿಲ್ಲಾ ಮಣ್ಣಿನ ಪ್ರೊಫೈಲ್",
+        source_iot_title: "ಲೈವ್ IoT ಕೃಷಿ ಸಂವೇದಕಗಳು (Sensors)",
+        source_iot_desc: "ನೈಜ ಸಮಯದ ತಾಪಮಾನ, ತೇವಾಂಶ ಮತ್ತು ಮಣ್ಣಿನ ಸೆನ್ಸಾರ್ ಮಾಹಿತಿ",
+        label_iot_device: "ಸೆನ್ಸಾರ್ ನೋಡ್ ಐಡಿ",
+        btn_sync_iot: "ನೇರ IoT ಮಾಹಿತಿ ಪಡೆಯಿರಿ",
+        btn_sync_iot_loading: "⏳ IoT ಸಂವೇದಕ ಓದಲಾಗುತ್ತಿದೆ...",
+        label_auto_sync: "ಸ್ವಯಂ-ನವೀಕರಣ (10ಸೆ)",
 
         // Form - Step 1: Location & Season
         step1_badge: "ಹಂತ ೧",

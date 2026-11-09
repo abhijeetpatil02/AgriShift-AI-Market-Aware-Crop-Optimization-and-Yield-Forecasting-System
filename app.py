@@ -425,7 +425,9 @@ def save_history():
         crop3_yield=c3_yield,
         crop3_revenue=c3_rev,
         predicted_yield=c1_yield,
-        estimated_revenue=c1_rev
+        estimated_revenue=c1_rev,
+        input_source=data.get('input_source', 'weather_api'),
+        device_id=data.get('device_id')
     )
     return jsonify({'success': True, 'history_id': rec_id})
 
@@ -522,6 +524,130 @@ def get_weather():
             'icon': ''
         })
 
+# ----------------- IoT Device & Telemetry Routes -----------------
+
+@app.route('/api/iot/telemetry', methods=['POST', 'GET'])
+def handle_iot_telemetry():
+    """
+    Receives live sensor readings from physical IoT kits (ESP32, Arduino, Raspberry Pi, etc.).
+    Supports POST (JSON/Form) and GET (URL Query Parameters for simple microcontrollers).
+    """
+    if request.method == 'POST':
+        data = request.get_json(silent=True) or request.form.to_dict() or {}
+    else:
+        data = request.args.to_dict()
+
+    device_id = str(data.get('device_id') or data.get('node_id') or 'AGRI_ESP32_01').strip().upper()
+
+    def parse_float(val):
+        try:
+            return float(val) if val is not None and str(val).strip() != '' else None
+        except (ValueError, TypeError):
+            return None
+
+    temp = parse_float(data.get('temperature') or data.get('temp'))
+    humidity = parse_float(data.get('humidity') or data.get('hum'))
+    soil_moisture = parse_float(data.get('soil_moisture') or data.get('moisture') or data.get('sm'))
+    nitrogen = parse_float(data.get('nitrogen') or data.get('n'))
+    phosphorus = parse_float(data.get('phosphorus') or data.get('p'))
+    potassium = parse_float(data.get('potassium') or data.get('k'))
+    ph = parse_float(data.get('ph'))
+    rainfall = parse_float(data.get('rainfall') or data.get('rain'))
+    raw_data = json.dumps(data) if data else None
+
+    # Check that at least one metric is supplied
+    if all(v is None for v in [temp, humidity, soil_moisture, nitrogen, phosphorus, potassium, ph, rainfall]):
+        return jsonify({
+            'success': False,
+            'error': 'No sensor metrics provided. Please send at least temperature, humidity, or soil moisture.'
+        }), 400
+
+    telemetry_id = db.save_iot_reading(
+        device_id=device_id,
+        temperature=temp,
+        humidity=humidity,
+        soil_moisture=soil_moisture,
+        nitrogen=nitrogen,
+        phosphorus=phosphorus,
+        potassium=potassium,
+        ph=ph,
+        rainfall=rainfall,
+        raw_data=raw_data
+    )
+
+    return jsonify({
+        'success': True,
+        'message': 'Telemetry recorded successfully',
+        'telemetry_id': telemetry_id,
+        'device_id': device_id,
+        'recorded_metrics': {
+            'temperature': temp,
+            'humidity': humidity,
+            'soil_moisture': soil_moisture,
+            'nitrogen': nitrogen,
+            'phosphorus': phosphorus,
+            'potassium': potassium,
+            'ph': ph,
+            'rainfall': rainfall
+        }
+    }), 201
+
+@app.route('/api/iot/latest', methods=['GET'])
+def get_latest_iot_telemetry():
+    """Returns the latest telemetry for a given device_id or system default."""
+    device_id = request.args.get('device_id', '').strip()
+    if not device_id:
+        devices = db.get_iot_devices(session.get('user_id'))
+        device_id = devices[0]['device_id'] if devices else 'AGRI_ESP32_01'
+
+    reading = db.get_latest_iot_reading(device_id)
+    if not reading:
+        return jsonify({
+            'success': False,
+            'device_id': device_id,
+            'message': f"No telemetry records found for device '{device_id}'. Send data via /api/iot/telemetry."
+        }), 404
+
+    return jsonify({
+        'success': True,
+        'device_id': device_id,
+        'reading': reading
+    })
+
+@app.route('/api/iot/devices', methods=['GET'])
+def list_iot_devices():
+    """List registered or detected IoT devices."""
+    user_id = session.get('user_id')
+    devices = db.get_iot_devices(user_id=user_id)
+    return jsonify({
+        'success': True,
+        'devices': devices
+    })
+
+@app.route('/api/iot/device/register', methods=['POST'])
+def register_device():
+    """Register or claim an IoT device for logged-in user."""
+    data = request.get_json(silent=True) or {}
+    device_id = str(data.get('device_id', '')).strip().upper()
+    device_name = str(data.get('device_name', f"Node {device_id}")).strip()
+    district = str(data.get('district', '')).strip().upper() or None
+
+    if not device_id:
+        return jsonify({'error': 'Device ID is required'}), 400
+
+    user_id = session.get('user_id')
+    db.register_or_update_iot_device(
+        device_id=device_id,
+        device_name=device_name,
+        district=district,
+        user_id=user_id
+    )
+
+    return jsonify({
+        'success': True,
+        'message': f"Device {device_id} registered successfully."
+    })
+
 @app.route('/api/recommend', methods=['POST'])
 def recommend_crops():
     if not model_bundle:
@@ -535,6 +661,9 @@ def recommend_crops():
         area_ha = float(data.get('farm_area', 2.0))
         area_ha = max(area_ha, 0.1)
         
+        input_source = str(data.get('input_source', 'weather_api')).strip()
+        device_id = str(data.get('device_id', '')).strip() or None
+
         n = float(data.get('N', 25.0))
         p = float(data.get('P', 55.0))
         k = float(data.get('K', 60.0))
@@ -695,17 +824,23 @@ def recommend_crops():
                     crop3_yield=c3_y,
                     crop3_revenue=c3_r,
                     predicted_yield=c1_y,
-                    estimated_revenue=c1_r
+                    estimated_revenue=c1_r,
+                    input_source=input_source,
+                    device_id=device_id
                 )
-                print(f"[*] Successfully saved prediction with all 3 crops to MySQL for user_id={user_id} (History ID: {saved_history_id})")
+                print(f"[*] Successfully saved prediction with all 3 crops to DB for user_id={user_id} (History ID: {saved_history_id}, Source: {input_source})")
             except Exception as save_err:
                 print(f"[!] Warning: Could not auto-save prediction: {save_err}")
+
+        source_label = f"Live IoT Node {device_id}" if (input_source == 'iot_device' and device_id) else "WeatherAPI & Regional Soil"
 
         return jsonify({
             'success': True,
             'district': district,
             'season': season,
             'farm_area_ha': area_ha,
+            'input_source': input_source,
+            'device_id': device_id,
             'recommendations': top_crops,
             'saved_to_history': bool(saved_history_id),
             'history_id': saved_history_id,
@@ -714,7 +849,7 @@ def recommend_crops():
                 'r2_score': yield_model_bundle['metadata']['r2_score'] if yield_model_bundle else 0.9446,
                 'rmse': yield_model_bundle['metadata']['rmse'] if yield_model_bundle else 2.73
             },
-            'summary': f"Analyzed {district} ({season}) for {area_ha} Ha: Model 1 selected optimal crops, Model 2 forecasted harvest yield, and APMC Mandi rates computed market earnings."
+            'summary': f"Analyzed {district} ({season}) for {area_ha} Ha via {source_label}: Model 1 selected optimal crops, Model 2 forecasted harvest yield, and APMC Mandi rates computed market earnings."
         })
         
     except Exception as e:

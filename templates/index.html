@@ -96,8 +96,114 @@
             <button class="preset-chip" onclick="applyPreset('VIJAYAPURA', 'Rabi')" data-i18n="preset_vijayapura">📍 Vijayapura (Dry Jowar Zone)</button>
         </div>
 
+        <!-- Data Source Mode Selector Banner -->
+        <section class="glass-card source-selector-card">
+            <div class="source-card-header">
+                <div class="source-title-group">
+                    <span class="source-badge" data-i18n="source_badge">Input Source</span>
+                    <h3 data-i18n="source_heading">Select Data Input Source</h3>
+                </div>
+                <div class="source-pills-wrap">
+                    <button type="button" class="source-toggle-btn active" id="srcBtnWeather" onclick="switchDataSourceMode('weather_api')">
+                        <span class="source-btn-icon">🌐</span>
+                        <div class="source-btn-text">
+                            <span class="source-btn-title" data-i18n="source_weather_title">Regional Weather & Soil Database</span>
+                            <span class="source-btn-sub" data-i18n="source_weather_desc">Live WeatherAPI + Karnataka District Soil Profiles</span>
+                        </div>
+                    </button>
+                    <button type="button" class="source-toggle-btn" id="srcBtnIoT" onclick="switchDataSourceMode('iot_device')">
+                        <span class="source-btn-icon">📡</span>
+                        <div class="source-btn-text">
+                            <span class="source-btn-title" data-i18n="source_iot_title">Live IoT Farm Sensors</span>
+                            <span class="source-btn-sub" data-i18n="source_iot_desc">Real-time Node Telemetry (DHT22, Soil Moisture, NPK)</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- IoT Device Control Drawer (Visible only in IoT mode) -->
+            <div id="iotControlPanel" class="iot-control-panel hidden">
+                <div class="iot-panel-inner">
+                    <div class="iot-inputs-row">
+                        <div class="iot-device-select-group">
+                            <label for="iotDeviceIdInput" class="iot-label">
+                                <span>📡</span> <span data-i18n="label_iot_device">Sensor Node ID:</span>
+                            </label>
+                            <div class="iot-device-input-wrap">
+                                <input type="text" id="iotDeviceIdInput" class="form-control iot-device-input" placeholder="e.g. AGRI_ESP32_01" value="AGRI_ESP32_01">
+                            </div>
+                        </div>
+
+                        <div class="iot-actions-group">
+                            <button type="button" id="btnSyncIoT" class="btn-primary btn-sync-iot" onclick="syncIoTDataManual()">
+                                <span class="btn-icon">🔄</span> <span id="btnSyncIoTText" data-i18n="btn_sync_iot">Read Live IoT Data</span>
+                            </button>
+                            <label class="auto-sync-toggle" title="Automatically poll IoT device every 10 seconds">
+                                <input type="checkbox" id="autoSyncCheck" onchange="toggleAutoSync(this.checked)">
+                                <span class="auto-sync-slider"></span>
+                                <span class="auto-sync-text" data-i18n="label_auto_sync">Auto-Sync (10s)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Live Telemetry Monitor Card -->
+                    <div id="iotTelemetryFeed" class="iot-telemetry-feed hidden">
+                        <div class="telemetry-header">
+                            <div class="telemetry-status-tag">
+                                <span class="live-pulse" id="iotPulseDot"></span>
+                                <strong id="iotStatusText">Node Active</strong>
+                                <span class="telemetry-timestamp" id="iotTimestampText">--:--:--</span>
+                            </div>
+                            <div class="telemetry-meta" id="iotMetaNotice">
+                                <small>✅ Real-time telemetry populated into Step 2 & Step 3</small>
+                            </div>
+                        </div>
+                        <div class="telemetry-metrics-grid">
+                            <div class="metric-chip">
+                                <span class="metric-icon">🌡️</span>
+                                <div class="metric-info">
+                                    <span class="metric-label" data-i18n="label_temperature">Air Temp</span>
+                                    <strong class="metric-val" id="iotTempVal">-- °C</strong>
+                                </div>
+                            </div>
+                            <div class="metric-chip">
+                                <span class="metric-icon">💧</span>
+                                <div class="metric-info">
+                                    <span class="metric-label" data-i18n="label_humidity">Humidity</span>
+                                    <strong class="metric-val" id="iotHumVal">-- %</strong>
+                                </div>
+                            </div>
+                            <div class="metric-chip">
+                                <span class="metric-icon">🪴</span>
+                                <div class="metric-info">
+                                    <span class="metric-label">Soil Moisture</span>
+                                    <strong class="metric-val" id="iotMoistureVal">-- %</strong>
+                                </div>
+                            </div>
+                            <div class="metric-chip">
+                                <span class="metric-icon">🧪</span>
+                                <div class="metric-info">
+                                    <span class="metric-label">Soil N-P-K</span>
+                                    <strong class="metric-val" id="iotNpkVal">-- / -- / --</strong>
+                                </div>
+                            </div>
+                            <div class="metric-chip">
+                                <span class="metric-icon">⚖️</span>
+                                <div class="metric-info">
+                                    <span class="metric-label">Soil pH</span>
+                                    <strong class="metric-val" id="iotPhVal">--</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Input Form Grid -->
         <form id="recommendForm" class="dashboard-grid">
+            <input type="hidden" id="inputSourceField" name="input_source" value="weather_api">
+            <input type="hidden" id="deviceIdField" name="device_id" value="">
             <!-- Panel 1: Location & Season -->
             <div class="glass-card">
                 <div class="card-header">

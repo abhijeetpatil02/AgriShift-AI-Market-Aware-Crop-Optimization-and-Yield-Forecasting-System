@@ -1634,4 +1634,316 @@ body {
     background: rgba(16, 185, 129, 0.15);
     border: 1px solid rgba(52, 211, 153, 0.35);
     color: #34d399;
-}
+}
+
+/* ============================================================
+   IoT Sensor Mode & Telemetry Dashboard Styles
+   ============================================================ */
+.source-selector-card {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(10, 30, 22, 0.85);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.source-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.source-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #34d399;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.source-title-group h3 {
+    font-size: 1.25rem;
+    font-family: var(--font-heading);
+    color: #f1f5f9;
+}
+
+.source-pills-wrap {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.source-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(6, 21, 15, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: left;
+}
+
+.source-toggle-btn:hover {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(52, 211, 153, 0.4);
+    transform: translateY(-1px);
+}
+
+.source-toggle-btn.active {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(5, 150, 105, 0.35) 100%);
+    border-color: #10b981;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
+}
+
+.source-btn-icon {
+    font-size: 1.6rem;
+}
+
+.source-btn-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.source-btn-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+.source-btn-sub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.source-toggle-btn.active .source-btn-title {
+    color: #34d399;
+}
+
+/* IoT Control Panel Drawer */
+.iot-control-panel {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed rgba(52, 211, 153, 0.25);
+    animation: fadeInSlide 0.3s ease-out;
+}
+
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.iot-inputs-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.iot-device-select-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.iot-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.iot-device-input {
+    width: 200px;
+    padding: 0.5rem 0.85rem;
+    background: rgba(4, 15, 10, 0.8);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: #34d399;
+    font-weight: 600;
+    font-family: monospace;
+    font-size: 0.95rem;
+}
+
+.iot-actions-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-sync-iot {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Auto-Sync Toggle */
+.auto-sync-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    user-select: none;
+}
+
+.auto-sync-toggle input {
+    cursor: pointer;
+    accent-color: #10b981;
+    width: 16px;
+    height: 16px;
+}
+
+/* IoT Live Telemetry Feed */
+.iot-telemetry-feed {
+    margin-top: 1.25rem;
+    background: rgba(6, 21, 15, 0.9);
+    border: 1px solid rgba(52, 211, 153, 0.25);
+    border-radius: 12px;
+    padding: 1.15rem;
+}
+
+.telemetry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.telemetry-status-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.88rem;
+    color: #f1f5f9;
+}
+
+.telemetry-timestamp {
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: var(--text-muted);
+    font-family: monospace;
+}
+
+.telemetry-meta small {
+    color: #34d399;
+    font-size: 0.8rem;
+}
+
+/* Pulse Dot */
+.live-pulse {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.live-pulse.online {
+    background: #10b981;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulseOnline 1.8s infinite;
+}
+
+.live-pulse.offline {
+    background: #ef4444;
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+}
+
+@keyframes pulseOnline {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Telemetry Metrics Grid */
+.telemetry-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.85rem;
+}
+
+.metric-chip {
+    background: rgba(14, 38, 28, 0.7);
+    border: 1px solid rgba(52, 211, 153, 0.15);
+    border-radius: 10px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: border-color 0.2s ease;
+}
+
+.metric-chip:hover {
+    border-color: rgba(52, 211, 153, 0.4);
+}
+
+.metric-chip .metric-icon {
+    font-size: 1.5rem;
+}
+
+.metric-chip .metric-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-chip .metric-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.metric-chip .metric-val {
+    font-size: 1rem;
+    color: #34d399;
+    font-weight: 700;
+    font-family: var(--font-heading);
+}
+
+/* Input Synced Highlight Animation */
+.input-synced-highlight {
+    animation: flashGreen 1.2s ease-out;
+}
+
+@keyframes flashGreen {
+    0% { background-color: rgba(16, 185, 129, 0.5); transform: scale(1.04); }
+    50% { background-color: rgba(16, 185, 129, 0.25); }
+    100% { background-color: transparent; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .source-card-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .source-pills-wrap {
+        flex-direction: column;
+    }
+    .iot-inputs-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .iot-device-input {
+        width: 100%;
+    }
+}
+
