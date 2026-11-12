@@ -1,7 +1,7 @@
 -- ============================================================
 -- AgriPredict / AgriShift  Database  Setup Script
 -- Open and Execute this script in MySQL Workbench
--- ================================================= ===========
+-- ================================================= = ==========
 
 -- 1. Create the Database
 CREATE DATABASE IF NOT EXISTS `agrishift_db`
